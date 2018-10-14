@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    
+    public string[] players;
+
     void Awake()
     {
+        players = Input.GetJoystickNames();
         Instance = this;    
     }
 
