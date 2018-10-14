@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
-    public string[] players;
+    public int playerQuantity;
 
     void Awake()
     {
-        players = Input.GetJoystickNames();
         Instance = this;    
     }
 
@@ -26,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
 		
 	}
-
+    
     public void ChangeScene(string scene)
     {
         SceneManager.LoadScene(scene);
