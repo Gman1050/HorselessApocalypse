@@ -10,7 +10,6 @@ public class ControllerManager : MonoBehaviour
 
     void Awake()
     {
-        controllers = Input.GetJoystickNames();
         Instance = this;
     }
 
@@ -19,12 +18,25 @@ public class ControllerManager : MonoBehaviour
     {
 		
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
-		
-	}
+        ControllerListSetup();
+
+    }
+
+    //**********************************************************************************************************************//
+    // Finds a array of controllers that are currently connected
+    // Note: This can be buggy if there is a faulty USB connection. If that's the case, then an element in the array will be
+    // blank meaning that there is another controller connected, but it cannot be recognized as one.
+    // Fix: Restart Unity/Game if that happens.
+    //**********************************************************************************************************************//
+    private void ControllerListSetup()
+    {
+        controllers = Input.GetJoystickNames();
+    }
+    //**********************************************************************************************************************//
 
     private void AssignPlayer()
     {

@@ -18,6 +18,8 @@ public class MultiplayerMovement : MonoBehaviour
     {
         Movement();
 
+        ButtonTest();
+
     }
 
     void Movement()
@@ -38,6 +40,26 @@ public class MultiplayerMovement : MonoBehaviour
         else if (ControllerManager.Instance.GetLeftStick(playerOrder).y > 0.0f)
         {
             transform.Translate(Vector3.back * Time.deltaTime * speed);
+        }
+    }
+
+    void ButtonTest()
+    {
+        if (ControllerManager.Instance.GetAButtonDown(playerOrder))
+        {
+            GetComponent<MeshRenderer>().material.color = Color.green;
+        }
+        else if (ControllerManager.Instance.GetBButtonDown(playerOrder))
+        {
+            GetComponent<MeshRenderer>().material.color = Color.red;
+        }
+        else if (ControllerManager.Instance.GetXButtonDown(playerOrder))
+        {
+            GetComponent<MeshRenderer>().material.color = Color.blue;
+        }
+        else if (ControllerManager.Instance.GetYButtonDown(playerOrder))
+        {
+            GetComponent<MeshRenderer>().material.color = Color.yellow;
         }
     }
 }
