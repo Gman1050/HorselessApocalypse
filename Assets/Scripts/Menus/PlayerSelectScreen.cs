@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSelectScreen : MonoBehaviour
 {
     public PlayerOrder playerOrder;
-    public bool isReady = false;
+    private bool isReady = false;
 
     public bool IsReady { get { return isReady; } }
 
@@ -26,11 +26,19 @@ public class PlayerSelectScreen : MonoBehaviour
     {
         if (ControllerManager.Instance.GetAButtonDown(playerOrder))
         {
-            isReady = true;
+            if (GameManager.Instance.playerQuantity < ControllerManager.Instance.controllers.Length && !isReady)
+            {
+                GameManager.Instance.playerQuantity++;
+                isReady = true;
+            }
         }
         else if (ControllerManager.Instance.GetBButtonDown(playerOrder))
         {
-            isReady = false;
+            if (GameManager.Instance.playerQuantity > 0 && isReady)
+            {
+                GameManager.Instance.playerQuantity--;
+                isReady = false;
+            }
         }
     }
 }

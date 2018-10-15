@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PlayerSelectMenu : MonoBehaviour
 {
@@ -12,13 +13,13 @@ public class PlayerSelectMenu : MonoBehaviour
     public Button startGame;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         FindPlayers();
 
@@ -33,24 +34,23 @@ public class PlayerSelectMenu : MonoBehaviour
                 playerReady[count].gameObject.SetActive(false);
                 controllerConnected[count].gameObject.SetActive(false);
                 controllerDisconnected[count].gameObject.SetActive(true);
-
-                if (GameManager.Instance.playerQuantity > 0)
-                {
-                    GameManager.Instance.playerQuantity--;
-                }
             }
             else
             {
-                Debug.Log(count);
                 JoinGame(count);
-
                 controllerDisconnected[count].gameObject.SetActive(false);
-
-                if (GameManager.Instance.playerQuantity < ControllerManager.Instance.controllers.Length)
-                {
-                    GameManager.Instance.playerQuantity++;
-                }
             }
+        }
+
+        if (playerPanels[0].GetComponent<PlayerSelectScreen>().IsReady || playerPanels[1].GetComponent<PlayerSelectScreen>().IsReady ||
+            playerPanels[2].GetComponent<PlayerSelectScreen>().IsReady || playerPanels[3].GetComponent<PlayerSelectScreen>().IsReady)
+        {
+            startGame.gameObject.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(startGame.gameObject);
+        }
+        else
+        {
+            startGame.gameObject.SetActive(false);
         }
     }
 
@@ -60,6 +60,7 @@ public class PlayerSelectMenu : MonoBehaviour
         {
             playerReady[count].gameObject.SetActive(true);
             controllerConnected[count].gameObject.SetActive(false);
+            
         }
         else
         {
