@@ -10,7 +10,7 @@ public class PlayerSelectMenu : MonoBehaviour
     public Text[] controllerConnected;
     public Text[] controllerDisconnected;
     public Text[] playerReady;
-    public Button startGame;
+    public Image startGame;
 
     // Use this for initialization
     void Start()
