@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSelectScreen : MonoBehaviour
 {
     public PlayerOrder playerOrder;
+    public string characterName;
     private bool isReady = false;
 
     public bool IsReady { get { return isReady; } }
@@ -38,6 +39,15 @@ public class PlayerSelectScreen : MonoBehaviour
             {
                 GameManager.Instance.playerQuantity--;
                 isReady = false;
+            }
+        }
+
+        if (isReady)
+        {
+            if (ControllerManager.Instance.GetStartButtonDown(playerOrder))
+            {
+                GameManager.Instance.SavePlayerData(playerOrder, characterName);
+                GameManager.Instance.ChangeScene("MultiplayerTest");
             }
         }
     }
