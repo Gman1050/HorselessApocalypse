@@ -2,26 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//**********************************************************************************************************************//
+// This is merely a test class for multiplayer (It can be useful for setting up a player controller script for multiplayer)
+//**********************************************************************************************************************//
 public class MultiplayerMovement : MonoBehaviour
 {
-    public PlayerOrder playerOrder;
-    public float speed = 5.0f;
+    public PlayerOrder playerOrder;     // Used to set which player is which in the inspector
+    public float speed = 5.0f;          // Test variables for speed of the gameobject
+    public string characterName;        // Initialized using the PlayerSelectScreen script's characterName variable value
 
-	// Use this for initialization
-	void Start ()
+    //**********************************************************************************************************************//
+    // Use this before scene loads
+    //**********************************************************************************************************************//
+    void Awake()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        Movement();
-
-        ButtonTest();
-
+        GameManager.Instance.LoadPlayerData(playerOrder, gameObject);   // Always have this in awake to set the player data before game begins
     }
+    //**********************************************************************************************************************//
 
+    //**********************************************************************************************************************//
+    // Use this for initialization
+    void Start ()
+    {
+        
+    }
+    //**********************************************************************************************************************//
+
+    //**********************************************************************************************************************//
+    // Update is called once per frame
+    //**********************************************************************************************************************//
+    void Update ()
+    {
+        Movement();     // Test movement for all players
+
+        ButtonTest();   // Test to check each button's functionality
+    }
+    //**********************************************************************************************************************//
+
+    //**********************************************************************************************************************//
+    // Test movement for all players
+    //**********************************************************************************************************************//
     void Movement()
     {
         if (ControllerManager.Instance.GetLeftStick(playerOrder).x < 0.0f)
@@ -42,7 +62,11 @@ public class MultiplayerMovement : MonoBehaviour
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
     }
+    //**********************************************************************************************************************//
 
+    //**********************************************************************************************************************//
+    // Test to check each button's functionality
+    //**********************************************************************************************************************//
     void ButtonTest()
     {
         if (ControllerManager.Instance.GetAButtonDown(playerOrder))
@@ -62,4 +86,6 @@ public class MultiplayerMovement : MonoBehaviour
             GetComponent<MeshRenderer>().material.color = Color.yellow;
         }
     }
+    //**********************************************************************************************************************//
 }
+//**********************************************************************************************************************//
