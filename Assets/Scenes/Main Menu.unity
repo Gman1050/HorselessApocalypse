@@ -442,6 +442,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114571941758803576, guid: 8562ec3b12339ce43a4de9497d00ac57,
+        type: 2}
+      propertyPath: characterName
+      value: Ryan
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8562ec3b12339ce43a4de9497d00ac57, type: 2}
   m_IsPrefabAsset: 0
