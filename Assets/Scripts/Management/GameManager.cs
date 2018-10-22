@@ -85,8 +85,12 @@ public class GameManager : MonoBehaviour
                 player.GetComponent<MultiplayerMovement>().characterName = data.character;      // Initializes the character name string from the player controller script
                 //Debug.Log("Loaded Player 1 Data");
             }
-            
+
             file.Close();   // Cloeses the file
+        }
+        else
+        {
+            player.SetActive(false);    // Turns player off
         }
     }
     /*******************************************************************************************************/

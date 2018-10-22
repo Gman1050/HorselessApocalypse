@@ -14,6 +14,15 @@ public class PlayerSelectScreen : MonoBehaviour
     public bool IsReady { get { return isReady; } }     // This property is used to check in the PlayerSelectMenu if the player has selected which character and is set to play
 
     /*******************************************************************************************************/
+    // Use this before scene loads
+    /*******************************************************************************************************/
+    void Awake()
+    {
+        GameManager.Instance.DeletePlayerData(playerOrder);         // Deletes the player data before starting the main menu
+    }
+    /*******************************************************************************************************/
+
+    /*******************************************************************************************************/
     // Use this for initialization
     /*******************************************************************************************************/
     void Start ()
