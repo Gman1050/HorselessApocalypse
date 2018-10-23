@@ -11,7 +11,7 @@ public class PlayerSelectScreen : MonoBehaviour
     public string characterName;        // Used to set the name of the selected character into the game
     private bool isReady = false;       // Used to check if the player has selected which character and is set to play
 
-    public bool IsReady { get { return isReady; } }     // This property is used to check in the PlayerSelectMenu if the player has selected which character and is set to play
+    public bool IsReady { get { return isReady; } set { isReady = value; } }     // This property is used to check in the PlayerSelectMenu if the player has selected which character and is set to play
 
     /*******************************************************************************************************/
     // Use this before scene loads
@@ -72,6 +72,15 @@ public class PlayerSelectScreen : MonoBehaviour
             if (ControllerManager.Instance.GetStartButtonDown(playerOrder))     // Checks to see if Start button is pressed on X-Input controller
             {
                 GameManager.Instance.ChangeScene("MultiplayerTest");            // Changes to the scene where the game begins
+            }
+        }
+        else
+        {
+            if (ControllerManager.Instance.GetBButtonDown(playerOrder))
+            {
+                GameObject.Find("PlayerSelectCanvas").transform.GetChild(0).GetComponent<PlayerSelectMenu>().ResetUI();      // Resets UI when this is setactive to false and mainmenu is setactive to true
+                GameObject.Find("PlayerSelectCanvas").SetActive(false);     // Turns off the PlayerSelectCanvas
+                GameObject.Find("MainMenuCanvas").SetActive(true);          // Turns on the MainMenuCanvas
             }
         }
     }
