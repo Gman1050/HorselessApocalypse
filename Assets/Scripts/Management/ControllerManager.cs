@@ -61,13 +61,13 @@ public class ControllerManager : MonoBehaviour
         switch(playerOrder)
         {
             case PlayerOrder.PLAYER_1:
-                return Input.GetButtonDown("XInput_A (Controller 1)");
+                return controllers[0].Contains("Xbox") ? Input.GetButtonDown("XInput_A (Controller 1)") : Input.GetButtonDown("PSInput_Cross (Controller 1)");
             case PlayerOrder.PLAYER_2:
-                return Input.GetButtonDown("XInput_A (Controller 2)");
+                return controllers[1].Contains("Xbox") ? Input.GetButtonDown("XInput_A (Controller 2)") : Input.GetButtonDown("PSInput_Cross (Controller 2)");
             case PlayerOrder.PLAYER_3:
-                return Input.GetButtonDown("XInput_A (Controller 3)");
+                return controllers[2].Contains("Xbox") ? Input.GetButtonDown("XInput_A (Controller 3)") : Input.GetButtonDown("PSInput_Cross (Controller 3)");
             case PlayerOrder.PLAYER_4:
-                return Input.GetButtonDown("XInput_A (Controller 4)");
+                return controllers[3].Contains("Xbox") ? Input.GetButtonDown("XInput_A (Controller 4)") : Input.GetButtonDown("PSInput_Cross (Controller 4)");
         }
 
         return false;
