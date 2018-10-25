@@ -915,7 +915,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 3
+    axis: 5
     joyNum: 1
   - serializedVersion: 3
     m_Name: PSInput_RS_Vertical (Controller 2)
@@ -931,7 +931,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 3
+    axis: 5
     joyNum: 2
   - serializedVersion: 3
     m_Name: PSInput_RS_Vertical (Controller 3)
@@ -947,7 +947,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 3
+    axis: 5
     joyNum: 3
   - serializedVersion: 3
     m_Name: PSInput_RS_Vertical (Controller 4)
@@ -963,7 +963,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 3
+    axis: 5
     joyNum: 4
   - serializedVersion: 3
     m_Name: XInput_RS_Horizontal (Controller 1)
@@ -1425,7 +1425,7 @@ InputManager:
     dead: 0.2
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 7
     joyNum: 1
@@ -1441,7 +1441,7 @@ InputManager:
     dead: 0.2
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 7
     joyNum: 2
@@ -1457,7 +1457,7 @@ InputManager:
     dead: 0.2
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 7
     joyNum: 3
@@ -1473,7 +1473,7 @@ InputManager:
     dead: 0.2
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 7
     joyNum: 4
@@ -1542,7 +1542,7 @@ InputManager:
     axis: 8
     joyNum: 4
   - serializedVersion: 3
-    m_Name: PSInput_LeftTrigger (Controller 1)
+    m_Name: PSInput_L2 (Controller 1)
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1555,10 +1555,10 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 3
     joyNum: 1
   - serializedVersion: 3
-    m_Name: PSInput_LeftTrigger (Controller 2)
+    m_Name: PSInput_L2 (Controller 2)
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1571,10 +1571,10 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 3
     joyNum: 2
   - serializedVersion: 3
-    m_Name: PSInput_LeftTrigger (Controller 3)
+    m_Name: PSInput_L2 (Controller 3)
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1587,10 +1587,10 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 3
     joyNum: 3
   - serializedVersion: 3
-    m_Name: PSInput_LeftTrigger (Controller 4)
+    m_Name: PSInput_L2 (Controller 4)
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1603,7 +1603,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 3
     joyNum: 4
   - serializedVersion: 3
     m_Name: XInput_RightTrigger (Controller 1)
@@ -1670,7 +1670,7 @@ InputManager:
     axis: 9
     joyNum: 4
   - serializedVersion: 3
-    m_Name: PSInput_RightTrigger (Controller 1)
+    m_Name: PSInput_R2 (Controller 1)
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1683,10 +1683,10 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 5
+    axis: 4
     joyNum: 1
   - serializedVersion: 3
-    m_Name: PSInput_RightTrigger (Controller 2)
+    m_Name: PSInput_R2 (Controller 2)
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1699,10 +1699,10 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 5
+    axis: 4
     joyNum: 2
   - serializedVersion: 3
-    m_Name: PSInput_RightTrigger (Controller 3)
+    m_Name: PSInput_R2 (Controller 3)
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1715,10 +1715,10 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 5
+    axis: 4
     joyNum: 3
   - serializedVersion: 3
-    m_Name: PSInput_RightTrigger (Controller 4)
+    m_Name: PSInput_R2 (Controller 4)
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1731,7 +1731,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 5
+    axis: 4
     joyNum: 4
   - serializedVersion: 3
     m_Name: XInput_LS_Press (Controller 1)

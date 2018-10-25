@@ -37,7 +37,7 @@ public class ControllerManager : MonoBehaviour
     {
         ControllerListSetup();      // Finds a array of controllers that are currently connected
 
-        SetInputModule();
+        //SetInputModule();
     }
     //**********************************************************************************************************************//
 
@@ -463,25 +463,25 @@ public class ControllerManager : MonoBehaviour
             case PlayerOrder.PLAYER_1:
                 if (controllers.Length >= 1)
                 {
-                    return controllers[0] == "Wireless Controller" ? Input.GetButtonDown("PSInput_L3 (Controller 1)") : Input.GetButtonDown("XInput_LS_Press (Controller 1)");
+                    return controllers[0] == "Wireless Controller" ? Input.GetButtonDown("PSInput_L3_Press (Controller 1)") : Input.GetButtonDown("XInput_LS_Press (Controller 1)");
                 }
                 break;
             case PlayerOrder.PLAYER_2:
                 if (controllers.Length >= 2)
                 {
-                    return controllers[1] == "Wireless Controller" ? Input.GetButtonDown("PSInput_L3 (Controller 2)") : Input.GetButtonDown("XInput_LS_Press (Controller 2)");
+                    return controllers[1] == "Wireless Controller" ? Input.GetButtonDown("PSInput_L3_Press (Controller 2)") : Input.GetButtonDown("XInput_LS_Press (Controller 2)");
                 }
                 break;
             case PlayerOrder.PLAYER_3:
                 if (controllers.Length >= 3)
                 {
-                    return controllers[2] == "Wireless Controller" ? Input.GetButtonDown("PSInput_L3 (Controller 3)") : Input.GetButtonDown("XInput_LS_Press (Controller 3)");
+                    return controllers[2] == "Wireless Controller" ? Input.GetButtonDown("PSInput_L3_Press (Controller 3)") : Input.GetButtonDown("XInput_LS_Press (Controller 3)");
                 }
                 break;
             case PlayerOrder.PLAYER_4:
                 if (controllers.Length >= 4)
                 {
-                    return controllers[3] == "Wireless Controller" ? Input.GetButtonDown("PSInput_L3 (Controller 4)") : Input.GetButtonDown("XInput_LS_Press (Controller 4)");
+                    return controllers[3] == "Wireless Controller" ? Input.GetButtonDown("PSInput_L3_Press (Controller 4)") : Input.GetButtonDown("XInput_LS_Press (Controller 4)");
                 }
                 break;
         }
@@ -496,25 +496,25 @@ public class ControllerManager : MonoBehaviour
             case PlayerOrder.PLAYER_1:
                 if (controllers.Length >= 1)
                 {
-                    return controllers[0] == "Wireless Controller" ? Input.GetButton("PSInput_L3 (Controller 1)") : Input.GetButton("XInput_LS_Press (Controller 1)");
+                    return controllers[0] == "Wireless Controller" ? Input.GetButton("PSInput_L3_Press (Controller 1)") : Input.GetButton("XInput_LS_Press (Controller 1)");
                 }
                 break;
             case PlayerOrder.PLAYER_2:
                 if (controllers.Length >= 2)
                 {
-                    return controllers[1] == "Wireless Controller" ? Input.GetButton("PSInput_L3 (Controller 2)") : Input.GetButton("XInput_LS_Press (Controller 2)");
+                    return controllers[1] == "Wireless Controller" ? Input.GetButton("PSInput_L3_Press (Controller 2)") : Input.GetButton("XInput_LS_Press (Controller 2)");
                 }
                 break;
             case PlayerOrder.PLAYER_3:
                 if (controllers.Length >= 3)
                 {
-                    return controllers[2] == "Wireless Controller" ? Input.GetButton("PSInput_L3 (Controller 3)") : Input.GetButton("XInput_LS_Press (Controller 3)");
+                    return controllers[2] == "Wireless Controller" ? Input.GetButton("PSInput_L3_Press (Controller 3)") : Input.GetButton("XInput_LS_Press (Controller 3)");
                 }
                 break;
             case PlayerOrder.PLAYER_4:
                 if (controllers.Length >= 4)
                 {
-                    return controllers[3] == "Wireless Controller" ? Input.GetButton("PSInput_L3 (Controller 4)") : Input.GetButton("XInput_LS_Press (Controller 4)");
+                    return controllers[3] == "Wireless Controller" ? Input.GetButton("PSInput_L3_Press (Controller 4)") : Input.GetButton("XInput_LS_Press (Controller 4)");
                 }
                 break;
         }
@@ -529,25 +529,25 @@ public class ControllerManager : MonoBehaviour
             case PlayerOrder.PLAYER_1:
                 if (controllers.Length >= 1)
                 {
-                    return controllers[0] == "Wireless Controller" ? Input.GetButtonDown("PSInput_R3 (Controller 1)") : Input.GetButtonDown("XInput_RS_Press (Controller 1)");
+                    return controllers[0] == "Wireless Controller" ? Input.GetButtonDown("PSInput_R3_Press (Controller 1)") : Input.GetButtonDown("XInput_RS_Press (Controller 1)");
                 }
                 break;
             case PlayerOrder.PLAYER_2:
                 if (controllers.Length >= 2)
                 {
-                    return controllers[1] == "Wireless Controller" ? Input.GetButtonDown("PSInput_R3 (Controller 2)") : Input.GetButtonDown("XInput_RS_Press (Controller 2)");
+                    return controllers[1] == "Wireless Controller" ? Input.GetButtonDown("PSInput_R3_Press (Controller 2)") : Input.GetButtonDown("XInput_RS_Press (Controller 2)");
                 }
                 break;
             case PlayerOrder.PLAYER_3:
                 if (controllers.Length >= 3)
                 {
-                    return controllers[2] == "Wireless Controller" ? Input.GetButtonDown("PSInput_R3 (Controller 3)") : Input.GetButtonDown("XInput_RS_Press (Controller 3)");
+                    return controllers[2] == "Wireless Controller" ? Input.GetButtonDown("PSInput_R3_Press (Controller 3)") : Input.GetButtonDown("XInput_RS_Press (Controller 3)");
                 }
                 break;
             case PlayerOrder.PLAYER_4:
                 if (controllers.Length >= 4)
                 {
-                    return controllers[3] == "Wireless Controller" ? Input.GetButtonDown("PSInput_R3 (Controller 4)") : Input.GetButtonDown("XInput_RS_Press (Controller 4)");
+                    return controllers[3] == "Wireless Controller" ? Input.GetButtonDown("PSInput_R3_Press (Controller 4)") : Input.GetButtonDown("XInput_RS_Press (Controller 4)");
                 }
                 break;
         }
@@ -562,25 +562,25 @@ public class ControllerManager : MonoBehaviour
             case PlayerOrder.PLAYER_1:
                 if (controllers.Length >= 1)
                 {
-                    return controllers[0] == "Wireless Controller" ? Input.GetButton("PSInput_R3 (Controller 1)") : Input.GetButton("XInput_RS_Press (Controller 1)");
+                    return controllers[0] == "Wireless Controller" ? Input.GetButton("PSInput_R3_Press (Controller 1)") : Input.GetButton("XInput_RS_Press (Controller 1)");
                 }
                 break;
             case PlayerOrder.PLAYER_2:
                 if (controllers.Length >= 2)
                 {
-                    return controllers[1] == "Wireless Controller" ? Input.GetButton("PSInput_R3 (Controller 2)") : Input.GetButton("XInput_RS_Press (Controller 2)");
+                    return controllers[1] == "Wireless Controller" ? Input.GetButton("PSInput_R3_Press (Controller 2)") : Input.GetButton("XInput_RS_Press (Controller 2)");
                 }
                 break;
             case PlayerOrder.PLAYER_3:
                 if (controllers.Length >= 3)
                 {
-                    return controllers[2] == "Wireless Controller" ? Input.GetButton("PSInput_R3 (Controller 3)") : Input.GetButton("XInput_RS_Press (Controller 3)");
+                    return controllers[2] == "Wireless Controller" ? Input.GetButton("PSInput_R3_Press (Controller 3)") : Input.GetButton("XInput_RS_Press (Controller 3)");
                 }
                 break;
             case PlayerOrder.PLAYER_4:
                 if (controllers.Length >= 4)
                 {
-                    return controllers[3] == "Wireless Controller" ? Input.GetButton("PSInput_R3 (Controller 4)") : Input.GetButton("XInput_RS_Press (Controller 4)");
+                    return controllers[3] == "Wireless Controller" ? Input.GetButton("PSInput_R3_Press (Controller 4)") : Input.GetButton("XInput_RS_Press (Controller 4)");
                 }
                 break;
         }

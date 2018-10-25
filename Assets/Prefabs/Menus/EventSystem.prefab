@@ -24,6 +24,10 @@ GameObject:
   - component: {fileID: 114914645336196230}
   - component: {fileID: 114508608084481726}
   - component: {fileID: 114718768637053790}
+  - component: {fileID: 114446480365548512}
+  - component: {fileID: 114008166230034146}
+  - component: {fileID: 114336658841445562}
+  - component: {fileID: 114061591481279212}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -44,6 +48,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114008166230034146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945488124771808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: XInput_LS_Horizontal (Controller 2)
+  m_VerticalAxis: XInput_LS_Vertical (Controller 2)
+  m_SubmitButton: PSInput_Cross (Controller 2)
+  m_CancelButton: PSInput_Circle (Controller 2)
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &114061591481279212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945488124771808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: XInput_LS_Horizontal (Controller 4)
+  m_VerticalAxis: XInput_LS_Vertical (Controller 4)
+  m_SubmitButton: PSInput_Cross (Controller 4)
+  m_CancelButton: PSInput_Circle (Controller 4)
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &114336658841445562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945488124771808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: XInput_LS_Horizontal (Controller 3)
+  m_VerticalAxis: XInput_LS_Vertical (Controller 3)
+  m_SubmitButton: PSInput_Cross (Controller 3)
+  m_CancelButton: PSInput_Circle (Controller 3)
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!114 &114389624940259670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -58,6 +116,24 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &114446480365548512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945488124771808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: XInput_LS_Horizontal (Controller 1)
+  m_VerticalAxis: XInput_LS_Vertical (Controller 1)
+  m_SubmitButton: PSInput_Cross (Controller 1)
+  m_CancelButton: PSInput_Circle (Controller 1)
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!114 &114508608084481726
 MonoBehaviour:
   m_ObjectHideFlags: 1
