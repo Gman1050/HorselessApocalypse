@@ -62,25 +62,24 @@ public class PlayerSelectScreen : MonoBehaviour
             {
                 GameManager.Instance.DeletePlayerData(playerOrder);         // Deletes existing player data that was already set after being ready
 
-                GameManager.Instance.playerQuantity--;                      // Decreases player quantity by one when player goes back
-                isReady = false;                                            // Player is not ready to play
+                StartCoroutine(ButtonBDelay());                             // Coroutine to delay Input for B Button before B Button is needed to return to main menu
             }
         }
 
-        if (isReady)    // Checks to see if player is ready
+        if (GameManager.Instance.playerQuantity > 0 && isReady)                 // Checks to see if player is ready
         {
             if (ControllerManager.Instance.GetStartButtonDown(playerOrder))     // Checks to see if Start button is pressed on X-Input controller
             {
                 GameManager.Instance.ChangeScene("MultiplayerTest");            // Changes to the scene where the game begins
             }
         }
-        else
+        else if (GameManager.Instance.playerQuantity == 0 && !isReady)
         {
             if (ControllerManager.Instance.GetBButtonDown(playerOrder))
             {
+                GameObject.FindObjectOfType<PlayerSelectMenu>().mainMenuCanvas.SetActive(true);                              // Turns on the MainMenuCanvas
                 GameObject.Find("PlayerSelectCanvas").transform.GetChild(0).GetComponent<PlayerSelectMenu>().ResetUI();      // Resets UI when this is setactive to false and mainmenu is setactive to true
-                GameObject.Find("PlayerSelectCanvas").SetActive(false);     // Turns off the PlayerSelectCanvas
-                GameObject.Find("MainMenuCanvas").SetActive(true);          // Turns on the MainMenuCanvas
+                GameObject.Find("PlayerSelectCanvas").SetActive(false);                                                      // Turns off the PlayerSelectCanvas
             }
         }
     }
@@ -107,6 +106,17 @@ public class PlayerSelectScreen : MonoBehaviour
                 GameManager.Instance.SavePlayerData(playerOrder, characterName);    // Saves player 4 data
                 break;
         }
+    }
+    /*******************************************************************************************************/
+
+    /*******************************************************************************************************/
+    // Coroutine to delay Input for B Button before B Button is needed to return to main menu
+    /*******************************************************************************************************/
+    private IEnumerator ButtonBDelay()
+    {
+        yield return new WaitForSeconds(0.01f);
+        GameManager.Instance.playerQuantity--;                      // Decreases player quantity by one when player goes back
+        isReady = false;                                            // Player is not ready to play
     }
     /*******************************************************************************************************/
 }
