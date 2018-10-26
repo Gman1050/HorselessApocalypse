@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1114274051698286
 GameObject:
   m_ObjectHideFlags: 1
@@ -302,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1783051987383502
 GameObject:
   m_ObjectHideFlags: 1
@@ -523,6 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1928034747f7e934ca09295a0bceeff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuCanvas: {fileID: 0}
   playerPanels:
   - {fileID: 1414916716381044}
   - {fileID: 1427130352967512}
@@ -653,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 2
+  characterName: 
 --- !u!114 &114419715007978024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -813,6 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 3
+  characterName: 
 --- !u!114 &114571941758803576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -825,6 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 0
+  characterName: Ryan
 --- !u!114 &114587174043319432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -899,6 +903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 1
+  characterName: 
 --- !u!114 &114697246861816382
 MonoBehaviour:
   m_ObjectHideFlags: 1

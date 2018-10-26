@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 /*******************************************************************************************************/
 public class PlayerSelectMenu : MonoBehaviour
 {
+    public GameObject mainMenuCanvas;       // Used in the PlayerSelectScreen script
     public GameObject[] playerPanels;       // The sections for each player to select characters and join game
     public Text[] controllerConnected;      // User message to show if controller is connected
     public Text[] controllerDisconnected;   // User message to show if controller is disconnected

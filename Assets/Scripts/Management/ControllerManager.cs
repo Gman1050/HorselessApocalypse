@@ -36,8 +36,6 @@ public class ControllerManager : MonoBehaviour
     void Update ()
     {
         ControllerListSetup();      // Finds a array of controllers that are currently connected
-
-        //SetInputModule();
     }
     //**********************************************************************************************************************//
 
@@ -55,24 +53,41 @@ public class ControllerManager : MonoBehaviour
 
     //**********************************************************************************************************************//
     // Finds the event system with the StandaloneInputModule component and updates navigation input for UI based on which
-    // controller is connected
+    // controller is connected.
+    // Used in the PlayerEventInput script
     //**********************************************************************************************************************//
-    private void SetInputModule()
+    public void SetInputModule(PlayerOrder playerOrder)
     {
         if (EventSystem.current)
         {
             StandaloneInputModule inputModule = EventSystem.current.gameObject.GetComponent<StandaloneInputModule>();
 
-            for (int count = 0; count < controllers.Length; count++)
+            switch (playerOrder)
             {
-                if (controllers[count] == "Wireless Controller")
-                {
-                    inputModule.submitButton = "PSInput_Cross (Controller " + (count + 1) + ")";
-                }
-                else
-                {
-                    inputModule.submitButton = "XInput_A (Controller " + (count + 1) + ")";
-                }
+                case PlayerOrder.PLAYER_1:
+                    inputModule.horizontalAxis = "XInput_LS_Horizontal (Controller 1)";
+                    inputModule.verticalAxis = "XInput_LS_Vertical (Controller 1)";
+                    inputModule.submitButton = controllers[0] == "Wireless Controller" ? "PSInput_Cross (Controller 1)" : "XInput_A (Controller 1)";
+                    inputModule.cancelButton = controllers[0] == "Wireless Controller" ? "PSInput_Circle (Controller 1)" : "XInput_B (Controller 1)";
+                    break;
+                case PlayerOrder.PLAYER_2:
+                    inputModule.horizontalAxis = "XInput_LS_Horizontal (Controller 2)";
+                    inputModule.verticalAxis = "XInput_LS_Vertical (Controller 2)";
+                    inputModule.submitButton = controllers[1] == "Wireless Controller" ? "PSInput_Cross (Controller 2)" : "XInput_A (Controller 2)";
+                    inputModule.cancelButton = controllers[1] == "Wireless Controller" ? "PSInput_Circle (Controller 2)" : "XInput_B (Controller 2)";
+                    break;
+                case PlayerOrder.PLAYER_3:
+                    inputModule.horizontalAxis = "XInput_LS_Horizontal (Controller 3)";
+                    inputModule.verticalAxis = "XInput_LS_Vertical (Controller 3)";
+                    inputModule.submitButton = controllers[2] == "Wireless Controller" ? "PSInput_Cross (Controller 3)" : "XInput_A (Controller 3)";
+                    inputModule.cancelButton = controllers[2] == "Wireless Controller" ? "PSInput_Circle (Controller 3)" : "XInput_B (Controller 3)";
+                    break;
+                case PlayerOrder.PLAYER_4:
+                    inputModule.horizontalAxis = "XInput_LS_Horizontal (Controller 4)";
+                    inputModule.verticalAxis = "XInput_LS_Vertical (Controller 4)";
+                    inputModule.submitButton = controllers[3] == "Wireless Controller" ? "PSInput_Cross (Controller 4)" : "XInput_A (Controller 4)";
+                    inputModule.cancelButton = controllers[3] == "Wireless Controller" ? "PSInput_Circle (Controller 4)" : "XInput_B (Controller 4)";
+                    break;
             }
         }
     }
