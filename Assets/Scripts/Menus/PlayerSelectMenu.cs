@@ -30,7 +30,6 @@ public class PlayerSelectMenu : MonoBehaviour
     void Update()
     {
         FindPlayers();  // Used to find player and check connectivity of controllers
-
     }
     /*******************************************************************************************************/
 
@@ -81,6 +80,18 @@ public class PlayerSelectMenu : MonoBehaviour
         {
             playerReady[count].gameObject.SetActive(false);                     // Sets player ready message to off
             controllerConnected[count].gameObject.SetActive(true);              // Sets controller connected message to on
+        }
+    }
+    /*******************************************************************************************************/
+
+    /*******************************************************************************************************/
+    // Resets UI when this is setactive to false and mainmenu is setactive to true
+    /*******************************************************************************************************/
+    public void ResetUI()
+    {
+        foreach(GameObject panel in playerPanels)
+        {
+            panel.GetComponent<PlayerSelectScreen>().IsReady = false;
         }
     }
     /*******************************************************************************************************/
