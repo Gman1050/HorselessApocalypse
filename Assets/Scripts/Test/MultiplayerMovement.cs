@@ -10,6 +10,7 @@ public class MultiplayerMovement : MonoBehaviour
     public PlayerOrder playerOrder;     // Used to set which player is which in the inspector
     public float speed = 5.0f;          // Test variables for speed of the gameobject
     public string characterName;        // Initialized using the PlayerSelectScreen script's characterName variable value
+    public Camera cam;
 
     //**********************************************************************************************************************//
     // Use this before scene loads
@@ -24,7 +25,7 @@ public class MultiplayerMovement : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        
+        cam = Camera.main;
     }
     //**********************************************************************************************************************//
 
@@ -87,5 +88,10 @@ public class MultiplayerMovement : MonoBehaviour
         }
     }
     //**********************************************************************************************************************//
+
+    void PlayerBoundaries()
+    {
+        
+    }
 }
 //**********************************************************************************************************************//
