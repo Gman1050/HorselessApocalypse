@@ -21,6 +21,11 @@ public class CameraControl : MonoBehaviour
         cam = GetComponent<Camera>();    
     }
 
+    void Update()
+    {
+        FindTargets();
+    }
+
     void LateUpdate()
     {
         Focus();
@@ -28,6 +33,33 @@ public class CameraControl : MonoBehaviour
         Zoom();
 
         TargetBoundaries();
+    }
+
+    private void FindTargets()
+    {
+        var targetsFound = FindObjectsOfType<MultiplayerMovement>();    // Replace with PlayerController script of some kind
+
+        for(int count = 0; count < targetsFound.Length; count++)
+        {
+            if (!targets.Contains(targetsFound[count].transform))
+            {
+                targets.Add(targetsFound[count].transform);
+                lastPosition.Add(Vector3.zero);
+            }
+            else
+            {
+                GameObject target = targets[count].gameObject;
+
+                if (target.GetComponent<MultiplayerMovement>().health <= 0)     // This can be used to check health from player (checking if gameobject is not active does not work)
+                {
+                    //Debug.Log(target.activeSelf);
+                    targets.Remove(targets[count].transform);
+                    lastPosition.RemoveAt(count);
+                    target.SetActive(false);                                    // This can be rid of when player controller turns off player gameobject
+                    //Debug.Log(target.activeSelf);
+                }
+            }
+        }
     }
 
     private void Zoom()

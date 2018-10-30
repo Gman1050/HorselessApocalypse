@@ -8,6 +8,7 @@ using UnityEngine;
 public class MultiplayerMovement : MonoBehaviour
 {
     public PlayerOrder playerOrder;     // Used to set which player is which in the inspector
+    public float health = 100.0f;       // Test for Camera Control
     public float speed = 5.0f;          // Test variables for speed of the gameobject
     public string characterName;        // Initialized using the PlayerSelectScreen script's characterName variable value
     public Camera cam;
