@@ -2052,6 +2052,48 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36f555e38eb391c4fa14304a75703695, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1391509116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391509117}
+  - component: {fileID: 1391509118}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391509117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1391509116}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.1560705, y: -5.3200636, z: 3.5899348}
+  m_LocalScale: {x: 0.11872545, y: 0.11872548, z: 0.11872548}
+  m_Children: []
+  m_Father: {fileID: 1546440466}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1391509118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1391509116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1552894ab4a8d48a7529b7d168906d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerQuantity: 0
+  nextLevel: Level2
 --- !u!1001 &1392810820
 Prefab:
   m_ObjectHideFlags: 0
@@ -2515,6 +2557,7 @@ GameObject:
   - component: {fileID: 1546440469}
   - component: {fileID: 1546440468}
   - component: {fileID: 1546440467}
+  - component: {fileID: 1546440470}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -2531,7 +2574,8 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.0000009536743, z: 9.000001}
   m_LocalScale: {x: 8.422794, y: 8.422794, z: 8.422794}
-  m_Children: []
+  m_Children:
+  - {fileID: 1391509117}
   m_Father: {fileID: 1175152701}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -2590,6 +2634,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1546440465}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1546440470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1546440465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2042146c43f5c8a46bbfd52c86feff23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1391509118}
 --- !u!1001 &1634280585
 Prefab:
   m_ObjectHideFlags: 0
