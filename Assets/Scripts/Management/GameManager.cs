@@ -14,6 +14,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;     // Static variable that can be used to call public variables and functions from other classes
     public int playerQuantity;              // Checks the quantity of players on the Main menu for Debugging purposes
 
+    public string nextLevel;
+
+    public void CompleteLevel()
+    {
+        Debug.Log("level complete");
+        SceneManager.LoadScene(nextLevel);
+    }
     /*******************************************************************************************************/
     // Use this before scene loads
     /*******************************************************************************************************/
