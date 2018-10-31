@@ -11,7 +11,7 @@ public class MultiplayerMovement : MonoBehaviour
     public float health = 100.0f;       // Test for Camera Control
     public float speed = 5.0f;          // Test variables for speed of the gameobject
     public string characterName;        // Initialized using the PlayerSelectScreen script's characterName variable value
-    public Camera cam;
+    public float radius = 35.0f;
 
     //**********************************************************************************************************************//
     // Use this before scene loads
@@ -26,7 +26,7 @@ public class MultiplayerMovement : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        cam = Camera.main;
+        
     }
     //**********************************************************************************************************************//
 
@@ -40,6 +40,11 @@ public class MultiplayerMovement : MonoBehaviour
         ButtonTest();   // Test to check each button's functionality
     }
     //**********************************************************************************************************************//
+
+    void LateUpdate()
+    {
+        //TargetBoundaries();
+    }
 
     //**********************************************************************************************************************//
     // Test movement for all players
@@ -90,9 +95,18 @@ public class MultiplayerMovement : MonoBehaviour
     }
     //**********************************************************************************************************************//
 
-    void PlayerBoundaries()
+    private void TargetBoundaries()
     {
-        
+        CameraControl cam = Camera.main.GetComponent<CameraControl>();
+
+        float distanceFromCenter = Vector3.Distance(cam.GetCenterPoint(), transform.position);
+
+        if (distanceFromCenter >= radius)
+        {
+            Vector3 centerToPosition = transform.position - cam.GetCenterPoint();
+            centerToPosition *= radius / distanceFromCenter;
+            transform.position = centerToPosition + centerToPosition;
+        }
     }
 }
 //**********************************************************************************************************************//

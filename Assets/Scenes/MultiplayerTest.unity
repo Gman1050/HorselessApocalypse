@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -239,7 +239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1203300045
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -319,9 +319,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 1
+  health: 100
   speed: 10
   characterName: 
-  cam: {fileID: 0}
+  radius: 20
 --- !u!1 &1257461330
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,9 +354,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 0
+  health: 100
   speed: 10
   characterName: 
-  cam: {fileID: 0}
+  radius: 20
 --- !u!135 &1257461333
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -512,18 +514,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4986684f4f3439f48ba904f971c200b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 1257461336}
-  - {fileID: 1203300048}
+  targets: []
   offset: {x: 0, y: 32, z: -55}
   smoothTime: 0.5
-  minZoom: 40
+  minZoom: 60
   maxZoom: 10
   zoomLimiter: 50
-  radius: 35
-  lastPosition:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!1001 &1757216314
 Prefab:
   m_ObjectHideFlags: 0

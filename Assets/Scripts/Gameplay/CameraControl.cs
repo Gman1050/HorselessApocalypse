@@ -10,10 +10,8 @@ public class CameraControl : MonoBehaviour
     public float smoothTime = 0.5f;
     public float minZoom = 40.0f, maxZoom = 10.0f;
     public float zoomLimiter = 50.0f;
-    public float radius = 35.0f;
 
     private Vector3 velocity;
-    public List<Vector3> lastPosition = new List<Vector3>();
     private Camera cam;
 
     void Start()
@@ -31,8 +29,6 @@ public class CameraControl : MonoBehaviour
         Focus();
 
         Zoom();
-
-        TargetBoundaries();
     }
 
     private void FindTargets()
@@ -44,7 +40,6 @@ public class CameraControl : MonoBehaviour
             if (!targets.Contains(targetsFound[count].transform))
             {
                 targets.Add(targetsFound[count].transform);
-                lastPosition.Add(Vector3.zero);
             }
             else
             {
@@ -54,7 +49,6 @@ public class CameraControl : MonoBehaviour
                 {
                     //Debug.Log(target.activeSelf);
                     targets.Remove(targets[count].transform);
-                    lastPosition.RemoveAt(count);
                     target.SetActive(false);                                    // This can be rid of when player controller turns off player gameobject
                     //Debug.Log(target.activeSelf);
                 }
@@ -64,16 +58,18 @@ public class CameraControl : MonoBehaviour
 
     private void Zoom()
     {
-        float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
+        float newZoomX = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistanceX() / zoomLimiter);
+        float newZoomZ = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistanceZ() / zoomLimiter);
 
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoomX, Time.deltaTime);
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoomZ, Time.deltaTime);
 
         //Debug.Log(GetGreatestDistance());
     }
 
-    private float GetGreatestDistance()
+    private float GetGreatestDistanceX()
     {
-        var bounds = new Bounds(targets[0].position, Vector3.zero);
+        Bounds bounds = new Bounds(targets[0].position, Vector3.zero);
 
         for (int count = 0; count < targets.Count; count++)
         {
@@ -81,6 +77,18 @@ public class CameraControl : MonoBehaviour
         }
 
         return bounds.size.x;
+    }
+
+    private float GetGreatestDistanceZ()
+    {
+        Bounds bounds = new Bounds(targets[0].position, Vector3.zero);
+
+        for (int count = 0; count < targets.Count; count++)
+        {
+            bounds.Encapsulate(targets[count].position);
+        }
+
+        return bounds.size.z;
     }
 
     private void Focus()
@@ -96,14 +104,14 @@ public class CameraControl : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
     }
 
-    private Vector3 GetCenterPoint()
+    public Vector3 GetCenterPoint()
     {
         if (targets.Count == 1)
         {
             return targets[0].position;
         }
 
-        var bounds = new Bounds(targets[0].position, Vector3.zero);
+        Bounds bounds = new Bounds(targets[0].position, Vector3.zero);
 
         for (int count = 0; count < targets.Count; count++)
         {
@@ -111,22 +119,5 @@ public class CameraControl : MonoBehaviour
         }
 
         return bounds.center;
-    }
-
-    private void TargetBoundaries()
-    {
-        lastPosition.Capacity = targets.Count;
-
-        for (int count = 0; count < targets.Count; count++)
-        {
-            if (Vector3.Distance(targets[count].position, GetCenterPoint()) <= radius)
-            {
-                lastPosition[count] = targets[count].position;
-            }
-            else
-            {
-                targets[count].position = lastPosition[count];
-            }
-        }
     }
 }
