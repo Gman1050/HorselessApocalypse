@@ -10,9 +10,12 @@ public class CameraControl : MonoBehaviour
     public float smoothTime = 0.5f;
     public float minZoom = 40.0f, maxZoom = 10.0f;
     public float zoomLimiter = 50.0f;
+    public float centerRadius = 35.0f;
 
     private Vector3 velocity;
     private Camera cam;
+
+    public float CenterRadius { get { return centerRadius; } }
 
     void Start()
     {
