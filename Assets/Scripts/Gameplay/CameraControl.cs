@@ -10,9 +10,13 @@ public class CameraControl : MonoBehaviour
     public float smoothTime = 0.5f;
     public float minZoom = 40.0f, maxZoom = 10.0f;
     public float zoomLimiter = 50.0f;
+    public float xLimitFromCenter = 30.0f, zLimitFromCenter = 20.0f;
 
     private Vector3 velocity;
     private Camera cam;
+
+    public float XLimitFromCenter { get { return xLimitFromCenter; } }
+    public float ZLimitFromCenter { get { return zLimitFromCenter; } }
 
     void Start()
     {
@@ -29,6 +33,8 @@ public class CameraControl : MonoBehaviour
         Focus();
 
         Zoom();
+
+        //Debug.Log(GetCenterPoint());
     }
 
     private void FindTargets()
