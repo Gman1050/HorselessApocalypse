@@ -480,10 +480,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e665dff89f97aa34a90e9c06d0480440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOrder: 0
   basicAttackRange: 3
   basicAttackAngleLimit: 90
+  basicAttackInterval: 5
   pestilenceAttackRange: 3
   pestilenceAttackAngleLimit: 90
+  warAttackRange: 3
+  warAttackAngleLimit: 90
+  famineAttackRange: 3
+  famineAttackAngleLimit: 90
+  deathAttackRange: 3
+  deathAttackAngleLimit: 90
 --- !u!1 &1257461330
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,10 +523,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e665dff89f97aa34a90e9c06d0480440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOrder: 0
   basicAttackRange: 3
   basicAttackAngleLimit: 90
+  basicAttackInterval: 5
   pestilenceAttackRange: 3
   pestilenceAttackAngleLimit: 90
+  warAttackRange: 3
+  warAttackAngleLimit: 90
+  famineAttackRange: 3
+  famineAttackAngleLimit: 90
+  deathAttackRange: 3
+  deathAttackAngleLimit: 90
 --- !u!114 &1257461332
 MonoBehaviour:
   m_ObjectHideFlags: 0
