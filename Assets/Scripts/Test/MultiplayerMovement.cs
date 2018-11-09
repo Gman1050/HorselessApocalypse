@@ -11,7 +11,6 @@ public class MultiplayerMovement : MonoBehaviour
     public float health = 100.0f;       // Test for Camera Control
     public float speed = 5.0f;          // Test variables for speed of the gameobject
     public string characterName;        // Initialized using the PlayerSelectScreen script's characterName variable value
-    public float radius = 35.0f;
 
     //**********************************************************************************************************************//
     // Use this before scene loads
@@ -43,7 +42,7 @@ public class MultiplayerMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        //TargetBoundaries();
+        PlayerBoundaries();
     }
 
     //**********************************************************************************************************************//
@@ -95,18 +94,47 @@ public class MultiplayerMovement : MonoBehaviour
     }
     //**********************************************************************************************************************//
 
-    private void TargetBoundaries()
+    private void PlayerBoundaries()
     {
         CameraControl cam = Camera.main.GetComponent<CameraControl>();
 
-        float distanceFromCenter = Vector3.Distance(cam.GetCenterPoint(), transform.position);
-
-        if (distanceFromCenter >= radius)
+        if (transform.position.x <= cam.GetCenterPoint().x - cam.XLimitFromCenter)
         {
-            Vector3 centerToPosition = transform.position - cam.GetCenterPoint();
-            centerToPosition *= radius / distanceFromCenter;
-            transform.position = centerToPosition + centerToPosition;
+            transform.position = new Vector3(cam.GetCenterPoint().x - cam.XLimitFromCenter, transform.position.y, transform.position.z);
         }
+        else if (transform.position.x >= cam.GetCenterPoint().x + cam.XLimitFromCenter)
+        {
+            transform.position = new Vector3(cam.GetCenterPoint().x + cam.XLimitFromCenter, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.z <= cam.GetCenterPoint().z - cam.ZLimitFromCenter)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, cam.GetCenterPoint().z - cam.ZLimitFromCenter);
+        }
+        else if (transform.position.z >= cam.GetCenterPoint().z + cam.ZLimitFromCenter)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, cam.GetCenterPoint().z + cam.ZLimitFromCenter);
+        }
+
+        /*
+        float actualDistance = Vector2.Distance(cam.GetCenterPoint(), transform.position);
+        //float angle = Mathf.Atan2(transform.position.z, transform.position.x);
+        //float x = Mathf.Cos(angle) * actualDistance;
+        //float z = Mathf.Sin(angle) * actualDistance;
+
+        if (actualDistance >= cam.CenterRadius)
+        {
+            //transform.position = new Vector3(x, transform.position.y, z);
+
+            Vector3 centerToPosition = transform.position - cam.GetCenterPoint();
+            centerToPosition.Normalize();
+            transform.position = cam.GetCenterPoint() + centerToPosition * cam.CenterRadius;
+        }
+
+        //Vector3 v = transform.position - cam.GetCenterPoint();
+        //v = Vector3.ClampMagnitude(v, cam.CenterRadius);
+        //transform.position = cam.GetCenterPoint() + v;
+        */
     }
 }
 //**********************************************************************************************************************//
