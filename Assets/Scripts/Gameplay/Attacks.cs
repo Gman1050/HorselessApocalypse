@@ -7,30 +7,35 @@ public class Attacks : MonoBehaviour
     public PlayerOrder playerOrder;
     public SpecialAttacks special;
     public LayerMask layer;
-    public SphereCollider basicAttack, famineAttack, warAttack, pestilenceAttack;
-    public BoxCollider deathAttack;
     
-
     [Header("Basic Attack Settings: ")]
     [Range(0, 5)] public float basicAttackRange = 3.0f;
     [Range(0, 5)] public float basicAttackInterval = 1.0f;
-
+    public SphereCollider basicAttack;
+    
     [Header("Pestilence Attack Settings: ")]
     [Range(0, 5)] public float pestilenceAttackRange = 3.0f;
     [Range(0, 5)] public float pestilenceAttackInterval = 5.0f;
     [Range(0, 15)] public float pestilenceAttackSpeed = 15.0f;
+    public SphereCollider pestilenceAttack;
+    public GameObject pestilenceParticle;
 
     [Header("War Attack Settings: ")]
     [Range(0, 20)] public float warAttackRange = 3.0f;
     [Range(0, 5)] public float warAttackInterval = 5.0f;
+    public SphereCollider warAttack;
+    public GameObject warParticle;
 
     [Header("Famine Attack Settings: ")]
     [Range(0, 5)] public float famineAttackRange = 3.0f;
     [Range(0, 5)] public float famineAttackInterval = 5.0f;
+    public SphereCollider famineAttack;
+    public GameObject faminePartile;
 
     [Header("Death Attack Settings: ")]
     [Range(0, 5)] public float deathAttackInterval = 5.0f;
-
+    public BoxCollider deathAttack;
+    public GameObject deathParticle;
     private float timer = 0.0f;
     private bool isAttacking = false, isSpecialAttacking = false;
 

@@ -1003,21 +1003,28 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 4096
-  basicAttack: {fileID: 1438215349}
-  famineAttack: {fileID: 1629268130}
-  warAttack: {fileID: 707211111}
-  pestilenceAttack: {fileID: 1860069706}
-  deathAttack: {fileID: 1415628551}
   basicAttackRange: 1.5
   basicAttackInterval: 0.3
+  basicAttack: {fileID: 1438215349}
   pestilenceAttackRange: 3
   pestilenceAttackInterval: 2
   pestilenceAttackSpeed: 15
+  pestilenceAttack: {fileID: 1860069706}
+  pestilenceParticle: {fileID: 1212911575912170, guid: 30d15249148920f498577fcb97d66590,
+    type: 2}
   warAttackRange: 7.5
   warAttackInterval: 5
+  warAttack: {fileID: 707211111}
+  warParticle: {fileID: 1243306325903316, guid: 4412c352cc2778844aa42dcbf30a6f9a,
+    type: 2}
   famineAttackRange: 3
   famineAttackInterval: 5
+  famineAttack: {fileID: 1629268130}
+  faminePartile: {fileID: 0}
   deathAttackInterval: 5
+  deathAttack: {fileID: 1415628551}
+  deathParticle: {fileID: 1045935626409128, guid: 7a1912388a2dd664ab6d8792df9ab9f7,
+    type: 2}
 --- !u!143 &1203300051
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1526,21 +1533,25 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 4096
-  basicAttack: {fileID: 22264366}
-  famineAttack: {fileID: 1378243779}
-  warAttack: {fileID: 547159933}
-  pestilenceAttack: {fileID: 932179}
-  deathAttack: {fileID: 2138409578}
   basicAttackRange: 1.5
   basicAttackInterval: 0.3
+  basicAttack: {fileID: 22264366}
   pestilenceAttackRange: 3
   pestilenceAttackInterval: 2
   pestilenceAttackSpeed: 15
+  pestilenceAttack: {fileID: 932179}
+  pestilenceParticle: {fileID: 0}
   warAttackRange: 7.5
   warAttackInterval: 5
+  warAttack: {fileID: 547159933}
+  warParticle: {fileID: 0}
   famineAttackRange: 3
   famineAttackInterval: 5
+  famineAttack: {fileID: 1378243779}
+  faminePartile: {fileID: 0}
   deathAttackInterval: 5
+  deathAttack: {fileID: 2138409578}
+  deathParticle: {fileID: 0}
 --- !u!114 &1668425565
 MonoBehaviour:
   m_ObjectHideFlags: 0
