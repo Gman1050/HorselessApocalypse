@@ -35,9 +35,10 @@ public class EnemyControler : MonoBehaviour {
             {
                 //attack
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
-                if(targetStats != null)
+                if (targetStats != null)
                 {
                     combat.Attack(targetStats);
+                    
                 }
 
                 FaceTarget();
@@ -57,6 +58,6 @@ public class EnemyControler : MonoBehaviour {
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, lookRadius);
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 }
