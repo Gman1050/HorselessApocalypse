@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+<<<<<<< HEAD
+=======
+  - Enemy
+>>>>>>> master
   layers:
   - Default
   - TransparentFX
@@ -17,8 +21,12 @@ TagManager:
   - Lighting
   - Ground
   - Postprocessing
+  - Player
+<<<<<<< HEAD
   - 
-  - 
+=======
+  - Enemy
+>>>>>>> master
   - 
   - 
   - 
