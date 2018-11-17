@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -380,6 +380,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1906434955063418, guid: 94ec24132dc2371448edc98d89890238, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ec24132dc2371448edc98d89890238, type: 2}
   m_IsPrefabAsset: 0
@@ -593,7 +597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &707211111
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -999,7 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 0
-  special: 1
+  special: 2
   layer:
     serializedVersion: 2
     m_Bits: 4096
@@ -1007,10 +1011,10 @@ MonoBehaviour:
   basicAttackInterval: 0.3
   basicAttack: {fileID: 1438215349}
   pestilenceAttackRange: 3
-  pestilenceAttackInterval: 2
-  pestilenceAttackSpeed: 15
+  pestilenceAttackInterval: 3
+  pestilenceAttackSpeed: 10.5
   pestilenceAttack: {fileID: 1860069706}
-  pestilenceParticle: {fileID: 1212911575912170, guid: 30d15249148920f498577fcb97d66590,
+  pestilenceParticle: {fileID: 1702598323263094, guid: d59f76df28cf1cb4b902c1b6a21d1a43,
     type: 2}
   warAttackRange: 7.5
   warAttackInterval: 5
@@ -1699,7 +1703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1860069706
 SphereCollider:
   m_ObjectHideFlags: 0
