@@ -36,9 +36,11 @@ public class Attacks : MonoBehaviour
     [Range(0, 5)] public float deathAttackInterval = 5.0f;
     public BoxCollider deathAttack;
     public GameObject deathParticle;
+    
     private float timer = 0.0f;
     private bool isAttacking = false, isSpecialAttacking = false;
 
+    public bool IsSpecialAttack { get { return isSpecialAttacking; } }
     public SpecialAttacks Special { get { return special; } set { special = value; } }
 
     // Use this for initialization
@@ -115,6 +117,8 @@ public class Attacks : MonoBehaviour
             {
                 pestilenceAttack.transform.parent = null;
                 isSpecialAttacking = true;
+                GameObject tempParticle = Instantiate(pestilenceParticle, transform.position, transform.rotation);
+                Destroy(tempParticle, pestilenceAttackInterval);
             }
         }
         else
@@ -126,6 +130,7 @@ public class Attacks : MonoBehaviour
             for (int i = 0; i < hits.Length; i++)
             {
                 Debug.Log(hits[i]);
+                
             }
 
             if (timer >= pestilenceAttackInterval || hits.Length > 0)
@@ -154,6 +159,30 @@ public class Attacks : MonoBehaviour
                 }
 
                 isSpecialAttacking = true;
+
+                GameObject tempParticle1 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(transform.forward));
+                Destroy(tempParticle1, warAttackInterval);
+
+                GameObject tempParticle2 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(-transform.forward));
+                Destroy(tempParticle2, warAttackInterval);
+
+                GameObject tempParticle3 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(-transform.right));
+                Destroy(tempParticle3, warAttackInterval);
+
+                GameObject tempParticle4 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(transform.right));
+                Destroy(tempParticle4, warAttackInterval);
+
+                GameObject tempParticle5 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(transform.forward - transform.right));
+                Destroy(tempParticle5, warAttackInterval);
+
+                GameObject tempParticle6 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(-transform.forward - transform.right));
+                Destroy(tempParticle6, warAttackInterval);
+
+                GameObject tempParticle7 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(transform.forward + transform.right));
+                Destroy(tempParticle7, warAttackInterval);
+
+                GameObject tempParticle8 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(-transform.forward + transform.right));
+                Destroy(tempParticle8, warAttackInterval);
             }
         }
         else
@@ -210,6 +239,8 @@ public class Attacks : MonoBehaviour
                 }
 
                 isSpecialAttacking = true;
+                GameObject tempParticle = Instantiate(deathParticle, transform.position, transform.rotation);
+                Destroy(tempParticle, deathAttackInterval);
             }
         }
         else

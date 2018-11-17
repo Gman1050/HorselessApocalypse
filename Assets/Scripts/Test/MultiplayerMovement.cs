@@ -51,14 +51,19 @@ public class MultiplayerMovement : MonoBehaviour
     //**********************************************************************************************************************//
     void Movement()
     {
-        float targetX = ControllerManager.Instance.GetLeftStick(playerOrder).x;
-        float targetZ = ControllerManager.Instance.GetLeftStick(playerOrder).y;
-        float movement = speed * Time.deltaTime;
+        Attacks attacks = GetComponent<Attacks>();
 
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, new Vector3(targetX, 0.0f, targetZ), movement, 0.0f);
+        if (!attacks.IsSpecialAttack)
+        {
+            float targetX = ControllerManager.Instance.GetLeftStick(playerOrder).x;
+            float targetZ = ControllerManager.Instance.GetLeftStick(playerOrder).y;
+            float movement = speed * Time.deltaTime;
 
-        transform.rotation = Quaternion.LookRotation(newDir);
-        control.Move(new Vector3(targetX, 0.0f, targetZ) * movement);
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, new Vector3(targetX, 0.0f, targetZ), movement, 0.0f);
+
+            transform.rotation = Quaternion.LookRotation(newDir);
+            control.Move(new Vector3(targetX, 0.0f, targetZ) * movement);
+        }
     }
     //**********************************************************************************************************************//
 
