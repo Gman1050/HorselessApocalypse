@@ -18,7 +18,7 @@ public class Attacks : MonoBehaviour
     [Range(0, 5)] public float pestilenceAttackInterval = 5.0f;
     [Range(0, 15)] public float pestilenceAttackSpeed = 15.0f;
     public SphereCollider pestilenceAttack;
-    public GameObject pestilenceParticle;
+    public GameObject pestilenceParticlePart1, pestilenceParticlePart2;
 
     [Header("War Attack Settings: ")]
     [Range(0, 20)] public float warAttackRange = 3.0f;
@@ -30,7 +30,7 @@ public class Attacks : MonoBehaviour
     [Range(0, 5)] public float famineAttackRange = 3.0f;
     [Range(0, 5)] public float famineAttackInterval = 5.0f;
     public SphereCollider famineAttack;
-    public GameObject faminePartile;
+    public GameObject famineParticle;
 
     [Header("Death Attack Settings: ")]
     [Range(0, 5)] public float deathAttackInterval = 5.0f;
@@ -93,6 +93,9 @@ public class Attacks : MonoBehaviour
                 }
 
                 isAttacking = true;
+
+                StartCoroutine(DisplayAttackRange(basicAttack.gameObject, basicAttackInterval));
+
             }
         }
         else
@@ -117,8 +120,9 @@ public class Attacks : MonoBehaviour
             {
                 pestilenceAttack.transform.parent = null;
                 isSpecialAttacking = true;
-                GameObject tempParticle = Instantiate(pestilenceParticle, transform.position, transform.rotation);
-                Destroy(tempParticle, pestilenceAttackInterval);
+                StartCoroutine(DisplayAttackRange(pestilenceAttack.gameObject, pestilenceAttackInterval));
+                GameObject tempParticle = Instantiate(pestilenceParticlePart1, transform.position, transform.rotation);
+                Destroy(tempParticle, 3);
             }
         }
         else
@@ -131,6 +135,13 @@ public class Attacks : MonoBehaviour
             {
                 Debug.Log(hits[i]);
                 
+            }
+
+            if (hits.Length > 0)
+            {
+                // Play ring particle
+                GameObject tempParticle = Instantiate(pestilenceParticlePart2, transform.position, transform.rotation);
+                Destroy(tempParticle, pestilenceAttackInterval);
             }
 
             if (timer >= pestilenceAttackInterval || hits.Length > 0)
@@ -159,6 +170,8 @@ public class Attacks : MonoBehaviour
                 }
 
                 isSpecialAttacking = true;
+
+                StartCoroutine(DisplayAttackRange(warAttack.gameObject, warAttackInterval));
 
                 GameObject tempParticle1 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(transform.forward));
                 Destroy(tempParticle1, warAttackInterval);
@@ -211,6 +224,12 @@ public class Attacks : MonoBehaviour
                 }
 
                 isSpecialAttacking = true;
+
+                StartCoroutine(DisplayAttackRange(famineAttack.gameObject, famineAttackInterval));
+
+                GameObject tempParticle = Instantiate(famineParticle, famineAttack.transform.position, transform.rotation);
+                StartCoroutine(PlayFamineParticle(tempParticle, 1.0f));
+                Destroy(tempParticle, famineAttackInterval);
             }
         }
         else
@@ -239,6 +258,9 @@ public class Attacks : MonoBehaviour
                 }
 
                 isSpecialAttacking = true;
+
+                StartCoroutine(DisplayAttackRange(deathAttack.gameObject, deathAttackInterval));
+
                 GameObject tempParticle = Instantiate(deathParticle, transform.position, transform.rotation);
                 Destroy(tempParticle, deathAttackInterval);
             }
@@ -253,6 +275,19 @@ public class Attacks : MonoBehaviour
                 timer = 0.0f;
             }
         }
+    }
+
+    private IEnumerator DisplayAttackRange(GameObject areaRange, float seconds)
+    {
+        areaRange.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        areaRange.SetActive(false);
+    }
+
+    private IEnumerator PlayFamineParticle(GameObject particle, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        particle.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
     }
 
     private void OnDrawGizmosSelected()
