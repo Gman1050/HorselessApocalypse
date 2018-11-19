@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -591,6 +591,8 @@ GameObject:
   - component: {fileID: 750671559}
   - component: {fileID: 750671558}
   - component: {fileID: 750671557}
+  - component: {fileID: 750671562}
+  - component: {fileID: 750671561}
   m_Layer: 8
   m_Name: Cylinder (1)
   m_TagString: Enemy
@@ -666,6 +668,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750671561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 750671556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236c424d742f4144e8c5f8aa9bc96983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage:
+    baseValue: 0
+  maxHealth: 15
+--- !u!114 &750671562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 750671556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d190ac553e36243bb03b9f083e5b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  interactionTransform: {fileID: 0}
 --- !u!1001 &1114410548
 Prefab:
   m_ObjectHideFlags: 0
@@ -723,6 +752,8 @@ GameObject:
   - component: {fileID: 1119401743}
   - component: {fileID: 1119401742}
   - component: {fileID: 1119401741}
+  - component: {fileID: 1119401746}
+  - component: {fileID: 1119401745}
   m_Layer: 8
   m_Name: Cylinder
   m_TagString: Enemy
@@ -798,6 +829,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1119401745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1119401740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236c424d742f4144e8c5f8aa9bc96983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage:
+    baseValue: 0
+  maxHealth: 15
+--- !u!114 &1119401746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1119401740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d190ac553e36243bb03b9f083e5b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  interactionTransform: {fileID: 0}
 --- !u!1 &1378243778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1077,23 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114937364922357930, guid: 22eef67a123c44146b64a53cf435ca29,
+        type: 2}
+      propertyPath: special
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617583023823358, guid: 22eef67a123c44146b64a53cf435ca29, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617583023823358, guid: 22eef67a123c44146b64a53cf435ca29, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617583023823358, guid: 22eef67a123c44146b64a53cf435ca29, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22eef67a123c44146b64a53cf435ca29, type: 2}
   m_IsPrefabAsset: 0
@@ -1078,22 +1153,27 @@ MonoBehaviour:
     m_Bits: 256
   basicAttackRange: 1.5
   basicAttackInterval: 0.3
+  basicAttackDamage: 1
   basicAttack: {fileID: 22264366}
   pestilenceAttackRange: 3
   pestilenceAttackInterval: 2
   pestilenceAttackSpeed: 15
+  pestilenceAttackDamage: 15
   pestilenceAttack: {fileID: 932179}
   pestilenceParticlePart1: {fileID: 0}
   pestilenceParticlePart2: {fileID: 0}
   warAttackRange: 7.5
   warAttackInterval: 5
+  warAttackDamage: 15
   warAttack: {fileID: 547159933}
   warParticle: {fileID: 0}
   famineAttackRange: 3
   famineAttackInterval: 5
+  famineAttackDamage: 15
   famineAttack: {fileID: 1378243779}
   famineParticle: {fileID: 0}
   deathAttackInterval: 5
+  deathAttackDamage: 15
   deathAttack: {fileID: 2138409578}
   deathParticle: {fileID: 0}
 --- !u!114 &1668425565

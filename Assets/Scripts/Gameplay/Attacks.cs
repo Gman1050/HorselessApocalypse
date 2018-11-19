@@ -11,29 +11,34 @@ public class Attacks : MonoBehaviour
     [Header("Basic Attack Settings: ")]
     [Range(0, 5)] public float basicAttackRange = 3.0f;
     [Range(0, 5)] public float basicAttackInterval = 1.0f;
+    [Range(0, 5)] public int basicAttackDamage = 1;
     public SphereCollider basicAttack;
     
     [Header("Pestilence Attack Settings: ")]
     [Range(0, 5)] public float pestilenceAttackRange = 3.0f;
     [Range(0, 5)] public float pestilenceAttackInterval = 5.0f;
     [Range(0, 15)] public float pestilenceAttackSpeed = 15.0f;
+    [Range(0, 15)] public int pestilenceAttackDamage = 15;
     public SphereCollider pestilenceAttack;
     public GameObject pestilenceParticlePart1, pestilenceParticlePart2;
 
     [Header("War Attack Settings: ")]
     [Range(0, 20)] public float warAttackRange = 3.0f;
     [Range(0, 5)] public float warAttackInterval = 5.0f;
+    [Range(0, 15)] public int warAttackDamage = 15;
     public SphereCollider warAttack;
     public GameObject warParticle;
 
     [Header("Famine Attack Settings: ")]
     [Range(0, 5)] public float famineAttackRange = 3.0f;
     [Range(0, 5)] public float famineAttackInterval = 5.0f;
+    [Range(0, 15)] public int famineAttackDamage = 15;
     public SphereCollider famineAttack;
     public GameObject famineParticle;
 
     [Header("Death Attack Settings: ")]
     [Range(0, 5)] public float deathAttackInterval = 5.0f;
+    [Range(0, 15)] public int deathAttackDamage = 15;
     public BoxCollider deathAttack;
     public GameObject deathParticle;
     
@@ -89,7 +94,8 @@ public class Attacks : MonoBehaviour
             {
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    Debug.Log(hits[i]);
+                    hits[i].GetComponent<EnemyStats>().TakeDamage(basicAttackDamage);
+                    Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
                 }
 
                 isAttacking = true;
@@ -110,6 +116,9 @@ public class Attacks : MonoBehaviour
         }
     }
 
+    GameObject tempParticle1;
+    bool pestilenceHit = false;
+
     private void PestilenceAttack()
     {
         Collider[] hits = Physics.OverlapSphere(pestilenceAttack.transform.position, pestilenceAttackRange, layer);
@@ -122,13 +131,14 @@ public class Attacks : MonoBehaviour
                 isSpecialAttacking = true;
                 StartCoroutine(DisplayAttackRange(pestilenceAttack.gameObject, pestilenceAttackInterval));
                 GameObject tempParticle = Instantiate(pestilenceParticlePart1, transform.position, transform.rotation);
+                tempParticle1 = tempParticle;
                 Destroy(tempParticle, 3);
             }
         }
         else
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
+            //Debug.Log(timer);
             pestilenceAttack.transform.Translate(Vector3.forward * Time.deltaTime * pestilenceAttackSpeed);
 
             for (int i = 0; i < hits.Length; i++)
@@ -137,21 +147,39 @@ public class Attacks : MonoBehaviour
                 
             }
 
-            if (hits.Length > 0)
-            {
-                // Play ring particle
-                GameObject tempParticle = Instantiate(pestilenceParticlePart2, transform.position, transform.rotation);
-                Destroy(tempParticle, pestilenceAttackInterval);
-            }
-
             if (timer >= pestilenceAttackInterval || hits.Length > 0)
             {
-                isSpecialAttacking = false;
-                timer = 0.0f;
+                if (hits.Length > 0 && !pestilenceHit)
+                {
+                    Destroy(tempParticle1);
 
-                pestilenceAttack.transform.position = transform.position;
-                pestilenceAttack.transform.parent = transform;
-                pestilenceAttack.transform.rotation = new Quaternion(0, 0, 0, 0);
+                    // Play ring particle
+                    GameObject tempParticle = Instantiate(pestilenceParticlePart2, hits[0].transform.position, transform.rotation);
+                    Destroy(tempParticle, pestilenceAttackInterval - timer);
+                    pestilenceHit = true;
+
+                    for (int i = 0; i < hits.Length; i++)
+                    {
+                        hits[i].GetComponent<EnemyStats>().TakeDamage(pestilenceAttackDamage);
+                        Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                    }
+                }
+
+                if (timer >= pestilenceAttackInterval)
+                {
+                    isSpecialAttacking = false;
+                    pestilenceHit = false;
+                    timer = 0.0f;
+
+                    pestilenceAttack.transform.position = transform.position;
+                    pestilenceAttack.transform.parent = transform;
+                    pestilenceAttack.transform.rotation = new Quaternion(0, 0, 0, 0);
+                }
+            }
+
+            if (timer < pestilenceAttackInterval && pestilenceHit && hits.Length > 0)
+            {
+                pestilenceAttack.transform.position = hits[0].transform.position;
             }
         }
     }
@@ -166,7 +194,8 @@ public class Attacks : MonoBehaviour
             {
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    Debug.Log(hits[i]);
+                    hits[i].GetComponent<EnemyStats>().TakeDamage(warAttackDamage);
+                    Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
                 }
 
                 isSpecialAttacking = true;
@@ -218,17 +247,12 @@ public class Attacks : MonoBehaviour
         {
             if (ControllerManager.Instance.GetBButtonDown(playerOrder))
             {
-                for (int i = 0; i < hits.Length; i++)
-                {
-                    Debug.Log(hits[i]);
-                }
-
                 isSpecialAttacking = true;
 
                 StartCoroutine(DisplayAttackRange(famineAttack.gameObject, famineAttackInterval));
 
                 GameObject tempParticle = Instantiate(famineParticle, famineAttack.transform.position, transform.rotation);
-                StartCoroutine(PlayFamineParticle(tempParticle, 1.0f));
+                StartCoroutine(PlayFamineParticle(hits, tempParticle, 1.0f));
                 Destroy(tempParticle, famineAttackInterval);
             }
         }
@@ -254,7 +278,8 @@ public class Attacks : MonoBehaviour
             {
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    Debug.Log(hits[i]);
+                    hits[i].GetComponent<EnemyStats>().TakeDamage(deathAttackDamage);
+                    Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
                 }
 
                 isSpecialAttacking = true;
@@ -284,10 +309,16 @@ public class Attacks : MonoBehaviour
         areaRange.SetActive(false);
     }
 
-    private IEnumerator PlayFamineParticle(GameObject particle, float seconds)
+    private IEnumerator PlayFamineParticle(Collider[] hits, GameObject particle, float seconds)
     {
         yield return new WaitForSeconds(seconds);
         particle.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            hits[i].GetComponent<EnemyStats>().TakeDamage(famineAttackDamage);
+            Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+        }
     }
 
     private void OnDrawGizmosSelected()
