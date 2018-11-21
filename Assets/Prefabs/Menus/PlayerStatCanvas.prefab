@@ -636,19 +636,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrder: 2
   playerStats: {fileID: 0}
-  characterImage: {fileID: 0}
-  healthBar:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  specialBar:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+  characterImage: {fileID: 114971700595308920}
+  currentHealthBar: {fileID: 224454270148365950}
+  maxHealthBar: {fileID: 224527580990861468}
+  currentSpecialBar: {fileID: 224118404025720674}
+  maxSpecialBar: {fileID: 224659589720230514}
 --- !u!114 &114074522343433324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -716,19 +708,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrder: 0
   playerStats: {fileID: 0}
-  characterImage: {fileID: 0}
-  healthBar:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  specialBar:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+  characterImage: {fileID: 114004334546725632}
+  currentHealthBar: {fileID: 224162529906722588}
+  maxHealthBar: {fileID: 224898620153405020}
+  currentSpecialBar: {fileID: 224206353517137090}
+  maxSpecialBar: {fileID: 224711424110976136}
 --- !u!114 &114112011793739942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -995,19 +979,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrder: 1
   playerStats: {fileID: 0}
-  characterImage: {fileID: 0}
-  healthBar:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  specialBar:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+  characterImage: {fileID: 114754787237420014}
+  currentHealthBar: {fileID: 224372040818413518}
+  maxHealthBar: {fileID: 224740368106335162}
+  currentSpecialBar: {fileID: 224971337894491252}
+  maxSpecialBar: {fileID: 224659874775798954}
 --- !u!114 &114486929571975110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1156,19 +1132,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrder: 3
   playerStats: {fileID: 0}
-  characterImage: {fileID: 0}
-  healthBar:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  specialBar:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+  characterImage: {fileID: 114214898392024566}
+  currentHealthBar: {fileID: 224443356110772406}
+  maxHealthBar: {fileID: 224657947553488064}
+  currentSpecialBar: {fileID: 224802545836315180}
+  maxSpecialBar: {fileID: 224253286595070098}
 --- !u!114 &114607406197935524
 MonoBehaviour:
   m_ObjectHideFlags: 1

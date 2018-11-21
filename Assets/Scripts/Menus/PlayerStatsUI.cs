@@ -8,14 +8,13 @@ public class PlayerStatsUI : MonoBehaviour
     public PlayerOrder playerOrder;
     public CharacterStats playerStats;
     public Image characterImage;
-    public Rect healthBar, specialBar;
-
-    private const float barWidth = 230.0f;
+    public RectTransform currentHealthBar, maxHealthBar;
+    public RectTransform currentSpecialBar, maxSpecialBar;
 
     // Use this for initialization
     void Start ()
     {
-
+        
     }
 	
 	// Update is called once per frame
@@ -27,6 +26,8 @@ public class PlayerStatsUI : MonoBehaviour
     void LateUpdate()
     {
         PlayerHealthBarUpdate();
+
+        PlayerSpecialBarUpdate();
     }
 
     private void DisplayPlayerUI()
@@ -55,14 +56,45 @@ public class PlayerStatsUI : MonoBehaviour
 
     private void PlayerHealthBarUpdate()
     {
-        float width = (playerStats.currentHealth * barWidth) / playerStats.maxHealth;
-        healthBar = new Rect(healthBar.x, healthBar.y, width, healthBar.height);
+        if (playerStats && maxHealthBar)
+        {
+            float width = (playerStats.currentHealth * maxHealthBar.localScale.x) / playerStats.maxHealth;
 
+            if(width < 0)
+            {
+                width = 0;
+            }
+            else if (width > maxHealthBar.localScale.x)
+            {
+                width = maxHealthBar.localScale.x;
+            }
+
+            if (currentHealthBar)
+            {
+                currentHealthBar.localScale = new Vector2(width, currentHealthBar.localScale.y);
+            }
+        }
     }
 
     private void PlayerSpecialBarUpdate()
     {
-        float width = (playerStats.currentHealth * barWidth) / playerStats.maxHealth;    // Replace with special timer
-        specialBar = new Rect(specialBar.x, specialBar.y, width, specialBar.height);
+        if (playerStats && maxSpecialBar)
+        {
+            float width = (playerStats.currentSpecialTimer * maxSpecialBar.localScale.x) / playerStats.maxSpecialTimer;    // Replace with special timer
+
+            if (width <= 0)
+            {
+                width = 0;
+            }
+            else if (width >= maxSpecialBar.localScale.x)
+            {
+                width = maxSpecialBar.localScale.x;
+            }
+
+            if (currentSpecialBar)
+            {
+                currentSpecialBar.localScale = new Vector2(width, currentSpecialBar.localScale.y);
+            }
+        }
     }
 }
