@@ -16,6 +16,8 @@ public class PlayerSelectMenu : MonoBehaviour
     public Text[] playerReady;              // User message to show if controller is connected and player is ready
     public Image startGame;                 // An image that only appears if at least one player is ready
 
+    public Sprite[] characterSprites;       // Sprites that will be initialize characterImages
+    public string[] characterNamesInput;         // Set string with all possible names
     /*******************************************************************************************************/
     // Use this for initialization
     /*******************************************************************************************************/

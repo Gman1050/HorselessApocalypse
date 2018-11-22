@@ -4,6 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /*******************************************************************************************************/
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
     /*******************************************************************************************************/
     // Used to save player data after player joins the game and selects character
     /*******************************************************************************************************/
-    public void SavePlayerData(PlayerOrder order, string character)
+    public void SavePlayerData(PlayerOrder order, string name, Sprite image)
     {
         BinaryFormatter bf = new BinaryFormatter();     // Used to create save file for player data
         PlayerData data = new PlayerData();             // Declare and initialize data as new
@@ -67,11 +68,11 @@ public class GameManager : MonoBehaviour
             file = File.Open(GetDataPath(order), FileMode.Open);    // Opens existing file with name
         }
 
-        data.playerOrder = order;       // Saves playerOrder so it knows which player to assign which data to
-        data.character = character;     // Saves the character name of the selected character
-
-        bf.Serialize(file, data);       // Saves the file with saved data into binaray
-        file.Close();                   // Closes the file
+        data.playerOrder = order;               // Saves playerOrder so it knows which player to assign which data to
+        data.characterName = name;              // Saves the character name of the selected character
+        data.characterImage.sprite = image;     // Saves the character image of the selected character
+        bf.Serialize(file, data);               // Saves the file with saved data into binaray
+        file.Close();                           // Closes the file
     }
     /*******************************************************************************************************/
 
@@ -87,9 +88,10 @@ public class GameManager : MonoBehaviour
 
             PlayerData data = (PlayerData)bf.Deserialize(file);                 // Declare and initialize data as the saved file after being deserialized from binary format
 
-            if (player.GetComponent<MultiplayerMovement>().playerOrder == data.playerOrder)     // Checks the playerOrder from the player controller script for the correct player to assign data to
+            if (player.GetComponent<CharacterStats>().playerOrder == data.playerOrder)     // Checks the playerOrder from the player controller script for the correct player to assign data to
             {
-                player.GetComponent<MultiplayerMovement>().characterName = data.character;      // Initializes the character name string from the player controller script
+                player.GetComponent<CharacterStats>().characterName = data.characterName;                       // Initializes the character name string from the player controller script
+                player.GetComponent<CharacterStats>().characterImage.sprite = data.characterImage.sprite;       // Initializes the character name string from the player controller script
                 //Debug.Log("Loaded Player 1 Data");
             }
 
@@ -159,7 +161,7 @@ public class GameManager : MonoBehaviour
 class PlayerData
 {
     public PlayerOrder playerOrder;     // Save and load playerOrder from
-    public string character;            // Save and load character's name from
-    // Adding more soon
+    public string characterName;        // Save and load character's name from
+    public Image characterImage;        // Save and load character's image
 }
 /*******************************************************************************************************/

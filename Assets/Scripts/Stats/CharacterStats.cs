@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CharacterStats : MonoBehaviour {
-
+public class CharacterStats : MonoBehaviour
+{
+    public PlayerOrder playerOrder;
+    public string characterName;
+    public Image characterImage;
     public Stats damage;
 
     public int maxHealth;
@@ -25,6 +29,8 @@ public class CharacterStats : MonoBehaviour {
     {
         currentHealth = maxHealth;
         currentSpecialTimer = maxSpecialTimer;
+
+        GameManager.Instance.LoadPlayerData(playerOrder, gameObject);   // Always have this in awake to set the player data before game begins
     }
 
     void Update()
