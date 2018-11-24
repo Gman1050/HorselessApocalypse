@@ -7,8 +7,15 @@ public class CharacterStats : MonoBehaviour {
     public Stats damage;
 
     public int maxHealth;
+    public float maxSpecialTimer;
 
     public int currentHealth
+    {
+        get;
+        private set;
+    }
+
+    public float currentSpecialTimer
     {
         get;
         private set;
@@ -17,9 +24,15 @@ public class CharacterStats : MonoBehaviour {
     void Awake()
     {
         currentHealth = maxHealth;
+        currentSpecialTimer = maxSpecialTimer;
     }
 
+    void Update()
+    {
+        CurrentHealthBoundaries();
 
+        SpecialTimerUpdate();
+    }
 
     public void TakeDamage (int damage)
     {
@@ -32,6 +45,11 @@ public class CharacterStats : MonoBehaviour {
         }
     }
 
+    public void ResetSpecialTimer()
+    {
+        currentSpecialTimer = 0.0f;
+    }
+
     public virtual void Die ()
     {
         // Die in some way
@@ -40,4 +58,27 @@ public class CharacterStats : MonoBehaviour {
 
     }
 
+    private void CurrentHealthBoundaries()
+    {
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        else if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+        }
+    }
+
+    private void SpecialTimerUpdate()
+    {
+        if (currentSpecialTimer < maxSpecialTimer)
+        {
+            currentSpecialTimer += Time.deltaTime;
+        }
+        else if (currentSpecialTimer >= maxSpecialTimer)
+        {
+            currentSpecialTimer = maxSpecialTimer;
+        }
+    }
 }
