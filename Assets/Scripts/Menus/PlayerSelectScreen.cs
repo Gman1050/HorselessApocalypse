@@ -71,37 +71,36 @@ public class PlayerSelectScreen : MonoBehaviour
     /*******************************************************************************************************/
     private void SelectionInput()
     {
-        if (ControllerManager.Instance.GetLeftStick(playerOrder).x < 0)
+        if (ControllerManager.Instance.GetLeftStick(playerOrder).x == 0)
         {
-            int element = characterElement - 1;
-
-            if (element < 0)
+            if (ControllerManager.Instance.GetLeftStick(playerOrder).x < 0)
             {
-                element = playerSelectMenu.characterSprites.Length - 1;
+                int element = characterElement - 1;
+
+                if (element < 0)
+                {
+                    element = playerSelectMenu.characterSprites.Length - 1;
+                }
+
+                characterElement = element;
+
+                characterImage.sprite = playerSelectMenu.characterSprites[element];
+                characterName = playerSelectMenu.characterNamesInput[element];
             }
-
-            characterElement = element;
-
-            characterImage.sprite = playerSelectMenu.characterSprites[element];
-            characterName = playerSelectMenu.characterNamesInput[element];
-        }
-        else if (ControllerManager.Instance.GetLeftStick(playerOrder).x > 0)
-        {
-            int element = characterElement + 1;
-
-            if (element >= playerSelectMenu.characterSprites.Length)
+            else if (ControllerManager.Instance.GetLeftStick(playerOrder).x > 0)
             {
-                element = 0;
+                int element = characterElement + 1;
+
+                if (element >= playerSelectMenu.characterSprites.Length)
+                {
+                    element = 0;
+                }
+
+                characterElement = element;
+
+                characterImage.sprite = playerSelectMenu.characterSprites[element];
+                characterName = playerSelectMenu.characterNamesInput[element];
             }
-
-            characterElement = element;
-
-            characterImage.sprite = playerSelectMenu.characterSprites[element];
-            characterName = playerSelectMenu.characterNamesInput[element];
-        }
-        else if (ControllerManager.Instance.GetLeftStick(playerOrder).x == 0)
-        {
-
         }
 
         if (ControllerManager.Instance.GetAButtonDown(playerOrder))     // Checks if A button is pressed on X-Input controller
@@ -175,6 +174,15 @@ public class PlayerSelectScreen : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         GameManager.Instance.playerQuantity--;                      // Decreases player quantity by one when player goes back
         isReady = false;                                            // Player is not ready to play
+    }
+    /*******************************************************************************************************/
+
+    /*******************************************************************************************************/
+    // Coroutine to delay Input for Left Stick (X-Axis) for selecting character
+    /*******************************************************************************************************/
+    private IEnumerator LeftStickDelay(PlayerOrder playerOrder)
+    {
+        yield return ControllerManager.Instance.GetLeftStick(playerOrder).x == 0;
     }
     /*******************************************************************************************************/
 }

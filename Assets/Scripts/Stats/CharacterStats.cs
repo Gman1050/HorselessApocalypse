@@ -30,7 +30,7 @@ public class CharacterStats : MonoBehaviour
         currentHealth = maxHealth;
         currentSpecialTimer = maxSpecialTimer;
 
-        GameManager.Instance.LoadPlayerData(playerOrder, gameObject);   // Always have this in awake to set the player data before game begins
+        GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
     }
 
     void Update()
@@ -61,7 +61,7 @@ public class CharacterStats : MonoBehaviour
         // Die in some way
         // This is meant to be overwritten
         Debug.Log(transform.name + " died.");
-
+        Destroy(gameObject);
     }
 
     private void CurrentHealthBoundaries()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -308,6 +308,18 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ec24132dc2371448edc98d89890238, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &4027026 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114754787237420014, guid: 94ec24132dc2371448edc98d89890238,
+    type: 2}
+  m_PrefabInternal: {fileID: 4027025}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &4027027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114004334546725632, guid: 94ec24132dc2371448edc98d89890238,
+    type: 2}
+  m_PrefabInternal: {fileID: 4027025}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &22264365
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,13 +697,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236c424d742f4144e8c5f8aa9bc96983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOrder: 0
-  characterName: 
-  characterImage: {fileID: 0}
   damage:
     baseValue: 0
   maxHealth: 15
-  maxSpecialTimer: 0
 --- !u!114 &750671562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,13 +858,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236c424d742f4144e8c5f8aa9bc96983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOrder: 0
-  characterName: 
-  characterImage: {fileID: 0}
   damage:
     baseValue: 0
   maxHealth: 15
-  maxSpecialTimer: 0
 --- !u!114 &1119401746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,6 +1182,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114479998513307414, guid: 22eef67a123c44146b64a53cf435ca29,
+        type: 2}
+      propertyPath: characterImage
+      value: 
+      objectReference: {fileID: 4027027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22eef67a123c44146b64a53cf435ca29, type: 2}
   m_IsPrefabAsset: 0
@@ -1359,7 +1368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrder: 1
   characterName: 
-  characterImage: {fileID: 0}
+  characterImage: {fileID: 4027026}
   damage:
     baseValue: 0
   maxHealth: 15
