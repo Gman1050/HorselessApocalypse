@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyControler : MonoBehaviour {
 
+    private Animator anim;
+
     public float lookRadius = 10f;
 
     Transform target;
@@ -20,7 +22,9 @@ public class EnemyControler : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
 
         combat = GetComponent<CharacterCombat>();
-	}
+
+        anim = GetComponent<Animator>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,17 +34,22 @@ public class EnemyControler : MonoBehaviour {
         if(distance <= lookRadius)
         {
             agent.SetDestination(target.position);
+            anim.SetBool("IsWalking", true);
 
             if(distance <= agent.stoppingDistance)
             {
                 //attack
+                anim.SetBool("IsWalking", false);
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
-                if (targetStats != null)
-                {
-                    combat.Attack(targetStats);
-                    
-                }
 
+                if (targetStats.currentHealth != 0)
+                {
+
+                    combat.Attack(targetStats);
+                    anim.SetBool("IsAttacking", true);
+                }
+                else
+                    anim.SetBool("IsAttacking", false);
                 FaceTarget();
             }
         }
