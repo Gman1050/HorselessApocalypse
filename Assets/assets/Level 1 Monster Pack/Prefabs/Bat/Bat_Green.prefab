@@ -546,6 +546,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013189255144}
   - component: {fileID: 95000012289870092}
+  - component: {fileID: 114961965639549170}
+  - component: {fileID: 114814966699111368}
+  - component: {fileID: 114782070581948242}
+  - component: {fileID: 195854285570908912}
+  - component: {fileID: 114435179680026814}
   m_Layer: 0
   m_Name: Bat_Green
   m_TagString: Untagged
@@ -1325,6 +1330,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114435179680026814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013827195344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047526f0290421d48b1313b1c58a410e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackDelay: 0.6
+--- !u!114 &114782070581948242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013827195344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d190ac553e36243bb03b9f083e5b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5.23
+  interactionTransform: {fileID: 4000013189255144}
+--- !u!114 &114814966699111368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013827195344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c536b402dcc0634b8d3564e59a0ab4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookRadius: 21
+--- !u!114 &114961965639549170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013827195344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236c424d742f4144e8c5f8aa9bc96983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage:
+    baseValue: 1
+  maxHealth: 2
 --- !u!137 &137000012660793904
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1394,3 +1451,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.012388031, y: 0, z: 0.0015562545}
     m_Extent: {x: 0.0153516615, y: 0.035812914, z: 0.010000499}
   m_DirtyAABB: 0
+--- !u!195 &195854285570908912
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013827195344}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 25
+  m_Acceleration: 10
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 7
+  m_ObstacleAvoidanceType: 4
