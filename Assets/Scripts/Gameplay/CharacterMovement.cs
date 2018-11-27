@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//**********************************************************************************************************************//
-// This is merely a test class for multiplayer (It can be useful for setting up a player controller script for multiplayer)
-//**********************************************************************************************************************//
-public class MultiplayerMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     public PlayerOrder playerOrder;         // Used to set which player is which in the inspector
-    public float health = 100.0f;           // Test for Camera Control
     public float speed = 5.0f;              // Test variables for speed of the gameobject
-    public string characterName;            // Initialized using the PlayerSelectScreen script's characterName variable value
     private CharacterController control;    // Declares CharacterController for rotation and movement
 
     //**********************************************************************************************************************//
@@ -18,13 +13,14 @@ public class MultiplayerMovement : MonoBehaviour
     //**********************************************************************************************************************//
     void Awake()
     {
-        GameManager.Instance.LoadPlayerData(playerOrder, gameObject.GetComponent<CharacterStats>());   // Always have this in awake to set the player data before game begins
+        //GameManager.Instance.LoadPlayerData(playerOrder, gameObject);   // Always have this in awake to set the player data before game begins
+        playerOrder = GetComponent<CharacterStats>().playerOrder;
     }
     //**********************************************************************************************************************//
 
     //**********************************************************************************************************************//
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         control = GetComponent<CharacterController>();  // Gets the reference to the CharacterController component
     }
@@ -33,11 +29,9 @@ public class MultiplayerMovement : MonoBehaviour
     //**********************************************************************************************************************//
     // Update is called once per frame
     //**********************************************************************************************************************//
-    void Update ()
+    void Update()
     {
         Movement();     // Test movement for all players
-
-        ButtonTest();   // Test to check each button's functionality
     }
     //**********************************************************************************************************************//
 
@@ -117,6 +111,4 @@ public class MultiplayerMovement : MonoBehaviour
         }
     }
     //**********************************************************************************************************************//
-    
 }
-//**********************************************************************************************************************//
