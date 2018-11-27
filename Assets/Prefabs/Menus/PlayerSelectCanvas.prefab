@@ -950,7 +950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrder: 2
   characterName: 
-  characterNames: {fileID: 114231211519131466}
+  characterNameText: {fileID: 114143840660762340}
   characterImage: {fileID: 114325666009399664}
   playerSelectMenu: {fileID: 114218471826024786}
 --- !u!114 &114362599836687646
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrder: 3
   characterName: 
-  characterNames: {fileID: 114821781314322430}
+  characterNameText: {fileID: 114821781314322430}
   characterImage: {fileID: 114223058308782300}
   playerSelectMenu: {fileID: 114218471826024786}
 --- !u!114 &114571941758803576
@@ -1156,8 +1156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 0
-  characterName: Ryan
-  characterNames: {fileID: 114803298905380314}
+  characterName: 
+  characterNameText: {fileID: 114803298905380314}
   characterImage: {fileID: 114362599836687646}
   playerSelectMenu: {fileID: 114218471826024786}
 --- !u!114 &114587174043319432
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrder: 1
   characterName: 
-  characterNames: {fileID: 114831088902288518}
+  characterNameText: {fileID: 114831088902288518}
   characterImage: {fileID: 114160268452480246}
   playerSelectMenu: {fileID: 114218471826024786}
 --- !u!114 &114697246861816382
