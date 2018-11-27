@@ -7,18 +7,18 @@ using UnityEngine;
 //**********************************************************************************************************************//
 public class MultiplayerMovement : MonoBehaviour
 {
-    public PlayerOrder playerOrder;     // Used to set which player is which in the inspector
-    public float health = 100.0f;       // Test for Camera Control
-    public float speed = 5.0f;          // Test variables for speed of the gameobject
-    public string characterName;        // Initialized using the PlayerSelectScreen script's characterName variable value
-    public float radius = 35.0f;
+    public PlayerOrder playerOrder;         // Used to set which player is which in the inspector
+    public float health = 100.0f;           // Test for Camera Control
+    public float speed = 5.0f;              // Test variables for speed of the gameobject
+    public string characterName;            // Initialized using the PlayerSelectScreen script's characterName variable value
+    private CharacterController control;    // Declares CharacterController for rotation and movement
 
     //**********************************************************************************************************************//
     // Use this before scene loads
     //**********************************************************************************************************************//
     void Awake()
     {
-        GameManager.Instance.LoadPlayerData(playerOrder, gameObject);   // Always have this in awake to set the player data before game begins
+        GameManager.Instance.LoadPlayerData(playerOrder, gameObject.GetComponent<CharacterStats>());   // Always have this in awake to set the player data before game begins
     }
     //**********************************************************************************************************************//
 
@@ -26,7 +26,7 @@ public class MultiplayerMovement : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        
+        control = GetComponent<CharacterController>();  // Gets the reference to the CharacterController component
     }
     //**********************************************************************************************************************//
 
@@ -43,7 +43,7 @@ public class MultiplayerMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        //TargetBoundaries();
+        PlayerBoundaries();
     }
 
     //**********************************************************************************************************************//
@@ -51,22 +51,18 @@ public class MultiplayerMovement : MonoBehaviour
     //**********************************************************************************************************************//
     void Movement()
     {
-        if (ControllerManager.Instance.GetLeftStick(playerOrder).x < 0.0f)
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
-        }
-        else if (ControllerManager.Instance.GetLeftStick(playerOrder).x > 0.0f)
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
-        }
+        Attacks attacks = GetComponent<Attacks>();
 
-        if (ControllerManager.Instance.GetLeftStick(playerOrder).y < 0.0f)
+        if (!attacks.IsSpecialAttack)
         {
-            transform.Translate(Vector3.back * Time.deltaTime * speed);
-        }
-        else if (ControllerManager.Instance.GetLeftStick(playerOrder).y > 0.0f)
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            float targetX = ControllerManager.Instance.GetLeftStick(playerOrder).x;
+            float targetZ = ControllerManager.Instance.GetLeftStick(playerOrder).y;
+            float movement = speed * Time.deltaTime;
+
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, new Vector3(targetX, 0.0f, targetZ), movement, 0.0f);
+
+            transform.rotation = Quaternion.LookRotation(newDir);
+            control.Move(new Vector3(targetX, 0.0f, targetZ) * movement);
         }
     }
     //**********************************************************************************************************************//
@@ -95,18 +91,32 @@ public class MultiplayerMovement : MonoBehaviour
     }
     //**********************************************************************************************************************//
 
-    private void TargetBoundaries()
+    //**********************************************************************************************************************//
+    // Checks for player boundaries in a rectangular area
+    //**********************************************************************************************************************//
+    private void PlayerBoundaries()
     {
         CameraControl cam = Camera.main.GetComponent<CameraControl>();
 
-        float distanceFromCenter = Vector3.Distance(cam.GetCenterPoint(), transform.position);
-
-        if (distanceFromCenter >= radius)
+        if (transform.position.x <= cam.GetCenterPoint().x - cam.XLimitFromCenter)
         {
-            Vector3 centerToPosition = transform.position - cam.GetCenterPoint();
-            centerToPosition *= radius / distanceFromCenter;
-            transform.position = centerToPosition + centerToPosition;
+            transform.position = new Vector3(cam.GetCenterPoint().x - cam.XLimitFromCenter, transform.position.y, transform.position.z);
+        }
+        else if (transform.position.x >= cam.GetCenterPoint().x + cam.XLimitFromCenter)
+        {
+            transform.position = new Vector3(cam.GetCenterPoint().x + cam.XLimitFromCenter, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.z <= cam.GetCenterPoint().z - cam.ZLimitFromCenter)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, cam.GetCenterPoint().z - cam.ZLimitFromCenter);
+        }
+        else if (transform.position.z >= cam.GetCenterPoint().z + cam.ZLimitFromCenter)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, cam.GetCenterPoint().z + cam.ZLimitFromCenter);
         }
     }
+    //**********************************************************************************************************************//
+    
 }
 //**********************************************************************************************************************//

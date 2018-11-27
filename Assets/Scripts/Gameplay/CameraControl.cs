@@ -10,9 +10,13 @@ public class CameraControl : MonoBehaviour
     public float smoothTime = 0.5f;
     public float minZoom = 40.0f, maxZoom = 10.0f;
     public float zoomLimiter = 50.0f;
+    public float xLimitFromCenter = 30.0f, zLimitFromCenter = 20.0f;
 
     private Vector3 velocity;
     private Camera cam;
+
+    public float XLimitFromCenter { get { return xLimitFromCenter; } }
+    public float ZLimitFromCenter { get { return zLimitFromCenter; } }
 
     void Start()
     {
@@ -29,11 +33,13 @@ public class CameraControl : MonoBehaviour
         Focus();
 
         Zoom();
+
+        //Debug.Log(GetCenterPoint());
     }
 
     private void FindTargets()
     {
-        var targetsFound = FindObjectsOfType<MultiplayerMovement>();    // Replace with PlayerController script of some kind
+        var targetsFound = FindObjectsOfType<CharacterStats>();    // Replace with PlayerController script of some kind
 
         for(int count = 0; count < targetsFound.Length; count++)
         {
@@ -45,7 +51,7 @@ public class CameraControl : MonoBehaviour
             {
                 GameObject target = targets[count].gameObject;
 
-                if (target.GetComponent<MultiplayerMovement>().health <= 0)     // This can be used to check health from player (checking if gameobject is not active does not work)
+                if (target.GetComponent<CharacterStats>().currentHealth <= 0)     // This can be used to check health from player (checking if gameobject is not active does not work)
                 {
                     //Debug.Log(target.activeSelf);
                     targets.Remove(targets[count].transform);
