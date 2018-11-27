@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 114739349954772986}
   - component: {fileID: 114937364922357930}
   - component: {fileID: 143945550592910896}
-  - component: {fileID: 114479998513307414}
   m_Layer: 9
   m_Name: Player_1
   m_TagString: Untagged
@@ -174,8 +173,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1326181277187376}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.41, z: 10.8}
-  m_LocalScale: {x: 3, y: 0.01, z: 20}
+  m_LocalPosition: {x: 0, y: -0.41, z: 6.97}
+  m_LocalScale: {x: 1, y: 0.01, z: 12.541711}
   m_Children: []
   m_Father: {fileID: 4486783094402522}
   m_RootOrder: 1
@@ -482,21 +481,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 109.52, z: 1}
   m_Center: {x: 0, y: 55.19, z: 0}
---- !u!114 &114479998513307414
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1096286770349918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0682ac2b77ca7f24888892061d3aa7a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage:
-    baseValue: 0
-  maxHealth: 15
-  maxSpecialTimer: 30
 --- !u!114 &114739349954772986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -530,12 +514,10 @@ MonoBehaviour:
     m_Bits: 256
   basicAttackRange: 1.5
   basicAttackInterval: 0.3
-  basicAttackDamage: 1
   basicAttack: {fileID: 135486926576744662}
   pestilenceAttackRange: 3
   pestilenceAttackInterval: 3
   pestilenceAttackSpeed: 10.5
-  pestilenceAttackDamage: 15
   pestilenceAttack: {fileID: 135355557590294044}
   pestilenceParticlePart1: {fileID: 1329685686205624, guid: 269ecabd9006c944b89a11814470aab2,
     type: 2}
@@ -543,18 +525,15 @@ MonoBehaviour:
     type: 2}
   warAttackRange: 7.5
   warAttackInterval: 5
-  warAttackDamage: 15
   warAttack: {fileID: 135446511711529322}
   warParticle: {fileID: 1243306325903316, guid: 4412c352cc2778844aa42dcbf30a6f9a,
     type: 2}
   famineAttackRange: 3
   famineAttackInterval: 5
-  famineAttackDamage: 15
   famineAttack: {fileID: 135708858926130708}
   famineParticle: {fileID: 1560004038993000, guid: 74672245adb97f74190dba47ca2b9c98,
     type: 2}
   deathAttackInterval: 5
-  deathAttackDamage: 15
   deathAttack: {fileID: 65650225223087842}
   deathParticle: {fileID: 1045935626409128, guid: 7a1912388a2dd664ab6d8792df9ab9f7,
     type: 2}
