@@ -33,8 +33,14 @@ public class CharacterStats : MonoBehaviour
         GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
     }
 
+    private void Start()
+    {
+        //GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
+    }
+
     void Update()
     {
+
         CurrentHealthBoundaries();
 
         SpecialTimerUpdate();

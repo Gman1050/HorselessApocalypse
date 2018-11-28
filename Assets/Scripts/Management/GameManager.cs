@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     /*******************************************************************************************************/
     void Awake()
     {
+        Debug.Log(name);
         Instance = this;    // Sets instance of the static variable before scenes loads
     }
     /*******************************************************************************************************/
@@ -112,7 +113,8 @@ public class GameManager : MonoBehaviour
         switch (order)
         {
             case PlayerOrder.PLAYER_1:
-                player.playerOrder = player_1.playerOrder;
+                Debug.Log(player_1);
+                //player.playerOrder = player_1.playerOrder;
                 if (player_1.characterName != null && player_1.characterImage != null)
                 {
                     player.characterName = player_1.characterName;
@@ -124,7 +126,8 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case PlayerOrder.PLAYER_2:
-                player.playerOrder = player_2.playerOrder;
+                Debug.Log(player_2);
+                //player.playerOrder = player_2.playerOrder;
                 if (player_2.characterName != null && player_2.characterImage != null)
                 {
                     player.characterName = player_2.characterName;
@@ -136,7 +139,8 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case PlayerOrder.PLAYER_3:
-                player.playerOrder = player_3.playerOrder;
+                Debug.Log(player_3);
+                //player.playerOrder = player_3.playerOrder;
                 if (player_3.characterName != null && player_3.characterImage != null)
                 {
                     player.characterName = player_3.characterName;
@@ -148,7 +152,8 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case PlayerOrder.PLAYER_4:
-                player.playerOrder = player_4.playerOrder;
+                Debug.Log(player_4);
+                //player.playerOrder = player_4.playerOrder;
                 if (player_4.characterName != null && player_4.characterImage != null)
                 {
                     player.characterName = player_4.characterName;
