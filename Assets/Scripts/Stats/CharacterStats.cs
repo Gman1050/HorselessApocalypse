@@ -8,8 +8,7 @@ public class CharacterStats : MonoBehaviour
     public PlayerOrder playerOrder;
     public string characterName;
     public Image characterImage;
-    public int damage;
-    //was Stats
+    public Stats damage;
 
     public int maxHealth;
     public float maxSpecialTimer;
