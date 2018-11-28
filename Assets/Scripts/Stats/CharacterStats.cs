@@ -8,7 +8,8 @@ public class CharacterStats : MonoBehaviour
     public PlayerOrder playerOrder;
     public string characterName;
     public Image characterImage;
-    public Stats damage;
+    public int damage;
+    //was Stats
 
     public int maxHealth;
     public float maxSpecialTimer;
@@ -16,7 +17,7 @@ public class CharacterStats : MonoBehaviour
     public int currentHealth
     {
         get;
-        private set;
+        set;
     }
 
     public float currentSpecialTimer
@@ -33,8 +34,14 @@ public class CharacterStats : MonoBehaviour
         GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
     }
 
+    private void Start()
+    {
+        //GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
+    }
+
     void Update()
     {
+
         CurrentHealthBoundaries();
 
         SpecialTimerUpdate();

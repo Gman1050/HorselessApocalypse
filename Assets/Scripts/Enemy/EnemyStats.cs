@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
+    private Animator anim;
 
     public Stats damage;
 
@@ -27,12 +28,17 @@ public class EnemyStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        anim.SetBool("IsDamaged", true);
         currentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");
+        anim.SetBool("IsDamaged", false);
+
 
         if (currentHealth <= 0)
         {
+            
             Die();
+
         }
     }
 
@@ -41,6 +47,7 @@ public class EnemyStats : MonoBehaviour
         // Die in some way
         // This is meant to be overwritten
         Debug.Log(transform.name + " died.");
+        anim.SetBool("IsDead", true);
         Destroy(gameObject);
     }
 
