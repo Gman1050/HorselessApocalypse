@@ -18,7 +18,7 @@ public class MultiplayerMovement : MonoBehaviour
     //**********************************************************************************************************************//
     void Awake()
     {
-        GameManager.Instance.LoadPlayerData(playerOrder, gameObject);   // Always have this in awake to set the player data before game begins
+        GameManager.Instance.LoadPlayerData(playerOrder, gameObject.GetComponent<CharacterStats>());   // Always have this in awake to set the player data before game begins
     }
     //**********************************************************************************************************************//
 
