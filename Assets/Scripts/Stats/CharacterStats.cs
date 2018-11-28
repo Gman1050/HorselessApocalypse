@@ -16,7 +16,7 @@ public class CharacterStats : MonoBehaviour
     public int currentHealth
     {
         get;
-        private set;
+        set;
     }
 
     public float currentSpecialTimer
