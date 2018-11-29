@@ -217,24 +217,31 @@ public class Attacks : MonoBehaviour
                     Destroy(tempParticle1, warAttackInterval);
 
                     GameObject tempParticle2 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(-transform.forward));
+                    Destroy(tempParticle2.GetComponent<AudioSource>());
                     Destroy(tempParticle2, warAttackInterval);
 
                     GameObject tempParticle3 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(-transform.right));
+                    Destroy(tempParticle3.GetComponent<AudioSource>());
                     Destroy(tempParticle3, warAttackInterval);
 
                     GameObject tempParticle4 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(transform.right));
+                    Destroy(tempParticle4.GetComponent<AudioSource>());
                     Destroy(tempParticle4, warAttackInterval);
 
                     GameObject tempParticle5 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(transform.forward - transform.right));
+                    Destroy(tempParticle5.GetComponent<AudioSource>());
                     Destroy(tempParticle5, warAttackInterval);
 
                     GameObject tempParticle6 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(-transform.forward - transform.right));
+                    Destroy(tempParticle6.GetComponent<AudioSource>());
                     Destroy(tempParticle6, warAttackInterval);
 
                     GameObject tempParticle7 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(transform.forward + transform.right));
+                    Destroy(tempParticle7.GetComponent<AudioSource>());
                     Destroy(tempParticle7, warAttackInterval);
 
                     GameObject tempParticle8 = Instantiate(warParticle, transform.position, Quaternion.LookRotation(-transform.forward + transform.right));
+                    Destroy(tempParticle8.GetComponent<AudioSource>());
                     Destroy(tempParticle8, warAttackInterval);
 
                     GetComponent<CharacterStats>().ResetSpecialTimer();
