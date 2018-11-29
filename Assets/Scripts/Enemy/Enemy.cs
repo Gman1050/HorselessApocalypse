@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterStats))]
+[RequireComponent(typeof(EnemyStats))]
 public class Enemy : Interactable {
 
     PlayerManager playerManager;
 
-    CharacterStats myStats;
+    EnemyStats myStats;
 
     private void Start()
     {
         playerManager = PlayerManager.instance;
 
-        myStats = GetComponent<CharacterStats>();
+        myStats = GetComponent<EnemyStats>();
     }
 
     public override void Interact()

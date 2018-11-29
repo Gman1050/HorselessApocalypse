@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[RequireComponent(typeof(CharacterStats))]
-public class CharacterCombat : MonoBehaviour {
+public class EnemyCombat : MonoBehaviour {
 
     public float attackSpeed = 1f;
 
@@ -14,27 +12,29 @@ public class CharacterCombat : MonoBehaviour {
 
     public event System.Action OnAttack;
 
-    CharacterStats myStats;
+    EnemyStats myStats;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
-        myStats = GetComponent<CharacterStats>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        myStats = GetComponent<EnemyStats>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         attackCooldown -= Time.deltaTime;
-	}
-    
-    public void Attack (CharacterStats targetStats)
+    }
+
+    public void Attack(CharacterStats targetStats)
     {
         if (attackCooldown <= 0f)
         {
             StartCoroutine(DoDamage(targetStats, attackDelay));
 
-            if(OnAttack != null)
+            if (OnAttack != null)
             {
                 OnAttack();
             }
@@ -43,11 +43,10 @@ public class CharacterCombat : MonoBehaviour {
         }
     }
 
-    IEnumerator DoDamage (CharacterStats stats, float delay)
+    IEnumerator DoDamage(CharacterStats stats, float delay)
     {
         yield return new WaitForSeconds(delay);
 
         stats.TakeDamage(myStats.damage);
     }
-
 }

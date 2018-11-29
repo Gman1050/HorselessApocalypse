@@ -15,9 +15,12 @@ public class EnemyControler : MonoBehaviour {
 
     CharacterCombat combat;
 
+    Transform firstEnemy;
+
 	// Use this for initialization
 	void Start () {
-        target = PlayerManager.instance.player.transform;
+       
+        target = firstEnemy.transform;
 
         agent = GetComponent<NavMeshAgent>();
 
@@ -28,6 +31,8 @@ public class EnemyControler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        FindClosestEnemy();
 
         float distance = Vector3.Distance(target.position, transform.position);
 
@@ -69,4 +74,24 @@ public class EnemyControler : MonoBehaviour {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
+
+    void FindClosestEnemy()
+    {
+        float distanceToClosestEnemy = Mathf.Infinity;
+        CharacterStats closestEnemy = null;
+        CharacterStats[] allEnemies = GameObject.FindObjectsOfType<CharacterStats>();
+
+        foreach (CharacterStats currentEnemy in allEnemies)
+        {
+            float distanceToEnemy = (currentEnemy.transform.position - transform.position).sqrMagnitude;
+            if(distanceToEnemy < distanceToClosestEnemy)
+            {
+                distanceToClosestEnemy = distanceToEnemy;
+                closestEnemy = currentEnemy;
+                firstEnemy = currentEnemy.transform;
+                Gizmos.DrawLine(transform.position, firstEnemy.position);
+            }
+        }
+    }
+
 }
