@@ -534,6 +534,8 @@ MonoBehaviour:
   basicAttackInterval: 0.3
   basicAttackDamage: 1
   basicAttack: {fileID: 135486926576744662}
+  basicAttackParticle: {fileID: 1314602263165492, guid: e6e0ce559ba7f7d40ba0434c3aa73110,
+    type: 2}
   pestilenceAttackRange: 3
   pestilenceAttackInterval: 3
   pestilenceAttackSpeed: 10.5
