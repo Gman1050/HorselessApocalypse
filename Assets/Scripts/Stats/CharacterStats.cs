@@ -54,6 +54,7 @@ public class CharacterStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            LivesSystem.Instance.LoseLife();
             Die();
         }
     }
