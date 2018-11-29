@@ -13,7 +13,8 @@ public class Attacks : MonoBehaviour
     [Range(0, 5)] public float basicAttackInterval = 1.0f;
     [Range(0, 5)] public int basicAttackDamage = 1;
     public SphereCollider basicAttack;
-    
+    public GameObject basicAttackParticle;
+
     [Header("Pestilence Attack Settings: ")]
     [Range(0, 5)] public float pestilenceAttackRange = 3.0f;
     [Range(0, 5)] public float pestilenceAttackInterval = 5.0f;
@@ -92,6 +93,9 @@ public class Attacks : MonoBehaviour
         {
             if (ControllerManager.Instance.GetAButtonDown(playerOrder))
             {
+                GameObject tempParticle = Instantiate(basicAttackParticle, transform.position, transform.rotation);
+                Destroy(tempParticle, basicAttackInterval);
+
                 for (int i = 0; i < hits.Length; i++)
                 {
                     hits[i].GetComponent<EnemyStats>().TakeDamage(basicAttackDamage);
