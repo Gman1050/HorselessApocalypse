@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 00000000000000000000000000000000
+  productGUID: c3a86e85652835b45b5c59600a8eb209
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -727,7 +727,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
   cloudProjectId: ddd3265d-1541-49a6-a542-04f0e3d905af
-  projectName: EffectsExamples
+  projectName: CSE-440-Project
   organizationId: ryan-zagala
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
