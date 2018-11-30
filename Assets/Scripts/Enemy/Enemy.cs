@@ -7,20 +7,20 @@ public class Enemy : Interactable {
 
     PlayerManager playerManager;
 
-    EnemyStats myStats;
+    CharacterStats myStats;
 
     private void Start()
     {
         playerManager = PlayerManager.instance;
 
-        myStats = GetComponent<EnemyStats>();
+        myStats = GetComponent<CharacterStats>();
     }
 
     public override void Interact()
     {
         base.Interact();
 
-        CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
+        CharacterCombat playerCombat = playerManager.playerTarget.GetComponent<CharacterCombat>();
 
         if (playerCombat != null)
         {

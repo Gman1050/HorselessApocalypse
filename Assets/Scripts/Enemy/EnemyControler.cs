@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyControler : MonoBehaviour {
+public class EnemyControler : Interactable {
 
     private Animator anim;
 
@@ -47,6 +47,9 @@ public class EnemyControler : MonoBehaviour {
                 anim.SetBool("IsWalking", false);
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
 
+                EnemyCombat enemyCombat = GetComponent<EnemyCombat>();
+                enemyCombat.Attack(targetStats);
+                
                 if (targetStats.currentHealth != 0)
                 {
 
@@ -73,6 +76,8 @@ public class EnemyControler : MonoBehaviour {
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(interactionTransform.position, radius);
     }
 
     void FindClosestEnemy()
@@ -94,4 +99,5 @@ public class EnemyControler : MonoBehaviour {
         }
     }
 
+    
 }
