@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterStats))]
+[RequireComponent(typeof(EnemyStats))]
 public class Enemy : Interactable {
 
     PlayerManager playerManager;
@@ -20,7 +20,7 @@ public class Enemy : Interactable {
     {
         base.Interact();
 
-        CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
+        CharacterCombat playerCombat = playerManager.playerTarget.GetComponent<CharacterCombat>();
 
         if (playerCombat != null)
         {

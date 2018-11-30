@@ -6,7 +6,7 @@ public class EnemyStats : MonoBehaviour
 {
     private Animator anim;
 
-    public Stats damage;
+    public int damage;
 
     public int maxHealth;
 
@@ -15,6 +15,10 @@ public class EnemyStats : MonoBehaviour
         get;
         private set;
     }
+
+    public GameObject[] dropitems;
+
+    float droprate = 0.25f;
 
     void Awake()
     {
@@ -39,6 +43,8 @@ public class EnemyStats : MonoBehaviour
             
             Die();
 
+            DropItem();
+
         }
     }
 
@@ -62,4 +68,16 @@ public class EnemyStats : MonoBehaviour
             currentHealth = 0;
         }
     }
+
+    public void DropItem()
+    {
+        if (Random.Range(0f, 1f) <= droprate)
+        {
+            int indexToDrop = Random.Range(0, dropitems.Length);
+            Instantiate(dropitems[indexToDrop], this.transform.position, this.transform.rotation);
+        }
+    }
 }
+
+
+

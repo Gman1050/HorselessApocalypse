@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyControler : MonoBehaviour {
+public class EnemyControler : Interactable {
 
     private Animator anim;
 
@@ -15,9 +15,12 @@ public class EnemyControler : MonoBehaviour {
 
     CharacterCombat combat;
 
+    Transform firstEnemy;
+
 	// Use this for initialization
 	void Start () {
-        target = PlayerManager.instance.player.transform;
+       
+        target = firstEnemy.transform;
 
         agent = GetComponent<NavMeshAgent>();
 
@@ -28,6 +31,8 @@ public class EnemyControler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        FindClosestEnemy();
 
         float distance = Vector3.Distance(target.position, transform.position);
 
@@ -42,6 +47,9 @@ public class EnemyControler : MonoBehaviour {
                 anim.SetBool("IsWalking", false);
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
 
+                EnemyCombat enemyCombat = GetComponent<EnemyCombat>();
+                enemyCombat.Attack(targetStats);
+                
                 if (targetStats.currentHealth != 0)
                 {
 
@@ -68,5 +76,28 @@ public class EnemyControler : MonoBehaviour {
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(interactionTransform.position, radius);
     }
+
+    void FindClosestEnemy()
+    {
+        float distanceToClosestEnemy = Mathf.Infinity;
+        CharacterStats closestEnemy = null;
+        CharacterStats[] allEnemies = GameObject.FindObjectsOfType<CharacterStats>();
+
+        foreach (CharacterStats currentEnemy in allEnemies)
+        {
+            float distanceToEnemy = (currentEnemy.transform.position - transform.position).sqrMagnitude;
+            if(distanceToEnemy < distanceToClosestEnemy)
+            {
+                distanceToClosestEnemy = distanceToEnemy;
+                closestEnemy = currentEnemy;
+                firstEnemy = currentEnemy.transform;
+                Gizmos.DrawLine(transform.position, firstEnemy.position);
+            }
+        }
+    }
+
+    
 }
