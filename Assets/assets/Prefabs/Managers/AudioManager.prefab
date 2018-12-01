@@ -553,7 +553,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIAudio: {fileID: 82623632029281834}
   UIVolume: 0.5
-  UIClips: []
+  UIClips:
+  - {fileID: 8300000, guid: 62b6ec96f36be314f821bdb0790a1b6e, type: 3}
+  - {fileID: 8300000, guid: fdf850ec8bdb39b45b1508f4f1f240b3, type: 3}
+  - {fileID: 8300000, guid: 467344f980da76d40a67c09ba942ca13, type: 3}
   playerAudio: {fileID: 82127604039912370}
   playerVolume: 0.75
   playerClips: []
