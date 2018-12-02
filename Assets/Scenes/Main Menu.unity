@@ -252,16 +252,41 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114496908307816062, guid: 407b18dd14b98554a8e4d4bb95faff87,
+    - target: {fileID: 114972654287716014, guid: 407b18dd14b98554a8e4d4bb95faff87,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 832805435}
+      objectReference: {fileID: 1035674647}
+    - target: {fileID: 114793111397852130, guid: 407b18dd14b98554a8e4d4bb95faff87,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1035674647}
     - target: {fileID: 114609469169612262, guid: 407b18dd14b98554a8e4d4bb95faff87,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 405777147}
+    - target: {fileID: 114609469169612262, guid: 407b18dd14b98554a8e4d4bb95faff87,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1035674647}
+    - target: {fileID: 114496908307816062, guid: 407b18dd14b98554a8e4d4bb95faff87,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1035674647}
+    - target: {fileID: 114279595467974744, guid: 407b18dd14b98554a8e4d4bb95faff87,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1035674647}
+    - target: {fileID: 114269657693236578, guid: 407b18dd14b98554a8e4d4bb95faff87,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1035674647}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 407b18dd14b98554a8e4d4bb95faff87, type: 2}
   m_IsPrefabAsset: 0
@@ -367,6 +392,10 @@ Prefab:
       propertyPath: mainMenuCanvas
       value: 
       objectReference: {fileID: 1573768358}
+    - target: {fileID: 1643614110044850, guid: 8562ec3b12339ce43a4de9497d00ac57, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8562ec3b12339ce43a4de9497d00ac57, type: 2}
   m_IsPrefabAsset: 0
@@ -414,25 +443,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114655702216615862, guid: ac11752a828493544a2179e89bc2c111,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 832805435}
     - target: {fileID: 114745468859972062, guid: ac11752a828493544a2179e89bc2c111,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 832805435}
-    - target: {fileID: 224644096264830854, guid: ac11752a828493544a2179e89bc2c111,
+    - target: {fileID: 114655702216615862, guid: ac11752a828493544a2179e89bc2c111,
         type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633353741670612, guid: ac11752a828493544a2179e89bc2c111, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 832805435}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac11752a828493544a2179e89bc2c111, type: 2}
   m_IsPrefabAsset: 0
@@ -597,6 +617,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e60b2e0f45c3084c8c56587307f87ef, type: 2}
   m_IsPrefabAsset: 0
+--- !u!82 &1035674647 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82623632029281834, guid: 1e60b2e0f45c3084c8c56587307f87ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1035674646}
 --- !u!1001 &1115216875
 Prefab:
   m_ObjectHideFlags: 0
