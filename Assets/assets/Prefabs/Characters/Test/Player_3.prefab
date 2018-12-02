@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114497972633651968}
   - component: {fileID: 114631129648260748}
   - component: {fileID: 208121752558726074}
+  - component: {fileID: 114856587374223552}
   m_Layer: 9
   m_Name: Player_3
   m_TagString: Untagged
@@ -196,7 +197,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1390664820167244}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -104.40723, y: 0.5, z: 117.96081}
+  m_LocalPosition: {x: -3.610019, y: 0.5, z: -18.220001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4372255405954432}
@@ -545,8 +546,7 @@ MonoBehaviour:
   playerOrder: 2
   characterName: 
   characterImage: {fileID: 0}
-  damage:
-    baseValue: 0
+  damage: 0
   maxHealth: 15
   maxSpecialTimer: 30
 --- !u!114 &114631129648260748
@@ -561,6 +561,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 2
+  mass: 18
+  speed: 5
+--- !u!114 &114856587374223552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390664820167244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a815b1396cb27542963bd56931e74b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOrder: 0
+  highlightSpawnSpot: {fileID: 0}
+  mass: 18
   speed: 5
 --- !u!135 &135011824946969510
 SphereCollider:

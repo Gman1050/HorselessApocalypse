@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114479998513307414}
   - component: {fileID: 114594545936377874}
   - component: {fileID: 208189277423287142}
+  - component: {fileID: 114022538980000886}
   m_Layer: 9
   m_Name: Player_1
   m_TagString: Untagged
@@ -157,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096286770349918}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -104.40721, y: 0.5, z: 132.5308}
+  m_LocalPosition: {x: -3.6100037, y: 0.5, z: -3.6500092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4909614955865310}
@@ -483,6 +484,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 109.52, z: 1}
   m_Center: {x: 0, y: 55.19, z: 0}
+--- !u!114 &114022538980000886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096286770349918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a815b1396cb27542963bd56931e74b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOrder: 0
+  highlightSpawnSpot: {fileID: 0}
+  mass: 18
+  speed: 5
 --- !u!114 &114479998513307414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -497,8 +513,7 @@ MonoBehaviour:
   playerOrder: 0
   characterName: 
   characterImage: {fileID: 0}
-  damage:
-    baseValue: 0
+  damage: 0
   maxHealth: 15
   maxSpecialTimer: 30
 --- !u!114 &114594545936377874
@@ -513,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 0
+  mass: 18
   speed: 5
 --- !u!114 &114937364922357930
 MonoBehaviour:

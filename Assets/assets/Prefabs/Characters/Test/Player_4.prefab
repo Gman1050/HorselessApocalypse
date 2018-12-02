@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 114561476618278018}
   - component: {fileID: 114438320024580094}
   - component: {fileID: 208994788217121524}
+  - component: {fileID: 114496803454352042}
   m_Layer: 9
   m_Name: Player_4
   m_TagString: Untagged
@@ -131,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354384372496598}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -104.40723, y: 0.5, z: 111.71081}
+  m_LocalPosition: {x: -3.610019, y: 0.5, z: -24.470001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4822742147163146}
@@ -495,6 +496,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrder: 3
+  mass: 18
+  speed: 5
+--- !u!114 &114496803454352042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1354384372496598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a815b1396cb27542963bd56931e74b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOrder: 0
+  highlightSpawnSpot: {fileID: 0}
+  mass: 18
   speed: 5
 --- !u!114 &114502093375657544
 MonoBehaviour:
@@ -558,8 +575,7 @@ MonoBehaviour:
   playerOrder: 3
   characterName: 
   characterImage: {fileID: 0}
-  damage:
-    baseValue: 0
+  damage: 0
   maxHealth: 15
   maxSpecialTimer: 30
 --- !u!135 &135223234855461552
