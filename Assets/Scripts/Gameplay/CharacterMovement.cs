@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public PlayerOrder playerOrder;                 // Used to set which player is which in the inspector
-    public float mass = 18.0f;                      // Default mass will set player to 180 pounds approximately
-    public float speed = 5.0f;                      // Test variables for speed of the gameobject
-    private CharacterController control;            // Declares CharacterController for rotation and movement
-    private Vector3 gravityVector = Vector3.zero;   // Set an initial velocity for gravity
+    public PlayerOrder playerOrder;         // Used to set which player is which in the inspector
+    public float speed = 5.0f;              // Test variables for speed of the gameobject
+    private CharacterController control;    // Declares CharacterController for rotation and movement
 
     //**********************************************************************************************************************//
     // Use this before scene loads
@@ -31,7 +29,7 @@ public class CharacterMovement : MonoBehaviour
     //**********************************************************************************************************************//
     // Update is called once per frame
     //**********************************************************************************************************************//
-    void FixedUpdate()
+    void Update()
     {
         Movement();     // Test movement for all players
     }
@@ -49,10 +47,6 @@ public class CharacterMovement : MonoBehaviour
     {
         Attacks attacks = GetComponent<Attacks>();
 
-        gravityVector += mass * Physics.gravity * Time.deltaTime;
-        Vector3 deltaPosition = gravityVector * Time.deltaTime;
-        Vector3 move = Vector3.up * deltaPosition.y;
-
         if (!attacks.IsSpecialAttack)
         {
             float targetX = ControllerManager.Instance.GetLeftStick(playerOrder).x;
@@ -62,7 +56,7 @@ public class CharacterMovement : MonoBehaviour
             Vector3 newDir = Vector3.RotateTowards(transform.forward, new Vector3(targetX, 0.0f, targetZ), movement, 0.0f);
 
             transform.rotation = Quaternion.LookRotation(newDir);
-            control.Move(new Vector3(targetX, move.y, targetZ) * movement);
+            control.Move(new Vector3(targetX, 0.0f, targetZ) * movement);
         }
     }
     //**********************************************************************************************************************//
