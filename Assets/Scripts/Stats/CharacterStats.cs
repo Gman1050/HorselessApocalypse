@@ -44,7 +44,7 @@ public class CharacterStats : MonoBehaviour
 
     void Update()
     {
-        SetMode();
+        //SetMode();
 
         CurrentHealthBoundaries();
 
