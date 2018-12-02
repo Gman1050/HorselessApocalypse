@@ -266,13 +266,8 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 405777147}
+      objectReference: {fileID: 832805435}
     - target: {fileID: 114609469169612262, guid: 407b18dd14b98554a8e4d4bb95faff87,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 710860970}
-    - target: {fileID: 114496908307816062, guid: 407b18dd14b98554a8e4d4bb95faff87,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -570,11 +565,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!82 &710860970 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 82623632029281834, guid: 1e60b2e0f45c3084c8c56587307f87ef,
-    type: 2}
-  m_PrefabInternal: {fileID: 1035674646}
 --- !u!114 &832805435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114740329506270546, guid: 407392d2f0f36134fb4ad18da972c74f,
