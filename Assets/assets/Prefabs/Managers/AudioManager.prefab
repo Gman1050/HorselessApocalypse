@@ -564,5 +564,10 @@ MonoBehaviour:
   enemyVolume: 0.75
   enemyClips: []
   musicAudio: {fileID: 82155741354610576}
-  musicVolume: 0.2
-  musicClips: []
+  musicVolume: 0.5
+  musicClips:
+  - {fileID: 8300000, guid: 68952c5015e99524fbcb4ddcfa6b93b6, type: 3}
+  - {fileID: 8300000, guid: 2439cefc0ea76f143b31ff9200ad1356, type: 3}
+  - {fileID: 8300000, guid: cd3678bf13b61ea429050e5170849c38, type: 3}
+  - {fileID: 8300000, guid: 2a09cd01bb2bdbc4ab59c356cd6ff21b, type: 3}
+  - {fileID: 8300000, guid: 270413c733176944bb7ad754477f1359, type: 3}
