@@ -33,7 +33,7 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentSpecialTimer = maxSpecialTimer;
-
+        GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
 
     }
 
@@ -44,7 +44,7 @@ public class CharacterStats : MonoBehaviour
 
     void Update()
     {
-        //SetMode();
+        SetMode();
 
         CurrentHealthBoundaries();
 
@@ -62,6 +62,11 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+    }
+
     public void ResetSpecialTimer()
     {
         currentSpecialTimer = 0.0f;
@@ -72,7 +77,10 @@ public class CharacterStats : MonoBehaviour
         // Die in some way
         // This is meant to be overwritten
         Debug.Log(transform.name + " died.");
-        LivesSystem.Instance.LoseLife();
+        if (LivesSystem.Instance)
+        {
+            LivesSystem.Instance.LoseLife();
+        }
         isDead = true;
         //Destroy(gameObject);
     }
@@ -103,14 +111,19 @@ public class CharacterStats : MonoBehaviour
 
     private void SetMode()
     {
+        if (ControllerManager.Instance.GetXButtonDown(playerOrder))
+        {
+            TakeDamage(5);
+        }
+
         if (isDead)
         {
-            GetComponent<CharacterMovement>().enabled = false;
+            //GetComponent<CharacterMovement>().enabled = false;
             GetComponent<CharacterRespawn>().enabled = true;
         }
         else
         {
-            GetComponent<CharacterMovement>().enabled = true;
+            //GetComponent<CharacterMovement>().enabled = true;
             GetComponent<CharacterRespawn>().enabled = false;
         }
     }
