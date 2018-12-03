@@ -61,21 +61,25 @@ public class GameManager : MonoBehaviour
                 player_1.playerOrder = order;
                 player_1.characterName = name;
                 player_1.characterImage = image;
+                SetSpecials(order, name);
                 break;
             case PlayerOrder.PLAYER_2:
                 player_2.playerOrder = order;
                 player_2.characterName = name;
                 player_2.characterImage = image;
+                SetSpecials(order, name);
                 break;
             case PlayerOrder.PLAYER_3:
                 player_3.playerOrder = order;
                 player_3.characterName = name;
                 player_3.characterImage = image;
+                SetSpecials(order, name);
                 break;
             case PlayerOrder.PLAYER_4:
                 player_4.playerOrder = order;
                 player_4.characterName = name;
                 player_4.characterImage = image;
+                SetSpecials(order, name);
                 break;
         }
 
@@ -119,6 +123,7 @@ public class GameManager : MonoBehaviour
                 {
                     player.characterName = player_1.characterName;
                     player.characterImage.sprite = player_1.characterImage;
+                    player.specialAttack = player_1.specialAttack;
                 }
                 else
                 {
@@ -132,6 +137,7 @@ public class GameManager : MonoBehaviour
                 {
                     player.characterName = player_2.characterName;
                     player.characterImage.sprite = player_2.characterImage;
+                    player.specialAttack = player_2.specialAttack;
                 }
                 else
                 {
@@ -145,6 +151,7 @@ public class GameManager : MonoBehaviour
                 {
                     player.characterName = player_3.characterName;
                     player.characterImage.sprite = player_3.characterImage;
+                    player.specialAttack = player_3.specialAttack;
                 }
                 else
                 {
@@ -158,6 +165,7 @@ public class GameManager : MonoBehaviour
                 {
                     player.characterName = player_4.characterName;
                     player.characterImage.sprite = player_4.characterImage;
+                    player.specialAttack = player_4.specialAttack;
                 }
                 else
                 {
@@ -202,21 +210,25 @@ public class GameManager : MonoBehaviour
                 player_1.playerOrder = order;
                 player_1.characterName = null;
                 player_1.characterImage = null;
+                player_1.specialAttack = SpecialAttacks.NONE;
                 break;
             case PlayerOrder.PLAYER_2:
                 player_2.playerOrder = order;
                 player_2.characterName = null;
                 player_2.characterImage = null;
+                player_2.specialAttack = SpecialAttacks.NONE;
                 break;
             case PlayerOrder.PLAYER_3:
                 player_3.playerOrder = order;
                 player_3.characterName = null;
                 player_3.characterImage = null;
+                player_3.specialAttack = SpecialAttacks.NONE;
                 break;
             case PlayerOrder.PLAYER_4:
                 player_4.playerOrder = order;
                 player_4.characterName = null;
                 player_4.characterImage = null;
+                player_4.specialAttack = SpecialAttacks.NONE;
                 break;
         }
 
@@ -269,6 +281,85 @@ public class GameManager : MonoBehaviour
         }
 
         return null;
+    }
+    /*******************************************************************************************************/
+
+    /*******************************************************************************************************/
+    // Sets the specials for each character selected when saved
+    /*******************************************************************************************************/
+    private void SetSpecials(PlayerOrder playerOrder, string characterName)
+    {
+        switch (playerOrder)
+        {
+            case PlayerOrder.PLAYER_1:
+                switch (characterName)
+                {
+                    case "Gregorio: The Horseman of War":
+                        player_1.specialAttack = SpecialAttacks.WAR;
+                        break;
+                    case "Celestino: The Horseman of Famine":
+                        player_1.specialAttack = SpecialAttacks.FAMINE;
+                        break;
+                    case "Falconi: The Horseman of Pestilence":
+                        player_1.specialAttack = SpecialAttacks.PESTILENCE;
+                        break;
+                    case "Artesia: The Horseman of Death":
+                        player_1.specialAttack = SpecialAttacks.DEATH;
+                        break;
+                }
+                break;
+            case PlayerOrder.PLAYER_2:
+                switch (characterName)
+                {
+                    case "Gregorio: The Horseman of War":
+                        player_2.specialAttack = SpecialAttacks.WAR;
+                        break;
+                    case "Celestino: The Horseman of Famine":
+                        player_2.specialAttack = SpecialAttacks.FAMINE;
+                        break;
+                    case "Falconi: The Horseman of Pestilence":
+                        player_2.specialAttack = SpecialAttacks.PESTILENCE;
+                        break;
+                    case "Artesia: The Horseman of Death":
+                        player_2.specialAttack = SpecialAttacks.DEATH;
+                        break;
+                }
+                break;
+            case PlayerOrder.PLAYER_3:
+                switch (characterName)
+                {
+                    case "Gregorio: The Horseman of War":
+                        player_3.specialAttack = SpecialAttacks.WAR;
+                        break;
+                    case "Celestino: The Horseman of Famine":
+                        player_3.specialAttack = SpecialAttacks.FAMINE;
+                        break;
+                    case "Falconi: The Horseman of Pestilence":
+                        player_3.specialAttack = SpecialAttacks.PESTILENCE;
+                        break;
+                    case "Artesia: The Horseman of Death":
+                        player_3.specialAttack = SpecialAttacks.DEATH;
+                        break;
+                }
+                break;
+            case PlayerOrder.PLAYER_4:
+                switch (characterName)
+                {
+                    case "Gregorio: The Horseman of War":
+                        player_4.specialAttack = SpecialAttacks.WAR;
+                        break;
+                    case "Celestino: The Horseman of Famine":
+                        player_4.specialAttack = SpecialAttacks.FAMINE;
+                        break;
+                    case "Falconi: The Horseman of Pestilence":
+                        player_4.specialAttack = SpecialAttacks.PESTILENCE;
+                        break;
+                    case "Artesia: The Horseman of Death":
+                        player_4.specialAttack = SpecialAttacks.DEATH;
+                        break;
+                }
+                break;
+        }
     }
     /*******************************************************************************************************/
 }
