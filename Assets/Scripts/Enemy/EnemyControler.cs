@@ -20,7 +20,7 @@ public class EnemyControler : Interactable {
 	// Use this for initialization
 	void Start () {
        
-        target = firstEnemy.transform;
+        
 
         agent = GetComponent<NavMeshAgent>();
 
@@ -33,7 +33,7 @@ public class EnemyControler : Interactable {
 	void Update () {
 
         FindClosestEnemy();
-
+        target = firstEnemy.transform;
         float distance = Vector3.Distance(target.position, transform.position);
 
         if(distance <= lookRadius)
@@ -48,12 +48,12 @@ public class EnemyControler : Interactable {
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
 
                 EnemyCombat enemyCombat = GetComponent<EnemyCombat>();
-                enemyCombat.Attack(targetStats);
+                
                 
                 if (targetStats.currentHealth != 0)
                 {
+                    enemyCombat.Attack(targetStats);
 
-                    combat.Attack(targetStats);
                     anim.SetBool("IsAttacking", true);
                 }
                 else
@@ -78,6 +78,7 @@ public class EnemyControler : Interactable {
         Gizmos.DrawWireSphere(transform.position, lookRadius);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(interactionTransform.position, radius);
+        
     }
 
     void FindClosestEnemy()
@@ -94,7 +95,8 @@ public class EnemyControler : Interactable {
                 distanceToClosestEnemy = distanceToEnemy;
                 closestEnemy = currentEnemy;
                 firstEnemy = currentEnemy.transform;
-                Gizmos.DrawLine(transform.position, firstEnemy.position);
+                
+                
             }
         }
     }
