@@ -113,10 +113,12 @@ public class CharacterStats : MonoBehaviour
 
     private void SetMode()
     {
+        /*
         if (ControllerManager.Instance.GetXButtonDown(playerOrder))
         {
             TakeDamage(5);
         }
+        */
 
         if (isDead)
         {
