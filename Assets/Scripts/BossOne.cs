@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 public class BossOne : MonoBehaviour
 {
+    public BossAnimationState animationState;
     public List<CharacterStats> players = new List<CharacterStats>();
     public float speed;
-    public float[] targetDistances;
+    public float targetReach = 3.0f;
     
     private EnemyCombat combat;
     private NavMeshAgent agent; 
@@ -29,6 +30,7 @@ public class BossOne : MonoBehaviour
 
         BossMovement();
 
+        BossAnimation();
     }
 
     private void FindPlayers()
@@ -62,11 +64,34 @@ public class BossOne : MonoBehaviour
         {
             agent.SetDestination(GetClosestEnemy(players).position);
         }
+
+        float distance = Vector3.Distance(transform.position, GetClosestEnemy(players).position);
+
+        if (distance <= targetReach)
+        {
+            combat.Attack(GetClosestEnemy(players).GetComponent<CharacterStats>());
+        }
     }
 
     private void BossAnimation()
     {
-
+        switch(animationState)
+        {
+            case BossAnimationState.NONE:
+                break;
+            case BossAnimationState.IDLE:
+                break;
+            case BossAnimationState.WALK:
+                break;
+            case BossAnimationState.RUN:
+                break;
+            case BossAnimationState.LEFT_ATTACK:
+                break;
+            case BossAnimationState.RIGHT_ATTACK:
+                break;
+            case BossAnimationState.DOUBLE_ATTACK:
+                break;
+        }
     }
 
     private Transform GetClosestEnemy(List<CharacterStats> playersList)
@@ -90,3 +115,13 @@ public class BossOne : MonoBehaviour
     }
 }
 
+public enum BossAnimationState
+{
+    NONE,
+    IDLE,
+    WALK,
+    RUN,
+    LEFT_ATTACK,
+    RIGHT_ATTACK,
+    DOUBLE_ATTACK
+};
