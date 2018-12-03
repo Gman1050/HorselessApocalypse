@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -274,6 +274,11 @@ Prefab:
       objectReference: {fileID: 1035674647}
     - target: {fileID: 114496908307816062, guid: 407b18dd14b98554a8e4d4bb95faff87,
         type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 832805435}
+    - target: {fileID: 114496908307816062, guid: 407b18dd14b98554a8e4d4bb95faff87,
+        type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1035674647}
@@ -392,10 +397,6 @@ Prefab:
       propertyPath: mainMenuCanvas
       value: 
       objectReference: {fileID: 1573768358}
-    - target: {fileID: 1643614110044850, guid: 8562ec3b12339ce43a4de9497d00ac57, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8562ec3b12339ce43a4de9497d00ac57, type: 2}
   m_IsPrefabAsset: 0

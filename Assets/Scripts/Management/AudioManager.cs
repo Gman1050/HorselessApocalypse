@@ -50,11 +50,14 @@ public class AudioManager : MonoBehaviour
     {
         switch(SceneManager.GetActiveScene().name)
         {
-            case "MainMenu":
+            case "Main Menu":
+                PlayMusicAudioClip(1);
                 break;
             case "Level1":
+                PlayMusicAudioClip(1);
                 break;
-            case "Level2":
+            case "level 2":
+                PlayMusicAudioClip(4);
                 break;
         }
     }
