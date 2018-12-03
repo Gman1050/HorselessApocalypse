@@ -73,7 +73,7 @@ public class PlayerSelectScreen : MonoBehaviour
     /*******************************************************************************************************/
     private void SelectionInput()
     {
-        if (!leftAnalog)
+        if (!leftAnalog && !isReady)
         {
             if (ControllerManager.Instance.GetLeftStick(playerOrder).x < 0)
             {
@@ -89,6 +89,8 @@ public class PlayerSelectScreen : MonoBehaviour
                 characterImage.sprite = playerSelectMenu.characterSprites[element];
                 characterName = playerSelectMenu.characterNamesInput[element];
                 characterNameText.text = characterName;
+
+                AudioManager.Instance.PlayUIAudioClip(2);
 
                 leftAnalog = true;
             }
@@ -107,6 +109,8 @@ public class PlayerSelectScreen : MonoBehaviour
                 characterName = playerSelectMenu.characterNamesInput[element];
                 characterNameText.text = characterName;
 
+                AudioManager.Instance.PlayUIAudioClip(2);
+
                 leftAnalog = true;
             }
         }
@@ -124,6 +128,8 @@ public class PlayerSelectScreen : MonoBehaviour
             {
                 SetPlayerData();    // Used to set the player data after the player is ready to play
 
+                AudioManager.Instance.PlayUIAudioClip(1);
+
                 GameManager.Instance.playerQuantity++;  // Increase player quantity by one when player is ready
                 isReady = true;                         // Player is ready to play
             }
@@ -132,6 +138,8 @@ public class PlayerSelectScreen : MonoBehaviour
         {
             if (GameManager.Instance.playerQuantity > 0 && isReady)         // Checls if player quantity is greater than 0 and if the player is ready or not
             {
+                AudioManager.Instance.PlayUIAudioClip(0);
+
                 GameManager.Instance.DeletePlayerData(playerOrder);         // Deletes existing player data that was already set after being ready
 
                 StartCoroutine(ButtonBDelay());                             // Coroutine to delay Input for B Button before B Button is needed to return to main menu
@@ -142,6 +150,7 @@ public class PlayerSelectScreen : MonoBehaviour
         {
             if (ControllerManager.Instance.GetStartButtonDown(playerOrder))     // Checks to see if Start button is pressed on X-Input controller
             {
+                AudioManager.Instance.PlayUIAudioClip(1);
                 GameManager.Instance.ChangeScene("Level1");            // Changes to the scene where the game begins
             }
         }
@@ -149,6 +158,8 @@ public class PlayerSelectScreen : MonoBehaviour
         {
             if (ControllerManager.Instance.GetBButtonDown(playerOrder))
             {
+                AudioManager.Instance.PlayUIAudioClip(0);
+
                 GameObject.FindObjectOfType<PlayerSelectMenu>().mainMenuCanvas.SetActive(true);                              // Turns on the MainMenuCanvas
                 GameObject.Find("PlayerSelectCanvas").transform.GetChild(0).GetComponent<PlayerSelectMenu>().ResetUI();      // Resets UI when this is setactive to false and mainmenu is setactive to true
                 GameObject.Find("PlayerSelectCanvas").SetActive(false);                                                      // Turns off the PlayerSelectCanvas

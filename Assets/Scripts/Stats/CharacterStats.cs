@@ -13,6 +13,7 @@ public class CharacterStats : MonoBehaviour
 
     public int maxHealth;
     public float maxSpecialTimer;
+    private bool isDead = false;
 
     public int currentHealth
     {
@@ -25,6 +26,8 @@ public class CharacterStats : MonoBehaviour
         get;
         private set;
     }
+
+    public bool IsDead { get { return isDead; } set { isDead = value; } }
 
     void Awake()
     {
@@ -41,6 +44,7 @@ public class CharacterStats : MonoBehaviour
 
     void Update()
     {
+        //SetMode();
 
         CurrentHealthBoundaries();
 
@@ -52,9 +56,8 @@ public class CharacterStats : MonoBehaviour
         currentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
-            LivesSystem.Instance.LoseLife();
             Die();
         }
     }
@@ -69,7 +72,9 @@ public class CharacterStats : MonoBehaviour
         // Die in some way
         // This is meant to be overwritten
         Debug.Log(transform.name + " died.");
-        Destroy(gameObject);
+        LivesSystem.Instance.LoseLife();
+        isDead = true;
+        //Destroy(gameObject);
     }
 
     private void CurrentHealthBoundaries()
@@ -93,6 +98,20 @@ public class CharacterStats : MonoBehaviour
         else if (currentSpecialTimer >= maxSpecialTimer)
         {
             currentSpecialTimer = maxSpecialTimer;
+        }
+    }
+
+    private void SetMode()
+    {
+        if (isDead)
+        {
+            GetComponent<CharacterMovement>().enabled = false;
+            GetComponent<CharacterRespawn>().enabled = true;
+        }
+        else
+        {
+            GetComponent<CharacterMovement>().enabled = true;
+            GetComponent<CharacterRespawn>().enabled = false;
         }
     }
 }
