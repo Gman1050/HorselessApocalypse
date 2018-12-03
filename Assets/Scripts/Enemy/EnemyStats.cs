@@ -9,12 +9,14 @@ public class EnemyStats : MonoBehaviour
     public int damage;
 
     public int maxHealth;
+
+    public RepawnEnemy respawnPoint;
     
 
     public int currentHealth
     {
         get;
-        private set;
+        set;
     }
 
     public GameObject[] dropitems;
@@ -42,10 +44,8 @@ public class EnemyStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            
-            Die();
-
             DropItem();
+            Die();
 
         }
     }
@@ -56,7 +56,9 @@ public class EnemyStats : MonoBehaviour
         // This is meant to be overwritten
         Debug.Log(transform.name + " died.");
         anim.SetBool("IsDead", true);
-        Destroy(gameObject);
+        respawnPoint.Respawn();
+        if (respawnPoint.numberofRespawns == 0)
+        { Destroy(gameObject, 2f); }
     }
 
     private void CurrentHealthBoundaries()
@@ -76,7 +78,7 @@ public class EnemyStats : MonoBehaviour
         if (Random.Range(0f, 1f) <= droprate)
         {
             int indexToDrop = Random.Range(0, dropitems.Length);
-            Instantiate(dropitems[indexToDrop], this.transform.position, this.transform.rotation);
+            Instantiate(dropitems[indexToDrop], this.transform.position + new Vector3(0f, 2f, 0f), this.transform.rotation);
         }
     }
 }

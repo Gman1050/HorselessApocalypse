@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 114543426058982072}
   m_Layer: 9
   m_Name: Player_2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1660795528943938}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -104.40721, y: 0.5, z: 125.38081}
+  m_LocalPosition: {x: -97.200005, y: 0.4, z: 116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4867367966998922}
@@ -571,7 +571,6 @@ MonoBehaviour:
   playerOrder: 1
   characterName: 
   characterImage: {fileID: 0}
-  damage: 0
   maxHealth: 15
   maxSpecialTimer: 30
 --- !u!114 &114413540180624218
