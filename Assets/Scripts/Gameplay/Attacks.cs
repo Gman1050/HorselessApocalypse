@@ -9,7 +9,7 @@ public class Attacks : MonoBehaviour
     public LayerMask layer;
     
     [Header("Basic Attack Settings: ")]
-    [Range(0, 5)] public float basicAttackRange = 3.0f;
+    [Range(0, 5)] public float basicAttackRange = 4.0f;
     [Range(0, 5)] public float basicAttackInterval = 1.0f;
     [Range(0, 5)] public int basicAttackDamage = 1;
     public SphereCollider basicAttack;

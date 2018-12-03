@@ -20,8 +20,8 @@ public class DamagePickUp : MonoBehaviour {
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
         //apply effect
-        CharacterStats stats = player.GetComponent<CharacterStats>();
-        stats.damage += multiplier;
+         Attacks stats = player.GetComponent<Attacks>();
+        stats.basicAttackDamage += multiplier;
         
         Destroy(gameObject);
     }

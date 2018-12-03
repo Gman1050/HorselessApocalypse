@@ -47,7 +47,7 @@ public class CharacterCombat : MonoBehaviour {
     {
         yield return new WaitForSeconds(delay);
 
-        stats.TakeDamage(myStats.damage);
+        //stats.TakeDamage(myStats.damage);
     }
 
 }

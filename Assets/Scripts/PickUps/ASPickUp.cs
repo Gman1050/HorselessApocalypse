@@ -6,7 +6,7 @@ public class ASPickUp : MonoBehaviour {
 
     public float multiplier = .05f;
     public GameObject pickupEffect;
-
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -17,12 +17,12 @@ public class ASPickUp : MonoBehaviour {
 
     void Pickup(Collider player)
     {
-        Instantiate(pickupEffect, transform.position, transform.rotation);
-        CharacterCombat stats = player.GetComponent<CharacterCombat>();
+        Instantiate(pickupEffect, transform.position , transform.rotation );
+        Attacks stats = player.GetComponent<Attacks>();
         //apply effect
-        while (stats.attackSpeed >= .1f)
+        if (stats.basicAttackInterval > .1f)
         { 
-            stats.attackSpeed -= multiplier;
+            stats.basicAttackInterval -= multiplier;
         }
         
         Destroy(gameObject);
