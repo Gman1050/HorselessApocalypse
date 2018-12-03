@@ -1,6 +1,7 @@
 fileFormatVersion: 2
-guid: 02536f33053638549ab5c50ff3ecc0de
+guid: 90e21485af4237547b8b0f945d841e4a
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - lensFlareVignetteMask: {fileID: 2800000, guid: 95ef4804fe0be4c999ddaa383536cde8,
@@ -20,3 +21,4 @@ MonoImporter:
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
+  assetBundleVariant: 

@@ -1,6 +1,7 @@
 fileFormatVersion: 2
-guid: d64b4f3a592f28b44bf19223ac8b6cd2
+guid: f50eac587a1379f49a1a4e5d59d9bd5a
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - blurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
@@ -10,3 +11,4 @@ MonoImporter:
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
+  assetBundleVariant: 

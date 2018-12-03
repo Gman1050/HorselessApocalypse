@@ -1,6 +1,7 @@
 fileFormatVersion: 2
-guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8
+guid: 59b9c3fba769ab84492bf907994e9d29
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
@@ -12,3 +13,4 @@ MonoImporter:
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
+  assetBundleVariant: 

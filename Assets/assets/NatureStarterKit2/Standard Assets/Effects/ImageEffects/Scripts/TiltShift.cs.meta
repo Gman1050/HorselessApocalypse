@@ -1,6 +1,7 @@
 fileFormatVersion: 2
-guid: a22b3a7095a744a428c134b5e26ad68e
+guid: 617e9210c1cf9bb41afe3c4c2583ae06
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - tiltShiftShader: {fileID: 4800000, guid: bf34d2a25450349699e8ae6456fa7ca9, type: 3}
@@ -8,3 +9,4 @@ MonoImporter:
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
+  assetBundleVariant: 

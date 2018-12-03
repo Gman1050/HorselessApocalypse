@@ -1,6 +1,7 @@
 fileFormatVersion: 2
-guid: ec92b071d2d424aecb3e46f28eb63174
+guid: 27ab7b33c38b7b3449465275562c8a89
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - shaderLum: {fileID: 4800000, guid: befbb4b9c320b4b18a08ef7afb93b6c9, type: 3}
@@ -10,3 +11,5 @@ MonoImporter:
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

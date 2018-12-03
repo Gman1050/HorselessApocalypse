@@ -1,6 +1,7 @@
 fileFormatVersion: 2
-guid: 6f19108706fdce9469603d07980eb8ad
+guid: d5c933c0ffbce43409889cb1045bb0ef
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - texture: {instanceID: 0}
@@ -9,3 +10,4 @@ MonoImporter:
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
+  assetBundleVariant: 

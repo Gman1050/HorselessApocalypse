@@ -1,6 +1,7 @@
 fileFormatVersion: 2
-guid: b0923359e9e352a4b9b11c7b7161ad67
+guid: fafb72dd3bda11e40aeb0f80092e8fb3
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
@@ -8,3 +9,5 @@ MonoImporter:
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
