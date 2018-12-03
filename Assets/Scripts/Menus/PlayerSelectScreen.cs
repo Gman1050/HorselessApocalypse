@@ -161,7 +161,7 @@ public class PlayerSelectScreen : MonoBehaviour
                 AudioManager.Instance.PlayUIAudioClip(0);
 
                 GameObject.FindObjectOfType<PlayerSelectMenu>().mainMenuCanvas.SetActive(true);                              // Turns on the MainMenuCanvas
-                GameObject.Find("PlayerSelectCanvas").transform.GetChild(0).GetComponent<PlayerSelectMenu>().ResetUI();      // Resets UI when this is setactive to false and mainmenu is setactive to true
+                GameObject.Find("PlayerSelectCanvas").transform.GetChild(1).GetComponent<PlayerSelectMenu>().ResetUI();      // Resets UI when this is setactive to false and mainmenu is setactive to true
                 GameObject.Find("PlayerSelectCanvas").SetActive(false);                                                      // Turns off the PlayerSelectCanvas
             }
         }

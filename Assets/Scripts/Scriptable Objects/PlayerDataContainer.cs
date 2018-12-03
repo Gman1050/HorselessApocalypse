@@ -9,4 +9,7 @@ public class PlayerDataContainer : ScriptableObject
     public PlayerOrder playerOrder;
     public string characterName;
     public Sprite characterImage;
+    public SpecialAttacks specialAttack;
 }
+
+

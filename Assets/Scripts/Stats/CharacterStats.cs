@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CharacterStats : MonoBehaviour
 {
     public PlayerOrder playerOrder;
+    public SpecialAttacks specialAttack;
     public string characterName;
     public Image characterImage;
     //public int damage;
@@ -34,6 +35,7 @@ public class CharacterStats : MonoBehaviour
         currentHealth = maxHealth;
         currentSpecialTimer = maxSpecialTimer;
         GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
+        GetComponent<Attacks>().Special = specialAttack;
 
     }
 
@@ -111,10 +113,12 @@ public class CharacterStats : MonoBehaviour
 
     private void SetMode()
     {
+        /*
         if (ControllerManager.Instance.GetXButtonDown(playerOrder))
         {
             TakeDamage(5);
         }
+        */
 
         if (isDead)
         {
