@@ -6,6 +6,8 @@ public class CharacterRespawn : MonoBehaviour
 {
     public PlayerOrder playerOrder;
     public GameObject highlightSpawnSpot;
+    public SkinnedMeshRenderer skin;
+
     //public float mass = 18.0f;                      // Default mass will set player to 180 pounds approximately
     //public float speed = 5.0f;                      // Test variables for speed of the gameobject
 
@@ -17,7 +19,7 @@ public class CharacterRespawn : MonoBehaviour
     {
         if(characterStats.IsDead)
         {
-            GetComponent<MeshRenderer>().enabled = false;
+            skin.enabled = false;
             GetComponent<Attacks>().enabled = false;
             highlightSpawnSpot.SetActive(true);
         }
@@ -25,7 +27,7 @@ public class CharacterRespawn : MonoBehaviour
 
     private void OnDisable()
     {
-        GetComponent<MeshRenderer>().enabled = true;
+        skin.enabled = true;
         GetComponent<Attacks>().enabled = true;
         highlightSpawnSpot.SetActive(false);
     }
@@ -45,16 +47,6 @@ public class CharacterRespawn : MonoBehaviour
 
     private void Respawn()
     {
-        //gravityVector += mass * Physics.gravity * Time.deltaTime;
-        //Vector3 deltaPosition = gravityVector * Time.deltaTime;
-        //Vector3 move = Vector3.up * deltaPosition.y;
-
-        //float targetX = ControllerManager.Instance.GetLeftStick(playerOrder).x;
-        //float targetZ = ControllerManager.Instance.GetLeftStick(playerOrder).y;
-        //float movement = speed * Time.deltaTime;
-        
-        //control.Move(new Vector3(targetX, move.y, targetZ) * movement);
-
         if (ControllerManager.Instance.GetAButtonDown(playerOrder))
         {
             characterStats.ResetHealth();
