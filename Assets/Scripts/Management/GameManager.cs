@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public int playerQuantity;              // Checks the quantity of players on the Main menu for Debugging purposes
     public PlayerDataContainer player_1, player_2, player_3, player_4;
     public string nextLevel;
+    private Text playerLivesText;
+
+    public Text PlayerLivesText { get { return playerLivesText; } }
 
     public void CompleteLevel()
     {
@@ -37,7 +40,15 @@ public class GameManager : MonoBehaviour
     /*******************************************************************************************************/
     void Start ()
     {
-		
+        if (GameObject.Find("PlayerLivesText"))
+        {
+            playerLivesText = GameObject.Find("PlayerLivesText").GetComponent<Text>();
+        }
+
+        if(!LivesSystem.Instance)
+        {
+            playerLivesText.text = "";
+        }
 	}
     /*******************************************************************************************************/
 
