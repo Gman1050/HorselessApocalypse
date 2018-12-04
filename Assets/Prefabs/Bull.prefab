@@ -1147,8 +1147,10 @@ GameObject:
   - component: {fileID: 4698305388821502}
   - component: {fileID: 95190736279286112}
   - component: {fileID: 114706413381835932}
-  - component: {fileID: 195650064084230314}
-  m_Layer: 0
+  - component: {fileID: 114609063121037750}
+  - component: {fileID: 65051838237515528}
+  - component: {fileID: 195437174781508046}
+  m_Layer: 8
   m_Name: Bull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2746,6 +2748,18 @@ Transform:
   m_Father: {fileID: 4125863103163056}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65051838237515528
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733410972811052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.52, z: 0.15}
 --- !u!95 &95190736279286112
 Animator:
   serializedVersion: 3
@@ -2764,6 +2778,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114609063121037750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733410972811052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a76178a3d319f449c95e80d92d8540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 15
+  maxHealth: 100
 --- !u!114 &114706413381835932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2775,12 +2802,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e8f856e2aa009489320a3f2d297db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
   animationState: 0
   players: []
-  oneSwingDamage: 3
+  singleSwingDamage: 3
   doubleSwingDamage: 6
   speed: 5
-  targetReach: 3
+  targetReach: 5
+  beginFight: 10
 --- !u!137 &137184765710438752
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2918,7 +2949,7 @@ SkinnedMeshRenderer:
     m_Center: {x: -23.151665, y: 18.574697, z: 0.12538147}
     m_Extent: {x: 37.82568, y: 33.214584, z: 49.232025}
   m_DirtyAABB: 0
---- !u!195 &195650064084230314
+--- !u!195 &195437174781508046
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

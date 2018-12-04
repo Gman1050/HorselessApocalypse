@@ -5,16 +5,18 @@ using UnityEngine.AI;
 
 public class BossOne : MonoBehaviour
 {
+    public LayerMask layer;
     public BossAnimationState animationState;
     public List<CharacterStats> players = new List<CharacterStats>();
-    public int oneSwingDamage = 3, doubleSwingDamage = 6;
+    public int singleSwingDamage = 3, doubleSwingDamage = 6;
     public float speed;
-    public float targetReach = 3.0f;
+    public float targetReach = 3.0f, beginFight = 10.0f;
     
     private EnemyCombat combat;
     private NavMeshAgent agent; 
     private Animator animator;
     private bool bossFightBegins = false;
+    private bool attackCheck = false;
 
 	// Use this for initialization
 	void Start ()
@@ -68,9 +70,17 @@ public class BossOne : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, GetClosestEnemy(players).position);
 
+        if (distance <= beginFight)
+        {
+            bossFightBegins = true;
+        }
+
         if (distance <= targetReach)
         {
-            StartCoroutine(DamageTimer(2.0f));
+            if (!attackCheck)
+            {
+                StartCoroutine(DamageTimer(2.0f));
+            }
         }
     }
 
@@ -136,14 +146,16 @@ public class BossOne : MonoBehaviour
                 bestTarget = potentialPlayerTarget.transform;
             }
         }
-
+        
         return bestTarget;
     }
 
     private IEnumerator DamageTimer(float seconds)
     {
+        attackCheck = true;
         yield return new WaitForSeconds(seconds);
-        GetClosestEnemy(players).GetComponent<CharacterStats>().currentHealth -= oneSwingDamage;
+        GetClosestEnemy(players).GetComponent<CharacterStats>().TakeDamage(singleSwingDamage);
+        attackCheck = false;
     }
 }
 

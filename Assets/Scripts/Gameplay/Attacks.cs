@@ -99,8 +99,16 @@ public class Attacks : MonoBehaviour
 
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    hits[i].GetComponent<EnemyStats>().TakeDamage(basicAttackDamage);
-                    Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                    if (hits[i].GetComponent<EnemyStats>())
+                    {
+                        hits[i].GetComponent<EnemyStats>().TakeDamage(basicAttackDamage);
+                        Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                    }
+                    else if (hits[i].GetComponent<BossStats>())
+                    {
+                        hits[i].GetComponent<BossStats>().TakeDamage(basicAttackDamage);
+                        Debug.Log(hits[i].GetComponent<BossStats>().currentHealth);
+                    }
                 }
 
                 isAttacking = true;
@@ -174,8 +182,16 @@ public class Attacks : MonoBehaviour
 
                     for (int i = 0; i < hits.Length; i++)
                     {
-                        hits[i].GetComponent<EnemyStats>().TakeDamage(pestilenceAttackDamage);
-                        Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                        if (hits[i].GetComponent<EnemyStats>())
+                        {
+                            hits[i].GetComponent<EnemyStats>().TakeDamage(pestilenceAttackDamage);
+                            Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                        }
+                        else if (hits[i].GetComponent<BossStats>())
+                        {
+                            hits[i].GetComponent<BossStats>().TakeDamage(pestilenceAttackDamage);
+                            Debug.Log(hits[i].GetComponent<BossStats>().currentHealth);
+                        }
                     }
                 }
 
@@ -212,8 +228,16 @@ public class Attacks : MonoBehaviour
                 {
                     for (int i = 0; i < hits.Length; i++)
                     {
-                        hits[i].GetComponent<EnemyStats>().TakeDamage(warAttackDamage);
-                        Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                        if (hits[i].GetComponent<EnemyStats>())
+                        {
+                            hits[i].GetComponent<EnemyStats>().TakeDamage(warAttackDamage);
+                            Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                        }
+                        else if (hits[i].GetComponent<BossStats>())
+                        {
+                            hits[i].GetComponent<BossStats>().TakeDamage(warAttackDamage);
+                            Debug.Log(hits[i].GetComponent<BossStats>().currentHealth);
+                        }
                     }
 
                     isSpecialAttacking = true;
@@ -321,8 +345,16 @@ public class Attacks : MonoBehaviour
                 {
                     for (int i = 0; i < hits.Length; i++)
                     {
-                        hits[i].GetComponent<EnemyStats>().TakeDamage(deathAttackDamage);
-                        Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                        if (hits[i].GetComponent<EnemyStats>())
+                        {
+                            hits[i].GetComponent<EnemyStats>().TakeDamage(deathAttackDamage);
+                            Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                        }
+                        else if (hits[i].GetComponent<BossStats>())
+                        {
+                            hits[i].GetComponent<BossStats>().TakeDamage(deathAttackDamage);
+                            Debug.Log(hits[i].GetComponent<BossStats>().currentHealth);
+                        }
                     }
 
                     isSpecialAttacking = true;
@@ -366,8 +398,16 @@ public class Attacks : MonoBehaviour
 
         for (int i = 0; i < hits.Length; i++)
         {
-            hits[i].GetComponent<EnemyStats>().TakeDamage(famineAttackDamage);
-            Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+            if (hits[i].GetComponent<EnemyStats>())
+            {
+                hits[i].GetComponent<EnemyStats>().TakeDamage(famineAttackDamage);
+                Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+            }
+            else if (hits[i].GetComponent<BossStats>())
+            {
+                hits[i].GetComponent<BossStats>().TakeDamage(famineAttackDamage);
+                Debug.Log(hits[i].GetComponent<BossStats>().currentHealth);
+            }
         }
     }
 
