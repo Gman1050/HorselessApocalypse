@@ -122,6 +122,8 @@ public class GameManager : MonoBehaviour
                 if (player_1.characterName != null && player_1.characterImage != null)
                 {
                     player.characterName = player_1.characterName;
+                    Debug.Log(player.characterImage.sprite);
+                    Debug.Log(player_1.characterImage);
                     player.characterImage.sprite = player_1.characterImage;
                     player.specialAttack = player_1.specialAttack;
                 }
