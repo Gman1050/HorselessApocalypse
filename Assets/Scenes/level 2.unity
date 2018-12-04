@@ -252,6 +252,11 @@ Prefab:
       propertyPath: entity
       value: 
       objectReference: {fileID: 1258408170}
+    - target: {fileID: 114452416366776200, guid: 259f29dd87e6844419fa0c5c4acce752,
+        type: 2}
+      propertyPath: entity
+      value: 
+      objectReference: {fileID: 1258408170}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 259f29dd87e6844419fa0c5c4acce752, type: 2}
   m_IsPrefabAsset: 0
@@ -260,6 +265,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4264341830879552, guid: 259f29dd87e6844419fa0c5c4acce752,
     type: 2}
   m_PrefabInternal: {fileID: 12543910}
+--- !u!114 &12543912 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114452416366776200, guid: 259f29dd87e6844419fa0c5c4acce752,
+    type: 2}
+  m_PrefabInternal: {fileID: 12543910}
+  m_Script: {fileID: 11500000, guid: 1afdcf9bb79385d4fb43eb38c5e79c8c, type: 3}
 --- !u!1 &13677952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3324,6 +3335,11 @@ Prefab:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 756195012}
+    - target: {fileID: 95704979886308192, guid: b83d871bafb4bbe429863abd7df57c17,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6196353d878edf34dba14bf8958523cf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b83d871bafb4bbe429863abd7df57c17, type: 2}
   m_IsPrefabAsset: 0
@@ -5256,6 +5272,11 @@ Prefab:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 504942969}
+    - target: {fileID: 95000010992615658, guid: 9aad9de7cbca6d84b82891c3a1e63e34,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6196353d878edf34dba14bf8958523cf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aad9de7cbca6d84b82891c3a1e63e34, type: 2}
   m_IsPrefabAsset: 0
@@ -9565,6 +9586,11 @@ Prefab:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1746293663}
+    - target: {fileID: 95000010452426964, guid: 30d420b7cf5d3ad40b5c02db6d73287a,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 09784aa95e46afe4f80705d1de1b4719, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30d420b7cf5d3ad40b5c02db6d73287a, type: 2}
   m_IsPrefabAsset: 0
@@ -12340,6 +12366,11 @@ Prefab:
       propertyPath: entity
       value: 
       objectReference: {fileID: 1359507970}
+    - target: {fileID: 114452416366776200, guid: 259f29dd87e6844419fa0c5c4acce752,
+        type: 2}
+      propertyPath: entity
+      value: 
+      objectReference: {fileID: 1359507970}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 259f29dd87e6844419fa0c5c4acce752, type: 2}
   m_IsPrefabAsset: 0
@@ -12348,6 +12379,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4264341830879552, guid: 259f29dd87e6844419fa0c5c4acce752,
     type: 2}
   m_PrefabInternal: {fileID: 760437081}
+--- !u!114 &760437083 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114452416366776200, guid: 259f29dd87e6844419fa0c5c4acce752,
+    type: 2}
+  m_PrefabInternal: {fileID: 760437081}
+  m_Script: {fileID: 11500000, guid: 1afdcf9bb79385d4fb43eb38c5e79c8c, type: 3}
 --- !u!1001 &777595286
 Prefab:
   m_ObjectHideFlags: 0
@@ -18903,7 +18940,7 @@ Prefab:
         type: 2}
       propertyPath: respawnPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 12543912}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d10960e246df0f14d8fc3ef0f2caff88, type: 2}
   m_IsPrefabAsset: 0
@@ -20702,7 +20739,12 @@ Prefab:
         type: 2}
       propertyPath: respawnPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 760437083}
+    - target: {fileID: 95151473156920712, guid: 0b783230e0e0631439f7166712572159,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 09784aa95e46afe4f80705d1de1b4719, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b783230e0e0631439f7166712572159, type: 2}
   m_IsPrefabAsset: 0
