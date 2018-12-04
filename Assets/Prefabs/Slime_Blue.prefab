@@ -20,12 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011406721728}
   - component: {fileID: 137000012344593156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeLevel1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000010338930272
 GameObject:
@@ -35,12 +35,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011977213630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MESH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000010371454730
 GameObject:
@@ -50,12 +50,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011468117410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeControl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000010954498436
 GameObject:
@@ -65,12 +65,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012522779952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeFrontTailJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011587449250
 GameObject:
@@ -80,12 +80,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013182621406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeBackTailJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011842569594
 GameObject:
@@ -95,12 +95,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011044538884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftArrowControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011862010070
 GameObject:
@@ -110,12 +110,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012951783628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeLeftTailJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012458808590
 GameObject:
@@ -125,12 +125,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011452415448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeHeadJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012714790206
 GameObject:
@@ -140,12 +140,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012892423958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RIG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013037392380
 GameObject:
@@ -155,12 +155,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010660432656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeRootJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013175867634
 GameObject:
@@ -171,12 +171,17 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012535691032}
   - component: {fileID: 95000010992615658}
-  m_Layer: 0
+  - component: {fileID: 114178841934183604}
+  - component: {fileID: 195984324885471308}
+  - component: {fileID: 114213203315884556}
+  - component: {fileID: 114301990735888204}
+  - component: {fileID: 135897114816288852}
+  m_Layer: 8
   m_Name: Slime_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013317581416
 GameObject:
@@ -186,12 +191,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012946353730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeRightJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013355307132
 GameObject:
@@ -201,12 +206,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000014070040032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontArrowControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013664680004
 GameObject:
@@ -216,12 +221,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010804683356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BackArrowControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013764731110
 GameObject:
@@ -231,12 +236,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010216094528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightArrowControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013834051064
 GameObject:
@@ -246,12 +251,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012322726578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000014014705304
 GameObject:
@@ -261,12 +266,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012242845704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlimeNeckJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4000010216094528
 Transform:
@@ -429,9 +434,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013175867634}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 59.64104, y: 1.0700002, z: 25.30967}
+  m_LocalScale: {x: 75.000015, y: 75, z: 75.000015}
   m_Children:
   - {fileID: 4000011977213630}
   - {fileID: 4000012892423958}
@@ -514,7 +519,7 @@ Animator:
   m_GameObject: {fileID: 1000013175867634}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e607f74860c67814e93c914b710142d5, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e9675bed33c92946b4a3e7c55e400f1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -523,6 +528,63 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114178841934183604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013175867634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c536b402dcc0634b8d3564e59a0ab4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
+  interactionTransform: {fileID: 4000012535691032}
+  lookRadius: 9
+--- !u!114 &114213203315884556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013175867634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0eb848da6ac6fd46a4bdf4b884d6988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackDelay: 0.6
+--- !u!114 &114301990735888204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013175867634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236c424d742f4144e8c5f8aa9bc96983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  maxHealth: 4
+  respawnPoint: {fileID: 0}
+  dropitems:
+  - {fileID: 1807158073524012, guid: cd83a3a9f79556d42a3c3c9614b8dbde, type: 2}
+  - {fileID: 1716784338413170, guid: 150a93e6ec50fef45a819006ad7cde76, type: 2}
+  - {fileID: 1814334889525276, guid: fbe55b2a646aab94e92a107243a4a34d, type: 2}
+--- !u!135 &135897114816288852
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013175867634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.02
+  m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!137 &137000012344593156
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -577,3 +639,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.006139921, y: 0.0028275093, z: 0}
     m_Extent: {x: 0.012419159, y: 0.0129177375, z: 0.011072946}
   m_DirtyAABB: 0
+--- !u!195 &195984324885471308
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013175867634}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.05
+  m_Speed: 25
+  m_Acceleration: 10
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 7
+  m_ObstacleAvoidanceType: 4
