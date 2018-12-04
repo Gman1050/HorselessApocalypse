@@ -70,6 +70,7 @@ public class CharacterMovement : MonoBehaviour
             if (targetX != 0 || targetZ !=0)
             {
                 anim.SetBool("IsWalking", true);
+                
             }
             else
                 anim.SetBool("IsWalking", false);
