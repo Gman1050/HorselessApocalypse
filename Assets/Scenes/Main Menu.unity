@@ -417,6 +417,10 @@ Prefab:
       propertyPath: mainMenuCanvas
       value: 
       objectReference: {fileID: 1573768358}
+    - target: {fileID: 1643614110044850, guid: 8562ec3b12339ce43a4de9497d00ac57, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8562ec3b12339ce43a4de9497d00ac57, type: 2}
   m_IsPrefabAsset: 0
@@ -464,16 +468,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114745468859972062, guid: ac11752a828493544a2179e89bc2c111,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 832805435}
-    - target: {fileID: 114655702216615862, guid: ac11752a828493544a2179e89bc2c111,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 832805435}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac11752a828493544a2179e89bc2c111, type: 2}
   m_IsPrefabAsset: 0

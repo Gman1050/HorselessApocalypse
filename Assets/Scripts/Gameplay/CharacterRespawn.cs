@@ -37,10 +37,14 @@ public class CharacterRespawn : MonoBehaviour
         highlightSpawnSpot.SetActive(false);
     }
 
+    void Awake()
+    {
+        characterStats = GetComponent<CharacterStats>();
+    }
+
     // Use this for initialization
     void Start ()
     {
-        characterStats = GetComponent<CharacterStats>();
         
     }
 	
