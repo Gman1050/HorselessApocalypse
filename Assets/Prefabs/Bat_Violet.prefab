@@ -19,12 +19,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011821316942}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWing5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000010079391208
 GameObject:
@@ -34,12 +34,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013043391392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWingTailControl3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000010364982356
 GameObject:
@@ -49,12 +49,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011716530256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NoseJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000010452428628
 GameObject:
@@ -64,12 +64,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013984835530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000010828559256
 GameObject:
@@ -79,12 +79,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011940388144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWingTailControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000010879279882
 GameObject:
@@ -94,12 +94,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010742696452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NoseTipJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011074073244
 GameObject:
@@ -109,12 +109,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011811131164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011322666712
 GameObject:
@@ -124,12 +124,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011645898624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWingTair3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011367176294
 GameObject:
@@ -139,12 +139,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011409236434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWingTair2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011492800408
 GameObject:
@@ -154,12 +154,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011792920458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011787575592
 GameObject:
@@ -169,12 +169,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012577125970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RIG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011903276904
 GameObject:
@@ -184,12 +184,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013903277502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000011989874850
 GameObject:
@@ -199,12 +199,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013033060666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012081666484
 GameObject:
@@ -215,12 +215,17 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013023002470}
   - component: {fileID: 95000012605312458}
-  m_Layer: 0
+  - component: {fileID: 114842339095539262}
+  - component: {fileID: 114500495920642878}
+  - component: {fileID: 195527742525391596}
+  - component: {fileID: 135706837746546722}
+  - component: {fileID: 114110230146101924}
+  m_Layer: 8
   m_Name: Bat_Violet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012161483196
 GameObject:
@@ -230,12 +235,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010600128532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012218756716
 GameObject:
@@ -245,12 +250,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012606312464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingRootControl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012242472786
 GameObject:
@@ -260,12 +265,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012930104190}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012261374564
 GameObject:
@@ -275,12 +280,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013499644026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NoseControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012383980866
 GameObject:
@@ -290,12 +295,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010369655854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HeadControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012427199856
 GameObject:
@@ -305,12 +310,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010952408210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012470850584
 GameObject:
@@ -320,12 +325,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013719333622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012481118506
 GameObject:
@@ -335,12 +340,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012372265668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012487888702
 GameObject:
@@ -350,12 +355,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011900670014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012743515280
 GameObject:
@@ -365,12 +370,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013002267454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000012757398620
 GameObject:
@@ -380,12 +385,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011060969388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013058324598
 GameObject:
@@ -395,12 +400,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011984431156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWingTailControl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013059874780
 GameObject:
@@ -411,12 +416,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011593962288}
   - component: {fileID: 137000010281430840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013071406186
 GameObject:
@@ -426,12 +431,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011309835544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013203145098
 GameObject:
@@ -441,12 +446,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011633832688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWingTair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013254475272
 GameObject:
@@ -456,12 +461,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013989831746}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013426584996
 GameObject:
@@ -471,12 +476,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010352760424}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RootJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013455559382
 GameObject:
@@ -486,12 +491,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011189828920}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013537929186
 GameObject:
@@ -501,12 +506,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013576945814}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat1Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013601050742
 GameObject:
@@ -516,12 +521,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011568589574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingTail3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013613189936
 GameObject:
@@ -531,12 +536,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010404536428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013720936484
 GameObject:
@@ -546,12 +551,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010441463488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013723834880
 GameObject:
@@ -561,12 +566,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011346745362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingRootControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013873195446
 GameObject:
@@ -576,12 +581,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013412442920}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013904571982
 GameObject:
@@ -591,12 +596,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011366338784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingControl9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013936503626
 GameObject:
@@ -606,12 +611,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011404737820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingTail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000013949817224
 GameObject:
@@ -621,12 +626,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000014043019894}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWingRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000014034437830
 GameObject:
@@ -636,12 +641,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012567767114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lWingTail2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000014199772886
 GameObject:
@@ -651,12 +656,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011806587108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HeadJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1000014212823846
 GameObject:
@@ -666,12 +671,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010725138140}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rWing5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4000010352760424
 Transform:
@@ -1137,9 +1142,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012081666484}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 59.495872, y: 1.0700002, z: 34.309444}
+  m_LocalScale: {x: 50.000015, y: 50, z: 50.000015}
   m_Children:
   - {fileID: 4000011593962288}
   - {fileID: 4000012577125970}
@@ -1297,7 +1302,7 @@ Animator:
   m_GameObject: {fileID: 1000012081666484}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 59afa1f2c595d6343b15e945602e1f8f, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f2e4a8cc956b76499aab1a20c0a6256, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1306,6 +1311,63 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114110230146101924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012081666484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0eb848da6ac6fd46a4bdf4b884d6988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackDelay: 0.6
+--- !u!114 &114500495920642878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012081666484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c536b402dcc0634b8d3564e59a0ab4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
+  interactionTransform: {fileID: 4000013023002470}
+  lookRadius: 9
+--- !u!114 &114842339095539262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012081666484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236c424d742f4144e8c5f8aa9bc96983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  maxHealth: 4
+  respawnPoint: {fileID: 0}
+  dropitems:
+  - {fileID: 1807158073524012, guid: cd83a3a9f79556d42a3c3c9614b8dbde, type: 2}
+  - {fileID: 1716784338413170, guid: 150a93e6ec50fef45a819006ad7cde76, type: 2}
+  - {fileID: 1814334889525276, guid: fbe55b2a646aab94e92a107243a4a34d, type: 2}
+--- !u!135 &135706837746546722
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012081666484}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.02
+  m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!137 &137000010281430840
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1375,3 +1437,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.012388031, y: 0, z: 0.0015562545}
     m_Extent: {x: 0.0153516615, y: 0.035812914, z: 0.010000499}
   m_DirtyAABB: 0
+--- !u!195 &195527742525391596
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012081666484}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.05
+  m_Speed: 25
+  m_Acceleration: 10
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 7
+  m_ObstacleAvoidanceType: 4
