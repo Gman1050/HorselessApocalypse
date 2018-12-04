@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 5.0f;                      // Test variables for speed of the gameobject
     private CharacterController control;            // Declares CharacterController for rotation and movement
     private Vector3 gravityVector = Vector3.zero;   // Set an initial velocity for gravity
+    public Animator anim;
 
     //**********************************************************************************************************************//
     // Use this before scene loads
@@ -17,6 +18,7 @@ public class CharacterMovement : MonoBehaviour
     {
         //GameManager.Instance.LoadPlayerData(playerOrder, gameObject);   // Always have this in awake to set the player data before game begins
         playerOrder = GetComponent<CharacterStats>().playerOrder;
+        
     }
     //**********************************************************************************************************************//
 
@@ -24,6 +26,7 @@ public class CharacterMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         control = GetComponent<CharacterController>();  // Gets the reference to the CharacterController component
     }
     //**********************************************************************************************************************//
@@ -63,6 +66,14 @@ public class CharacterMovement : MonoBehaviour
 
             transform.rotation = Quaternion.LookRotation(newDir);
             control.Move(new Vector3(targetX, move.y, targetZ) * movement);
+
+            if (targetX != 0 || targetZ !=0)
+            {
+                anim.SetBool("IsWalking", true);
+                
+            }
+            else
+                anim.SetBool("IsWalking", false);
         }
     }
     //**********************************************************************************************************************//

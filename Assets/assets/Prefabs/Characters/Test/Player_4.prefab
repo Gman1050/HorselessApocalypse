@@ -1909,7 +1909,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530652824866922}
-  m_LocalRotation: {x: 0.7326121, y: -0.06622265, z: 0.673965, w: -0.06830448}
+  m_LocalRotation: {x: 0.7326121, y: -0.066222645, z: 0.673965, w: -0.06830447}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.99999946, z: 0.99999994}
   m_Children:
@@ -3061,7 +3061,7 @@ Animator:
   m_GameObject: {fileID: 1122948062617320}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fac9c1a32f96862468d764b6617932f6, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0c3165a1b43daaf429da34f180a88644, type: 2}
+  m_Controller: {fileID: 9100000, guid: de1f458fcae949f45b457e0eb7326759, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3084,6 +3084,7 @@ MonoBehaviour:
   playerOrder: 3
   mass: 18
   speed: 5
+  anim: {fileID: 95980019886919370}
 --- !u!114 &114496803454352042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3098,6 +3099,7 @@ MonoBehaviour:
   playerOrder: 3
   highlightSpawnSpot: {fileID: 1069776879740250}
   skin: {fileID: 137558681779091250}
+  anim: {fileID: 95980019886919370}
 --- !u!114 &114502093375657544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3114,6 +3116,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
+  anim: {fileID: 95980019886919370}
   basicAttackRange: 1.5
   basicAttackInterval: 0.3
   basicAttackDamage: 1

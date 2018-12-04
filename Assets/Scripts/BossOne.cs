@@ -7,6 +7,7 @@ public class BossOne : MonoBehaviour
 {
     public BossAnimationState animationState;
     public List<CharacterStats> players = new List<CharacterStats>();
+    public int oneSwingDamage = 3, doubleSwingDamage = 6;
     public float speed;
     public float targetReach = 3.0f;
     
@@ -69,7 +70,23 @@ public class BossOne : MonoBehaviour
 
         if (distance <= targetReach)
         {
-            combat.Attack(GetClosestEnemy(players).GetComponent<CharacterStats>());
+            StartCoroutine(DamageTimer(2.0f));
+        }
+    }
+
+    private void SpeedMonitor()
+    {
+        if(agent.speed >= 5.0f)
+        {
+
+        }
+        else if (agent.speed >= 0.2f && agent.speed < 5.0f)
+        {
+
+        }
+        else if (agent.speed >= 0.0f && agent.speed < 0.2f)
+        {
+
         }
     }
 
@@ -80,16 +97,25 @@ public class BossOne : MonoBehaviour
             case BossAnimationState.NONE:
                 break;
             case BossAnimationState.IDLE:
+                animator.SetTrigger("idle");
                 break;
             case BossAnimationState.WALK:
+                animator.SetTrigger("walk");
                 break;
             case BossAnimationState.RUN:
+                animator.SetTrigger("run");
                 break;
             case BossAnimationState.LEFT_ATTACK:
+                animator.SetTrigger("attack_01");
                 break;
             case BossAnimationState.RIGHT_ATTACK:
+                animator.SetTrigger("attack_02");
                 break;
             case BossAnimationState.DOUBLE_ATTACK:
+                animator.SetTrigger("attack_03");
+                break;
+            case BossAnimationState.DEAD:
+                animator.SetTrigger("die");
                 break;
         }
     }
@@ -113,6 +139,12 @@ public class BossOne : MonoBehaviour
 
         return bestTarget;
     }
+
+    private IEnumerator DamageTimer(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        GetClosestEnemy(players).GetComponent<CharacterStats>().currentHealth -= oneSwingDamage;
+    }
 }
 
 public enum BossAnimationState
@@ -123,5 +155,6 @@ public enum BossAnimationState
     RUN,
     LEFT_ATTACK,
     RIGHT_ATTACK,
-    DOUBLE_ATTACK
+    DOUBLE_ATTACK,
+    DEAD
 };
