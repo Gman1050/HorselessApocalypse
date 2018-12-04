@@ -1146,8 +1146,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4698305388821502}
   - component: {fileID: 95190736279286112}
-  - component: {fileID: 195966495476557806}
   - component: {fileID: 114706413381835932}
+  - component: {fileID: 195650064084230314}
   m_Layer: 0
   m_Name: Bull
   m_TagString: Untagged
@@ -2777,6 +2777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationState: 0
   players: []
+  oneSwingDamage: 3
+  doubleSwingDamage: 6
   speed: 5
   targetReach: 3
 --- !u!137 &137184765710438752
@@ -2916,7 +2918,7 @@ SkinnedMeshRenderer:
     m_Center: {x: -23.151665, y: 18.574697, z: 0.12538147}
     m_Extent: {x: 37.82568, y: 33.214584, z: 49.232025}
   m_DirtyAABB: 0
---- !u!195 &195966495476557806
+--- !u!195 &195650064084230314
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
