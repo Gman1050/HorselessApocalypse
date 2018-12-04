@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,14 +35,14 @@ public class CharacterStats : MonoBehaviour
         currentHealth = maxHealth;
         currentSpecialTimer = maxSpecialTimer;
         Debug.Log(GameManager.Instance);
-        //GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
+        GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
         GetComponent<Attacks>().Special = specialAttack;
 
     }
 
     private void Start()
     {
-        GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
+       // GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
     }
 
     void Update()
