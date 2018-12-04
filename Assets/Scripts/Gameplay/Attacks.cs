@@ -7,7 +7,8 @@ public class Attacks : MonoBehaviour
     public PlayerOrder playerOrder;
     public SpecialAttacks special;
     public LayerMask layer;
-    
+    public Animator anim;
+
     [Header("Basic Attack Settings: ")]
     [Range(0, 5)] public float basicAttackRange = 4.0f;
     [Range(0, 5)] public float basicAttackInterval = 1.0f;
@@ -52,7 +53,7 @@ public class Attacks : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -103,6 +104,7 @@ public class Attacks : MonoBehaviour
                 }
 
                 isAttacking = true;
+                anim.SetBool("IsAttacking", true);
 
                 StartCoroutine(DisplayAttackRange(basicAttack.gameObject, basicAttackInterval));
 
@@ -115,6 +117,7 @@ public class Attacks : MonoBehaviour
             if (timer >= basicAttackInterval)
             {
                 isAttacking = false;
+                anim.SetBool("IsAttacking", false);
                 timer = 0.0f;
             }
         }
@@ -135,6 +138,8 @@ public class Attacks : MonoBehaviour
                 {
                     pestilenceAttack.transform.parent = null;
                     isSpecialAttacking = true;
+                    anim.SetBool("IsSpecial", true);
+                    anim.SetBool("IsFam | Pes", true);
                     StartCoroutine(DisplayAttackRange(pestilenceAttack.gameObject, pestilenceAttackInterval));
                     GameObject tempParticle = Instantiate(pestilenceParticlePart1, transform.position, transform.rotation);
                     tempParticle1 = tempParticle;
@@ -177,6 +182,8 @@ public class Attacks : MonoBehaviour
                 if (timer >= pestilenceAttackInterval)
                 {
                     isSpecialAttacking = false;
+                    anim.SetBool("IsFam | Pes", false);
+                    anim.SetBool("IsSpecial", false);
                     pestilenceHit = false;
                     timer = 0.0f;
 
@@ -210,6 +217,8 @@ public class Attacks : MonoBehaviour
                     }
 
                     isSpecialAttacking = true;
+                    anim.SetBool("IsWar| Death", true);
+                    anim.SetBool("IsSpecial", true);
 
                     StartCoroutine(DisplayAttackRange(warAttack.gameObject, warAttackInterval));
 
@@ -255,6 +264,8 @@ public class Attacks : MonoBehaviour
             if (timer >= warAttackInterval)
             {
                 isSpecialAttacking = false;
+                anim.SetBool("IsWar| Death", false);
+                anim.SetBool("IsSpecial", false);
                 timer = 0.0f;
             }
         }
@@ -271,6 +282,8 @@ public class Attacks : MonoBehaviour
                 if (ControllerManager.Instance.GetBButtonDown(playerOrder))
                 {
                     isSpecialAttacking = true;
+                    anim.SetBool("IsFam | Pes", true);
+                    anim.SetBool("IsSpecial", true);
 
                     StartCoroutine(DisplayAttackRange(famineAttack.gameObject, famineAttackInterval));
 
@@ -289,6 +302,8 @@ public class Attacks : MonoBehaviour
             if (timer >= famineAttackInterval)
             {
                 isSpecialAttacking = false;
+                anim.SetBool("IsFam | Pes", false);
+                anim.SetBool("IsSpecial", false);
                 timer = 0.0f;
             }
         }
@@ -311,6 +326,8 @@ public class Attacks : MonoBehaviour
                     }
 
                     isSpecialAttacking = true;
+                    anim.SetBool("IsWar| Death", true);
+                    anim.SetBool("IsSpecial", true);
 
                     StartCoroutine(DisplayAttackRange(deathAttack.gameObject, deathAttackInterval));
 
@@ -328,6 +345,8 @@ public class Attacks : MonoBehaviour
             if (timer >= deathAttackInterval)
             {
                 isSpecialAttacking = false;
+                anim.SetBool("IsWar| Death", false);
+                anim.SetBool("IsSpecial", false);
                 timer = 0.0f;
             }
         }
