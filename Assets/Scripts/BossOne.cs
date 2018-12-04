@@ -73,6 +73,22 @@ public class BossOne : MonoBehaviour
         }
     }
 
+    private void SpeedMonitor()
+    {
+        if(agent.speed >= 5.0f)
+        {
+
+        }
+        else if (agent.speed >= 0.2f && agent.speed < 5.0f)
+        {
+
+        }
+        else if (agent.speed >= 0.0f && agent.speed < 0.2f)
+        {
+
+        }
+    }
+
     private void BossAnimation()
     {
         switch(animationState)
@@ -80,16 +96,25 @@ public class BossOne : MonoBehaviour
             case BossAnimationState.NONE:
                 break;
             case BossAnimationState.IDLE:
+                animator.SetTrigger("idle");
                 break;
             case BossAnimationState.WALK:
+                animator.SetTrigger("walk");
                 break;
             case BossAnimationState.RUN:
+                animator.SetTrigger("run");
                 break;
             case BossAnimationState.LEFT_ATTACK:
+                animator.SetTrigger("attack_01");
                 break;
             case BossAnimationState.RIGHT_ATTACK:
+                animator.SetTrigger("attack_02");
                 break;
             case BossAnimationState.DOUBLE_ATTACK:
+                animator.SetTrigger("attack_03");
+                break;
+            case BossAnimationState.DEAD:
+                animator.SetTrigger("die");
                 break;
         }
     }
@@ -123,5 +148,6 @@ public enum BossAnimationState
     RUN,
     LEFT_ATTACK,
     RIGHT_ATTACK,
-    DOUBLE_ATTACK
+    DOUBLE_ATTACK,
+    DEAD
 };
