@@ -551,8 +551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1493721979}
-  time: 3
-  numberofRespawns: 5
+  time: 5
+  numberofRespawns: 10
 --- !u!1 &30280692
 GameObject:
   m_ObjectHideFlags: 0
@@ -7625,8 +7625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1949868791}
-  time: 3
-  numberofRespawns: 5
+  time: 5
+  numberofRespawns: 10
 --- !u!1 &510542742
 GameObject:
   m_ObjectHideFlags: 0
@@ -22296,6 +22296,16 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 114974995180434364, guid: d10960e246df0f14d8fc3ef0f2caff88,
+        type: 2}
+      propertyPath: maxHealth
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974995180434364, guid: d10960e246df0f14d8fc3ef0f2caff88,
+        type: 2}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d10960e246df0f14d8fc3ef0f2caff88, type: 2}
   m_IsPrefabAsset: 0
@@ -23326,6 +23336,16 @@ Prefab:
     - target: {fileID: 4542376020904264, guid: 0b783230e0e0631439f7166712572159, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114679869116967856, guid: 0b783230e0e0631439f7166712572159,
+        type: 2}
+      propertyPath: maxHealth
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114679869116967856, guid: 0b783230e0e0631439f7166712572159,
+        type: 2}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b783230e0e0631439f7166712572159, type: 2}
@@ -25542,8 +25562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1545261426}
-  time: 3
-  numberofRespawns: 5
+  time: 5
+  numberofRespawns: 10
 --- !u!1 &1764530326
 GameObject:
   m_ObjectHideFlags: 0
@@ -28922,6 +28942,16 @@ Prefab:
     - target: {fileID: 4996829469111842, guid: b83d871bafb4bbe429863abd7df57c17, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114162626248819178, guid: b83d871bafb4bbe429863abd7df57c17,
+        type: 2}
+      propertyPath: maxHealth
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114162626248819178, guid: b83d871bafb4bbe429863abd7df57c17,
+        type: 2}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b83d871bafb4bbe429863abd7df57c17, type: 2}
