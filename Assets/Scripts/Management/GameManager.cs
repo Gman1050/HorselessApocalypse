@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
         {
             playerLivesText = GameObject.Find("PlayerLivesText").GetComponent<Text>();
         }
+        else
+            return;
 
         if(!LivesSystem.Instance)
         {
