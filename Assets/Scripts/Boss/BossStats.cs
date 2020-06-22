@@ -16,7 +16,7 @@ public class BossStats : MonoBehaviour
         set;
     }
 
-    private bool isLevelEnd = false;
+    public bool IsDead { get; private set; }
 
     void Awake()
     {
@@ -31,28 +31,19 @@ public class BossStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        anim.SetBool("IsDamaged", true);
+        //anim.SetBool("IsDamaged", true);
         currentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");
-        anim.SetBool("IsDamaged", false);
+        //anim.SetBool("IsDamaged", false);
 
 
         if (currentHealth <= 0)
         {
-            Die();
-
+            if (!IsDead)
+            {
+                IsDead = true;
+            }
         }
-    }
-
-    public virtual void Die()
-    {
-        // Die in some way
-        // This is meant to be overwritten
-        Debug.Log(transform.name + " died.");
-        anim.SetBool("IsDead", true);
-        GetComponent<BoxCollider>().enabled = false;
-        GetComponent<BossOne>().enabled = false;
-        StartCoroutine(Die(1.0f));
     }
 
     private void CurrentHealthBoundaries()
@@ -65,17 +56,5 @@ public class BossStats : MonoBehaviour
         {
             currentHealth = 0;
         }
-    }
-
-    private IEnumerator Die(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        StartCoroutine(EndLevel(3.0f));
-    }
-
-    private IEnumerator EndLevel(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        GameManager.Instance.ChangeScene("Main Menu");
     }
 }

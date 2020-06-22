@@ -8,19 +8,23 @@ public class BossOne : MonoBehaviour
     public LayerMask layer;
     public BossAnimationState animationState;
     public List<CharacterStats> players = new List<CharacterStats>();
-    public int singleSwingDamage = 3, doubleSwingDamage = 6;
+    public int singleSwingDamage = 1, doubleSwingDamage = 2;
     public float speed;
     public float targetReach = 3.0f, beginFight = 10.0f;
     
     private EnemyCombat combat;
+    private BossStats bossStats;
     private NavMeshAgent agent; 
     private Animator animator;
     private bool bossFightBegins = false;
     private bool attackCheck = false;
+    private float animationMovementTimer = 0.0f;
+    private float animationMaxTime = 0.0f;
 
 	// Use this for initialization
 	void Start ()
     {
+        bossStats = GetComponent<BossStats>();
         combat = GetComponent<EnemyCombat>();
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();	
@@ -32,8 +36,6 @@ public class BossOne : MonoBehaviour
         FindPlayers();
 
         BossMovement();
-
-        BossAnimation();
     }
 
     private void FindPlayers()
@@ -63,44 +65,73 @@ public class BossOne : MonoBehaviour
 
     private void BossMovement()
     {
-        if (bossFightBegins)
+        if (!bossStats.IsDead)
         {
-            agent.SetDestination(GetClosestEnemy(players).position);
-        }
-
-        float distance = Vector3.Distance(transform.position, GetClosestEnemy(players).position);
-
-        if (distance <= beginFight)
-        {
-            bossFightBegins = true;
-        }
-
-        if (distance <= targetReach)
-        {
-            if (!attackCheck)
+            if (bossFightBegins)
             {
-                StartCoroutine(DamageTimer(2.0f));
+                agent.SetDestination(GetClosestEnemy(players).position);
+            }
+
+            float distance = Vector3.Distance(transform.position, GetClosestEnemy(players).position);
+
+            if (distance <= beginFight)
+            {
+                bossFightBegins = true;
+            }
+
+            if (distance <= targetReach)
+            {
+                animationMovementTimer = 0.0f;
+
+                if (!attackCheck)
+                {
+                    StartCoroutine(DamageTimer(1.0f));
+                }
+            }
+            else
+            {
+                SpeedMonitor();
+            }
+        }
+        else
+        {
+            if (GetComponent<BoxCollider>().enabled)
+            {
+                StartCoroutine(Die(1.0f));
+                GetComponent<BoxCollider>().enabled = false;
             }
         }
     }
 
     private void SpeedMonitor()
     {
-        if(agent.speed >= 5.0f)
+        if (animationMovementTimer == 0.0f)
         {
+            Debug.Log("agent.velocity.magnitude: " + agent.velocity.magnitude);
 
-        }
-        else if (agent.speed >= 0.2f && agent.speed < 5.0f)
-        {
+            if (agent.velocity.magnitude >= 3.2f)
+            {
+                animationState = BossAnimationState.RUN;
+            }
+            else if (agent.velocity.magnitude >= 0.2f && agent.velocity.magnitude < 3.2f)
+            {
+                animationState = BossAnimationState.WALK;
+            }
+            else if (agent.velocity.magnitude >= 0.0f && agent.velocity.magnitude < 0.2f)
+            {
+                animationState = BossAnimationState.IDLE;
+            }
 
+            BossAnimation();
         }
-        else if (agent.speed >= 0.0f && agent.speed < 0.2f)
-        {
 
-        }
+        animationMovementTimer += Time.deltaTime;
+
+        if (animationMovementTimer >= animationMaxTime)
+            animationMovementTimer = 0.0f;
     }
 
-    private void BossAnimation()
+    public void BossAnimation()
     {
         switch(animationState)
         {
@@ -108,12 +139,15 @@ public class BossOne : MonoBehaviour
                 break;
             case BossAnimationState.IDLE:
                 animator.SetTrigger("idle");
+                animationMaxTime = 1.6666666f;
                 break;
             case BossAnimationState.WALK:
                 animator.SetTrigger("walk");
+                animationMaxTime = 1.6333333f;
                 break;
             case BossAnimationState.RUN:
                 animator.SetTrigger("run");
+                animationMaxTime = 0.8f;
                 break;
             case BossAnimationState.LEFT_ATTACK:
                 animator.SetTrigger("attack_01");
@@ -123,6 +157,9 @@ public class BossOne : MonoBehaviour
                 break;
             case BossAnimationState.DOUBLE_ATTACK:
                 animator.SetTrigger("attack_03");
+                break;
+            case BossAnimationState.DAMAGED:
+                animator.SetTrigger("damage");
                 break;
             case BossAnimationState.DEAD:
                 animator.SetTrigger("die");
@@ -153,9 +190,40 @@ public class BossOne : MonoBehaviour
     private IEnumerator DamageTimer(float seconds)
     {
         attackCheck = true;
+
+        if (animationState != BossAnimationState.LEFT_ATTACK && animationState != BossAnimationState.RIGHT_ATTACK && animationState != BossAnimationState.DOUBLE_ATTACK)
+            animationState = BossAnimationState.LEFT_ATTACK;
+        else if (animationState == BossAnimationState.LEFT_ATTACK)
+            animationState = BossAnimationState.RIGHT_ATTACK;
+        else if (animationState == BossAnimationState.RIGHT_ATTACK)
+            animationState = BossAnimationState.DOUBLE_ATTACK;
+        else if (animationState == BossAnimationState.DOUBLE_ATTACK)
+            animationState = BossAnimationState.LEFT_ATTACK;
+
+        BossAnimation();
+
         yield return new WaitForSeconds(seconds);
-        GetClosestEnemy(players).GetComponent<CharacterStats>().TakeDamage(singleSwingDamage);
+
+        if (animationState == BossAnimationState.LEFT_ATTACK || animationState == BossAnimationState.RIGHT_ATTACK)
+            GetClosestEnemy(players).GetComponent<CharacterStats>().TakeDamage(singleSwingDamage);
+        else if (animationState == BossAnimationState.DOUBLE_ATTACK)
+            GetClosestEnemy(players).GetComponent<CharacterStats>().TakeDamage(doubleSwingDamage);
+
         attackCheck = false;
+    }
+
+    private IEnumerator Die(float seconds)
+    {
+        animationState = BossAnimationState.DEAD;
+        BossAnimation();
+        yield return new WaitForSeconds(seconds);
+        StartCoroutine(EndLevel(5.0f));
+    }
+
+    private IEnumerator EndLevel(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        GameManager.Instance.ChangeScene("Main Menu");
     }
 }
 
@@ -168,5 +236,6 @@ public enum BossAnimationState
     LEFT_ATTACK,
     RIGHT_ATTACK,
     DOUBLE_ATTACK,
+    DAMAGED,
     DEAD
 };

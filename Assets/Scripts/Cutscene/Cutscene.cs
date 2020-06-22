@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Cutscene : MonoBehaviour
 {
+    //[Range(0,1)] public float startDelay = 0.1f;
+
     private VideoPlayer videoPlayer;
     private StandaloneInputModule inputModule;
 
@@ -18,6 +20,7 @@ public class Cutscene : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        //StartCoroutine(DelayStart(startDelay));
         StartCoroutine(CutsceneEnd());
 	}
 	
@@ -34,6 +37,12 @@ public class Cutscene : MonoBehaviour
         {
             GameManager.Instance.ChangeScene("Main Menu");
         }
+    }
+
+    private IEnumerator DelayStart(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        videoPlayer.Play();
     }
 
     private IEnumerator CutsceneEnd()
