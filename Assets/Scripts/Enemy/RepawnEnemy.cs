@@ -40,7 +40,10 @@ public class RepawnEnemy : MonoBehaviour {
 
         yield return spawnTime;
 
-        entity.SetActive(true);
+        if (numberofRespawns > 0)
+            entity.SetActive(true);
+        else
+            gameObject.SetActive(false);
         //Instantiate(entity, gameObject.transform.position, gameObject.transform.rotation);
 
 

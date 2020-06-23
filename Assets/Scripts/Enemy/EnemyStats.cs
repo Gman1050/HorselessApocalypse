@@ -57,8 +57,8 @@ public class EnemyStats : MonoBehaviour
         Debug.Log(transform.name + " died.");
         anim.SetBool("IsDead", true);
         respawnPoint.Respawn();
-        if (respawnPoint.numberofRespawns == 0)
-        { Destroy(gameObject, 2f); }
+        //if (respawnPoint.numberofRespawns == 0)
+        //{ Destroy(gameObject, 2f); }
     }
 
     private void CurrentHealthBoundaries()
