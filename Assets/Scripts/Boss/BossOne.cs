@@ -67,30 +67,37 @@ public class BossOne : MonoBehaviour
     {
         if (!bossStats.IsDead)
         {
-            if (bossFightBegins)
+            Transform newTargetPosition = GetClosestEnemy(players);
+
+            if (newTargetPosition)
             {
-                agent.SetDestination(GetClosestEnemy(players).position);
-            }
-
-            float distance = Vector3.Distance(transform.position, GetClosestEnemy(players).position);
-
-            if (distance <= beginFight)
-            {
-                bossFightBegins = true;
-            }
-
-            if (distance <= targetReach)
-            {
-                animationMovementTimer = 0.0f;
-
-                if (!attackCheck)
+                if (bossFightBegins)
                 {
-                    StartCoroutine(DamageTimer(1.0f));
+                    agent.SetDestination(newTargetPosition.position);
                 }
-            }
-            else
-            {
-                SpeedMonitor();
+
+
+
+                float distance = Vector3.Distance(transform.position, newTargetPosition.position);
+
+                if (distance <= beginFight)
+                {
+                    bossFightBegins = true;
+                }
+
+                if (distance <= targetReach)
+                {
+                    animationMovementTimer = 0.0f;
+
+                    if (!attackCheck)
+                    {
+                        StartCoroutine(DamageTimer(1.0f));
+                    }
+                }
+                else if (distance > targetReach || !newTargetPosition)
+                {
+                    SpeedMonitor();
+                }
             }
         }
         else
@@ -107,7 +114,7 @@ public class BossOne : MonoBehaviour
     {
         if (animationMovementTimer == 0.0f)
         {
-            Debug.Log("agent.velocity.magnitude: " + agent.velocity.magnitude);
+            //Debug.Log("agent.velocity.magnitude: " + agent.velocity.magnitude);
 
             if (agent.velocity.magnitude >= 3.2f)
             {
@@ -175,15 +182,24 @@ public class BossOne : MonoBehaviour
 
         foreach (CharacterStats potentialPlayerTarget in playersList)
         {
-            Vector3 directionToTarget = potentialPlayerTarget.transform.position - currentPosition;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if (dSqrToTarget < closestDistanceSqr)
+            if (!potentialPlayerTarget.IsDead)
             {
-                closestDistanceSqr = dSqrToTarget;
-                bestTarget = potentialPlayerTarget.transform;
+                Vector3 directionToTarget = potentialPlayerTarget.transform.position - currentPosition;
+                float dSqrToTarget = directionToTarget.sqrMagnitude;
+                if (dSqrToTarget < closestDistanceSqr)
+                {
+                    closestDistanceSqr = dSqrToTarget;
+                    bestTarget = potentialPlayerTarget.transform;
+                }
             }
         }
-        
+
+        if (!bestTarget)
+        {
+            animationState = BossAnimationState.IDLE;
+            BossAnimation();
+        }
+
         return bestTarget;
     }
 

@@ -90,43 +90,46 @@ public class Attacks : MonoBehaviour
     {
         Collider[] hits = Physics.OverlapSphere(basicAttack.transform.position, basicAttackRange, layer);
 
-        if (!isAttacking)
+        if (!isSpecialAttacking)
         {
-            if (ControllerManager.Instance.GetAButtonDown(playerOrder))
+            if (!isAttacking)
             {
-                GameObject tempParticle = Instantiate(basicAttackParticle, transform.position, transform.rotation);
-                Destroy(tempParticle, basicAttackInterval);
-
-                for (int i = 0; i < hits.Length; i++)
+                if (ControllerManager.Instance.GetAButtonDown(playerOrder))
                 {
-                    if (hits[i].GetComponent<EnemyStats>())
+                    GameObject tempParticle = Instantiate(basicAttackParticle, transform.position, transform.rotation);
+                    Destroy(tempParticle, basicAttackInterval);
+
+                    for (int i = 0; i < hits.Length; i++)
                     {
-                        hits[i].GetComponent<EnemyStats>().TakeDamage(basicAttackDamage);
-                        Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                        if (hits[i].GetComponent<EnemyStats>())
+                        {
+                            hits[i].GetComponent<EnemyStats>().TakeDamage(basicAttackDamage);
+                            Debug.Log(hits[i].GetComponent<EnemyStats>().currentHealth);
+                        }
+                        else if (hits[i].GetComponent<BossStats>())
+                        {
+                            hits[i].GetComponent<BossStats>().TakeDamage(basicAttackDamage);
+                            Debug.Log(hits[i].GetComponent<BossStats>().currentHealth);
+                        }
                     }
-                    else if (hits[i].GetComponent<BossStats>())
-                    {
-                        hits[i].GetComponent<BossStats>().TakeDamage(basicAttackDamage);
-                        Debug.Log(hits[i].GetComponent<BossStats>().currentHealth);
-                    }
+
+                    isAttacking = true;
+                    anim.SetBool("IsAttacking", true);
+
+                    StartCoroutine(DisplayAttackRange(basicAttack.gameObject, basicAttackInterval));
+
                 }
-
-                isAttacking = true;
-                anim.SetBool("IsAttacking", true);
-
-                StartCoroutine(DisplayAttackRange(basicAttack.gameObject, basicAttackInterval));
-
             }
-        }
-        else
-        {
-            timer += Time.deltaTime;
-
-            if (timer >= basicAttackInterval)
+            else
             {
-                isAttacking = false;
-                anim.SetBool("IsAttacking", false);
-                timer = 0.0f;
+                timer += Time.deltaTime;
+
+                if (timer >= basicAttackInterval)
+                {
+                    isAttacking = false;
+                    anim.SetBool("IsAttacking", false);
+                    timer = 0.0f;
+                }
             }
         }
     }

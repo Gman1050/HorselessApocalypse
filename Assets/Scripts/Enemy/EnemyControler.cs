@@ -34,6 +34,15 @@ public class EnemyControler : Interactable {
 
         FindClosestEnemy();
         target = firstEnemy.transform;
+
+        if (target.GetComponent<CharacterStats>().IsDead)
+        {
+            target = null;
+            anim.SetBool("IsAttacking", false);
+            anim.SetBool("IsWalking", false);
+            return;
+        }
+
         float distance = Vector3.Distance(target.position, transform.position);
 
         if(distance <= lookRadius)
@@ -84,19 +93,19 @@ public class EnemyControler : Interactable {
     void FindClosestEnemy()
     {
         float distanceToClosestEnemy = Mathf.Infinity;
-        CharacterStats closestEnemy = null;
         CharacterStats[] allEnemies = GameObject.FindObjectsOfType<CharacterStats>();
 
         foreach (CharacterStats currentEnemy in allEnemies)
         {
-            float distanceToEnemy = (currentEnemy.transform.position - transform.position).sqrMagnitude;
-            if(distanceToEnemy < distanceToClosestEnemy)
+            if (!currentEnemy.IsDead)
             {
-                distanceToClosestEnemy = distanceToEnemy;
-                closestEnemy = currentEnemy;
-                firstEnemy = currentEnemy.transform;
-                
-                
+                float distanceToEnemy = (currentEnemy.transform.position - transform.position).sqrMagnitude;
+
+                if (distanceToEnemy < distanceToClosestEnemy)
+                {
+                    distanceToClosestEnemy = distanceToEnemy;
+                    firstEnemy = currentEnemy.transform;
+                }
             }
         }
     }

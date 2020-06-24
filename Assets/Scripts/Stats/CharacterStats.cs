@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
@@ -125,11 +126,13 @@ public class CharacterStats : MonoBehaviour
         {
             //GetComponent<CharacterMovement>().enabled = false;
             GetComponent<CharacterRespawn>().enabled = true;
+            GetComponent<NavMeshObstacle>().enabled = false;
         }
         else
         {
             //GetComponent<CharacterMovement>().enabled = true;
             GetComponent<CharacterRespawn>().enabled = false;
+            GetComponent<NavMeshObstacle>().enabled = true;
         }
     }
 }
