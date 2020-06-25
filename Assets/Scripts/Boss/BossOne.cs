@@ -21,8 +21,12 @@ public class BossOne : MonoBehaviour
     private float animationMovementTimer = 0.0f;
     private float animationMaxTime = 0.0f;
 
-	// Use this for initialization
-	void Start ()
+    // Index Finger Velocity Tracking
+    private float currentSpeed;
+    private Vector3 lastPosition;
+
+    // Use this for initialization
+    void Start ()
     {
         bossStats = GetComponent<BossStats>();
         combat = GetComponent<EnemyCombat>();
@@ -63,21 +67,24 @@ public class BossOne : MonoBehaviour
         }
     }
 
+    void OnGUI()
+    {
+        GUI.Label(new Rect(0, 0, 1000, 1000), currentSpeed.ToString());
+    }
+
     private void BossMovement()
     {
+        // Set the value of the lastContentScrolled to a new value relative to the velocity of the index finger.
+        currentSpeed = ((transform.position - lastPosition).magnitude) / Time.deltaTime;
+        lastPosition = transform.position;
+
         if (!bossStats.IsDead)
         {
             Transform newTargetPosition = GetClosestEnemy(players);
+            Debug.Log("newTargetPosition: " + newTargetPosition);
 
             if (newTargetPosition)
             {
-                if (bossFightBegins)
-                {
-                    agent.SetDestination(newTargetPosition.position);
-                }
-
-
-
                 float distance = Vector3.Distance(transform.position, newTargetPosition.position);
 
                 if (distance <= beginFight)
@@ -94,10 +101,23 @@ public class BossOne : MonoBehaviour
                         StartCoroutine(DamageTimer(1.0f));
                     }
                 }
-                else if (distance > targetReach || !newTargetPosition)
+                else
                 {
                     SpeedMonitor();
+
+                    if (bossFightBegins)
+                    {
+                        if (agent.destination == null || Vector3.Distance(transform.position, agent.destination) < 3f)
+                            agent.destination = newTargetPosition.position;
+
+                    }
                 }
+
+                
+            }
+            else
+            {
+                SpeedMonitor();
             }
         }
         else
@@ -114,23 +134,27 @@ public class BossOne : MonoBehaviour
     {
         if (animationMovementTimer == 0.0f)
         {
-            //Debug.Log("agent.velocity.magnitude: " + agent.velocity.magnitude);
+            Debug.Log("currentSpeed: " + currentSpeed);
 
-            if (agent.velocity.magnitude >= 3.2f)
+            if (currentSpeed >= 3.2f)
             {
                 animationState = BossAnimationState.RUN;
             }
-            else if (agent.velocity.magnitude >= 0.2f && agent.velocity.magnitude < 3.2f)
+            else if (currentSpeed >= 0.2f && currentSpeed < 3.2f)
             {
                 animationState = BossAnimationState.WALK;
             }
-            else if (agent.velocity.magnitude >= 0.0f && agent.velocity.magnitude < 0.2f)
+            else if (currentSpeed >= 0.0f && currentSpeed < 0.2f)
             {
                 animationState = BossAnimationState.IDLE;
             }
 
+            //Debug.Log("animationState: " + animationState);
+
             BossAnimation();
         }
+
+        Debug.Log("animationMovementTimer: " + animationMovementTimer);
 
         animationMovementTimer += Time.deltaTime;
 
