@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class NextLevel : MonoBehaviour
 {
-
-    public GameManager gameManager;
+    public string nextLevelString;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            gameManager.CompleteLevel();
+            GameManager.Instance.ChangeScene(nextLevelString);
         }
     }
 }

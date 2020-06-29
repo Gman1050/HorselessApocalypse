@@ -151,7 +151,7 @@ public class PlayerSelectScreen : MonoBehaviour
             if (ControllerManager.Instance.GetStartButtonDown(playerOrder))     // Checks to see if Start button is pressed on X-Input controller
             {
                 AudioManager.Instance.PlayUIAudioClip(1);
-                GameManager.Instance.ChangeScene("Level1");            // Changes to the scene where the game begins
+                GameManager.Instance.ChangeScene("Level 1");            // Changes to the scene where the game begins
             }
         }
         else if (GameManager.Instance.playerQuantity == 0 && !isReady)

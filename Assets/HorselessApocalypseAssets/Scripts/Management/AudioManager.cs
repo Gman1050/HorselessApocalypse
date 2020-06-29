@@ -53,10 +53,10 @@ public class AudioManager : MonoBehaviour
             case "Main Menu":
                 PlayMusicAudioClip(1);
                 break;
-            case "Level1":
+            case "Level 1":
                 PlayMusicAudioClip(1);
                 break;
-            case "level 2":
+            case "Level 2":
                 PlayMusicAudioClip(4);
                 break;
         }

@@ -13,6 +13,8 @@ public class LivesSystem : MonoBehaviour
     public int startingLives = 4;
 
     private int livesCount = 4;
+    private bool isGameOver = false;
+    private Scene lastScene;
 
     public int LivesCount { get { return livesCount; } }
 
@@ -20,10 +22,7 @@ public class LivesSystem : MonoBehaviour
     {
         Instance = this;
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            livesCount = startingLives;
-        }
+        livesCount = startingLives;
 
         DontDestroyOnLoad(gameObject);
     }
@@ -35,21 +34,25 @@ public class LivesSystem : MonoBehaviour
 
     private void GameOver()
     {
+
+        if (SceneManager.GetActiveScene() == lastScene)
+        {
+            return;
+        }
+
         if (GameManager.Instance.PlayerLivesText)
         {
             GameManager.Instance.PlayerLivesText.text = "Lives: " + livesCount;
         }
 
-        if (gameOverScreen)
+        if (!isGameOver)
         {
             if (LivesCount <= 0)
             {
                 gameOverScreen.SetActive(true);
-                if (!EventSystem.current.currentSelectedGameObject == continueButton)
-                {
-                    EventSystem.current.SetSelectedGameObject(continueButton);
-                }
+                EventSystem.current.SetSelectedGameObject(continueButton);
                 Time.timeScale = 0;
+                isGameOver = true;
             }
         }
     }
@@ -74,16 +77,20 @@ public class LivesSystem : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        lastScene = SceneManager.GetActiveScene();
         gameOverScreen.SetActive(false);
         Time.timeScale = 1;
         GameManager.Instance.ChangeScene("Main Menu");
+        isGameOver = false;
     }
 
     public void ResetScene()
     {
+        lastScene = SceneManager.GetActiveScene();
         gameOverScreen.SetActive(false);
         Time.timeScale = 1;
-        GameManager.Instance.ChangeScene(SceneManager.GetActiveScene().name);
+        GameManager.Instance.RestartScene();
+        isGameOver = false;
     }
 
     public void PlayHighlightSound()

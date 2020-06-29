@@ -13,18 +13,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;     // Static variable that can be used to call public variables and functions from other classes
+    public ScreenFader screenFaderCanvas;
+    public LivesSystem livesSystemPrefab;
+
     public int playerQuantity;              // Checks the quantity of players on the Main menu for Debugging purposes
     public PlayerDataContainer player_1, player_2, player_3, player_4;
-    public string nextLevel;
     private Text playerLivesText;
 
     public Text PlayerLivesText { get { return playerLivesText; } }
 
-    public void CompleteLevel()
-    {
-        Debug.Log("level complete");
-        SceneManager.LoadScene(nextLevel);
-    }
     /*******************************************************************************************************/
     // Use this before scene loads
     /*******************************************************************************************************/
@@ -40,17 +37,20 @@ public class GameManager : MonoBehaviour
     /*******************************************************************************************************/
     void Start ()
     {
+        if (!LivesSystem.Instance)
+        {
+            playerLivesText.text = "";
+            Instantiate(livesSystemPrefab, livesSystemPrefab.transform.position, transform.rotation);
+        }
+
+        screenFaderCanvas.CallScreenFadeToClearCouroutine();
+
         if (GameObject.Find("PlayerLivesText"))
         {
             playerLivesText = GameObject.Find("PlayerLivesText").GetComponent<Text>();
         }
         else
             return;
-
-        if(!LivesSystem.Instance)
-        {
-            playerLivesText.text = "";
-        }
 	}
     /*******************************************************************************************************/
 
@@ -256,8 +256,22 @@ public class GameManager : MonoBehaviour
     /*******************************************************************************************************/
     public void ChangeScene(string scene)
     {
+        CallChangeSceneCoroutine(scene);
+    }
+
+    public void CallChangeSceneCoroutine(string scene)
+    {
+        StartCoroutine(ChangeSceneCoroutine(scene));
+    }
+
+    private IEnumerator ChangeSceneCoroutine(string scene)
+    {
+        screenFaderCanvas.CallScreenFadeToSolidCouroutine();
+
+        yield return new WaitUntil(() => screenFaderCanvas.IsScreenSolid); 
         SceneManager.LoadScene(scene);
     }
+
     /*******************************************************************************************************/
 
     /*******************************************************************************************************/
@@ -265,8 +279,18 @@ public class GameManager : MonoBehaviour
     /*******************************************************************************************************/
     public void RestartScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(RestartSceneCoroutine());
     }
+
+    private IEnumerator RestartSceneCoroutine()
+    {
+        screenFaderCanvas.CallScreenFadeToSolidCouroutine();
+
+        yield return new WaitUntil(() => screenFaderCanvas.IsScreenSolid);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LivesSystem.Instance.ResetLives();
+    }
+
     /*******************************************************************************************************/
 
     /*******************************************************************************************************/
@@ -274,6 +298,13 @@ public class GameManager : MonoBehaviour
     /*******************************************************************************************************/
     public void ExitGame()
     {
+        StartCoroutine(ExitGameCoroutine());
+    }
+    private IEnumerator ExitGameCoroutine()
+    {
+        screenFaderCanvas.CallScreenFadeToSolidCouroutine();
+
+        yield return new WaitUntil(() => screenFaderCanvas.IsScreenSolid);
         Application.Quit();
     }
     /*******************************************************************************************************/

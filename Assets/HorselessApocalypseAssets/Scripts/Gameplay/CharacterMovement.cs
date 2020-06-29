@@ -50,30 +50,33 @@ public class CharacterMovement : MonoBehaviour
     //**********************************************************************************************************************//
     void Movement()
     {
-        Attacks attacks = GetComponent<Attacks>();
-
-        gravityVector += mass * Physics.gravity * Time.deltaTime;
-        Vector3 deltaPosition = gravityVector * Time.deltaTime;
-        Vector3 move = Vector3.up * deltaPosition.y;
-
-        if (!attacks.IsSpecialAttack)
+        if (LivesSystem.Instance.LivesCount > 0)
         {
-            float targetX = ControllerManager.Instance.GetLeftStick(playerOrder).x;
-            float targetZ = ControllerManager.Instance.GetLeftStick(playerOrder).y;
-            float movement = speed * Time.deltaTime;
+            Attacks attacks = GetComponent<Attacks>();
 
-            Vector3 newDir = Vector3.RotateTowards(transform.forward, new Vector3(targetX, 0.0f, targetZ), movement, 0.0f);
+            gravityVector += mass * Physics.gravity * Time.deltaTime;
+            Vector3 deltaPosition = gravityVector * Time.deltaTime;
+            Vector3 move = Vector3.up * deltaPosition.y;
 
-            transform.rotation = Quaternion.LookRotation(newDir);
-            control.Move(new Vector3(targetX, move.y, targetZ) * movement);
-
-            if (targetX != 0 || targetZ !=0)
+            if (!attacks.IsSpecialAttack)
             {
-                anim.SetBool("IsWalking", true);
-                
+                float targetX = ControllerManager.Instance.GetLeftStick(playerOrder).x;
+                float targetZ = ControllerManager.Instance.GetLeftStick(playerOrder).y;
+                float movement = speed * Time.deltaTime;
+
+                Vector3 newDir = Vector3.RotateTowards(transform.forward, new Vector3(targetX, 0.0f, targetZ), movement, 0.0f);
+
+                transform.rotation = Quaternion.LookRotation(newDir);
+                control.Move(new Vector3(targetX, move.y, targetZ) * movement);
+
+                if (targetX != 0 || targetZ != 0)
+                {
+                    anim.SetBool("IsWalking", true);
+
+                }
+                else
+                    anim.SetBool("IsWalking", false);
             }
-            else
-                anim.SetBool("IsWalking", false);
         }
     }
     //**********************************************************************************************************************//

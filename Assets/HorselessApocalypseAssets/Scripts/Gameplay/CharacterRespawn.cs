@@ -23,18 +23,25 @@ public class CharacterRespawn : MonoBehaviour
             anim.SetBool("IsDead", true);
             skin.enabled = false;
             GetComponent<Attacks>().enabled = false;
-            highlightSpawnSpot.SetActive(true);
+
+            if (LivesSystem.Instance.LivesCount > 0)
+            {
+                highlightSpawnSpot.SetActive(true);
+            }
         }
     }
 
     private void OnDisable()
     {
-        anim.SetBool("Respawn", false);
-        anim.SetBool("IsDead", false);
-        
-        skin.enabled = true;
-        GetComponent<Attacks>().enabled = true;
-        highlightSpawnSpot.SetActive(false);
+        if (LivesSystem.Instance.LivesCount > 0)
+        {
+            anim.SetBool("Respawn", false);
+            anim.SetBool("IsDead", false);
+
+            skin.enabled = true;
+            GetComponent<Attacks>().enabled = true;
+            highlightSpawnSpot.SetActive(false);
+        }
     }
 
     void Awake()
@@ -57,11 +64,14 @@ public class CharacterRespawn : MonoBehaviour
 
     private void Respawn()
     {
-        if (ControllerManager.Instance.GetAButtonDown(playerOrder))
+        if (LivesSystem.Instance.LivesCount > 0)
         {
-            anim.SetBool("Respawn", true);
-            characterStats.ResetHealth();
-            characterStats.IsDead = false;
+            if (ControllerManager.Instance.GetAButtonDown(playerOrder))
+            {
+                anim.SetBool("Respawn", true);
+                characterStats.ResetHealth();
+                characterStats.IsDead = false;
+            }
         }
     }
 }
