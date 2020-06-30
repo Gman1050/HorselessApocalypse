@@ -38,19 +38,15 @@ public class GameManager : MonoBehaviour
     void Start ()
     {
         if (!LivesSystem.Instance)
-        {
-            playerLivesText.text = "";
             Instantiate(livesSystemPrefab, livesSystemPrefab.transform.position, transform.rotation);
-        }
-
-        screenFaderCanvas.CallScreenFadeToClearCouroutine();
 
         if (GameObject.Find("PlayerLivesText"))
         {
             playerLivesText = GameObject.Find("PlayerLivesText").GetComponent<Text>();
+            playerLivesText.text = "";
         }
-        else
-            return;
+
+        screenFaderCanvas.CallScreenFadeToClearCouroutine();
 	}
     /*******************************************************************************************************/
 
@@ -270,6 +266,8 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitUntil(() => screenFaderCanvas.IsScreenSolid); 
         SceneManager.LoadScene(scene);
+        LivesSystem.Instance.ResetLives();
+        Debug.Log("Change Scene");
     }
 
     /*******************************************************************************************************/
@@ -289,6 +287,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => screenFaderCanvas.IsScreenSolid);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         LivesSystem.Instance.ResetLives();
+        Debug.Log("Restart Scene");
     }
 
     /*******************************************************************************************************/

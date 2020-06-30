@@ -81,7 +81,7 @@ public class BossOne : MonoBehaviour
         if (!bossStats.IsDead)
         {
             Transform newTargetPosition = GetClosestEnemy(players);
-            Debug.Log("newTargetPosition: " + newTargetPosition);
+            //Debug.Log("newTargetPosition: " + newTargetPosition);
 
             if (newTargetPosition)
             {
@@ -134,7 +134,7 @@ public class BossOne : MonoBehaviour
     {
         if (animationMovementTimer == 0.0f)
         {
-            Debug.Log("currentSpeed: " + currentSpeed);
+            //Debug.Log("currentSpeed: " + currentSpeed);
 
             if (currentSpeed >= 3.2f)
             {
@@ -154,7 +154,7 @@ public class BossOne : MonoBehaviour
             BossAnimation();
         }
 
-        Debug.Log("animationMovementTimer: " + animationMovementTimer);
+        //Debug.Log("animationMovementTimer: " + animationMovementTimer);
 
         animationMovementTimer += Time.deltaTime;
 

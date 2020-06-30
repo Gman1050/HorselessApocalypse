@@ -34,17 +34,15 @@ public class LivesSystem : MonoBehaviour
 
     private void GameOver()
     {
-
-        if (SceneManager.GetActiveScene() == lastScene)
-        {
-            return;
-        }
-
+        // Keep track of lives on display
         if (GameManager.Instance.PlayerLivesText)
-        {
             GameManager.Instance.PlayerLivesText.text = "Lives: " + livesCount;
-        }
 
+        // Keeps the Time.timeScale from being stuck at 0 until the a scene is loaded.
+        if (SceneManager.GetActiveScene() == lastScene)
+            return;
+
+        // Load game over screen.
         if (!isGameOver)
         {
             if (LivesCount <= 0)
@@ -80,6 +78,7 @@ public class LivesSystem : MonoBehaviour
         lastScene = SceneManager.GetActiveScene();
         gameOverScreen.SetActive(false);
         Time.timeScale = 1;
+        EventSystem.current.SetSelectedGameObject(null);
         GameManager.Instance.ChangeScene("Main Menu");
         isGameOver = false;
     }
@@ -89,6 +88,7 @@ public class LivesSystem : MonoBehaviour
         lastScene = SceneManager.GetActiveScene();
         gameOverScreen.SetActive(false);
         Time.timeScale = 1;
+        EventSystem.current.SetSelectedGameObject(null);
         GameManager.Instance.RestartScene();
         isGameOver = false;
     }
