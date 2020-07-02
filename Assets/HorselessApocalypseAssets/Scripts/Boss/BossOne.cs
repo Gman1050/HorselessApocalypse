@@ -245,9 +245,15 @@ public class BossOne : MonoBehaviour
         yield return new WaitForSeconds(seconds);
 
         if (animationState == BossAnimationState.LEFT_ATTACK || animationState == BossAnimationState.RIGHT_ATTACK)
+        {
+            AudioManager.Instance.PlayEnemyAudioClip3D(GetComponent<AudioSource>(), Random.Range(2,3));
             GetClosestEnemy(players).GetComponent<CharacterStats>().TakeDamage(singleSwingDamage);
+        }
         else if (animationState == BossAnimationState.DOUBLE_ATTACK)
+        {
+            AudioManager.Instance.PlayEnemyAudioClip3D(GetComponent<AudioSource>(), 1);
             GetClosestEnemy(players).GetComponent<CharacterStats>().TakeDamage(doubleSwingDamage);
+        }
 
         attackCheck = false;
     }

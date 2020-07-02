@@ -41,7 +41,10 @@ public class RepawnEnemy : MonoBehaviour {
         yield return spawnTime;
 
         if (numberofRespawns > 0)
+        {
+            entity.GetComponent<EnemyControler>().enabled = true;
             entity.SetActive(true);
+        }
         else
             gameObject.SetActive(false);
         //Instantiate(entity, gameObject.transform.position, gameObject.transform.rotation);

@@ -41,6 +41,7 @@ public class BossStats : MonoBehaviour
         {
             if (!IsDead)
             {
+                AudioManager.Instance.PlayEnemyAudioClip3D(GetComponent<AudioSource>(), 0);
                 IsDead = true;
             }
         }

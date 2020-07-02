@@ -56,7 +56,7 @@ public class ScreenFader : MonoBehaviour
         for (float i = 0; i <= 1; i += screenFadeSpeed)
         {
             a += screenFadeSpeed;
-            yield return new WaitForSeconds(screenFadeSpeed);
+            yield return new WaitForSecondsRealtime(screenFadeSpeed);
             color = new Color(color.r, color.g, color.b, a);
         }
 
@@ -72,7 +72,7 @@ public class ScreenFader : MonoBehaviour
         for (float i = 1; i >= 0; i -= screenFadeSpeed)
         {
             a -= screenFadeSpeed;
-            yield return new WaitForSeconds(screenFadeSpeed);
+            yield return new WaitForSecondsRealtime(screenFadeSpeed);
             color = new Color(color.r, color.g, color.b, a);
         }
 

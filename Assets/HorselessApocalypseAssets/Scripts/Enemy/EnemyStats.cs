@@ -10,8 +10,11 @@ public class EnemyStats : MonoBehaviour
 
     public int maxHealth;
 
+    public float deathTimer;
+
     public RepawnEnemy respawnPoint;
-    
+
+    private bool isDead = false;
 
     public int currentHealth
     {
@@ -44,18 +47,32 @@ public class EnemyStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            DropItem();
-            Die();
-
+            if (!isDead)
+            {
+                DropItem();
+                StartCoroutine(DieCoroutine(deathTimer));
+                isDead = true;
+            }
         }
     }
 
-    public virtual void Die()
+    private IEnumerator DieCoroutine(float seconds)
     {
         // Die in some way
         // This is meant to be overwritten
         Debug.Log(transform.name + " died.");
+        anim.SetBool("IsAttacking", false);
+        anim.SetBool("IsDamaged", false);
+        anim.SetBool("IsWalking", false);
         anim.SetBool("IsDead", true);
+
+        // Ghost: 1.3666666
+        // Bat: 1.2
+        // Slime: 0.7333333
+        GetComponent<EnemyControler>().enabled = false;
+
+        yield return new WaitForSeconds(seconds);
+
         respawnPoint.Respawn();
         //if (respawnPoint.numberofRespawns == 0)
         //{ Destroy(gameObject, 2f); }
@@ -65,6 +82,7 @@ public class EnemyStats : MonoBehaviour
     {
         if (currentHealth >= maxHealth)
         {
+            isDead = false;
             currentHealth = maxHealth;
         }
         else if (currentHealth <= 0)

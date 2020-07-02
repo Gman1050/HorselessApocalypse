@@ -45,7 +45,7 @@ public class LivesSystem : MonoBehaviour
         // Load game over screen.
         if (!isGameOver)
         {
-            if (LivesCount <= 0)
+            if (LivesCount <= 0) // TODO: Also track if no one is alive.
             {
                 gameOverScreen.SetActive(true);
                 EventSystem.current.SetSelectedGameObject(continueButton);
@@ -77,7 +77,7 @@ public class LivesSystem : MonoBehaviour
     {
         lastScene = SceneManager.GetActiveScene();
         gameOverScreen.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         EventSystem.current.SetSelectedGameObject(null);
         GameManager.Instance.ChangeScene("Main Menu");
         isGameOver = false;
@@ -87,7 +87,7 @@ public class LivesSystem : MonoBehaviour
     {
         lastScene = SceneManager.GetActiveScene();
         gameOverScreen.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         EventSystem.current.SetSelectedGameObject(null);
         GameManager.Instance.RestartScene();
         isGameOver = false;

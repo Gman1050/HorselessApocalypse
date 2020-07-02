@@ -15,38 +15,26 @@ public class CharacterRespawn : MonoBehaviour
     //private CharacterController control;            // Declares CharacterController for rotation and movement
     //private Vector3 gravityVector = Vector3.zero;   // Set an initial velocity for gravity
     private CharacterStats characterStats;
-
+    private CharacterMovement characterMovement;
+    private bool isRespawnCoroutineRunning = false;
+    private bool isDieCoroutineRunning = false;
     private void OnEnable()
     {
         if(characterStats.IsDead)
         {
-            anim.SetBool("IsDead", true);
-            skin.enabled = false;
-            GetComponent<Attacks>().enabled = false;
-
-            if (LivesSystem.Instance.LivesCount > 0)
-            {
-                highlightSpawnSpot.SetActive(true);
-            }
+            StartCoroutine(DieCoroutine(1.0666f));
         }
     }
 
     private void OnDisable()
     {
-        if (LivesSystem.Instance.LivesCount > 0)
-        {
-            anim.SetBool("Respawn", false);
-            anim.SetBool("IsDead", false);
-
-            skin.enabled = true;
-            GetComponent<Attacks>().enabled = true;
-            highlightSpawnSpot.SetActive(false);
-        }
+        
     }
 
     void Awake()
     {
         characterStats = GetComponent<CharacterStats>();
+        characterMovement = GetComponent<CharacterMovement>();
     }
 
     // Use this for initialization
@@ -66,12 +54,66 @@ public class CharacterRespawn : MonoBehaviour
     {
         if (LivesSystem.Instance.LivesCount > 0)
         {
-            if (ControllerManager.Instance.GetAButtonDown(playerOrder))
+            if (!isDieCoroutineRunning && !isRespawnCoroutineRunning)
             {
-                anim.SetBool("Respawn", true);
-                characterStats.ResetHealth();
-                characterStats.IsDead = false;
+                if (ControllerManager.Instance.GetAButtonDown(playerOrder))
+                {
+                    StartCoroutine(RespawnCoroutine(0.833333f));
+                }
             }
         }
+    }
+
+    private IEnumerator DieCoroutine(float seconds)
+    {
+        isDieCoroutineRunning = true;
+
+        characterMovement.enabled = false;
+        GetComponent<Attacks>().enabled = false;
+        anim.SetBool("IsWalking", false);
+        anim.SetBool("IsSpecial", false);
+        anim.SetBool("IsAttacking", false);
+        anim.SetBool("IsDead", true);
+
+        yield return new WaitForSeconds(seconds);
+
+        if (LivesSystem.Instance.LivesCount > 0)
+        {
+            characterMovement.enabled = true;
+            highlightSpawnSpot.SetActive(true);
+        }
+
+        anim.SetBool("IsDead", false);
+        skin.enabled = false;
+        anim.enabled = false;
+
+        if (LivesSystem.Instance.LivesCount <= 0)
+        {
+            // TODO: RePosition transform somewhere nearby other players just in case an extra life is gained
+
+        }
+
+        isDieCoroutineRunning = false;
+    }
+
+    private IEnumerator RespawnCoroutine(float seconds)
+    {
+        isRespawnCoroutineRunning = true;
+        characterMovement.enabled = false;
+        skin.enabled = true;
+        anim.enabled = true;
+        anim.SetBool("IsWalking", false);
+        anim.SetBool("IsIdle", false);
+        anim.SetBool("Respawn", true);
+        highlightSpawnSpot.SetActive(false);
+
+        yield return new WaitForSeconds(seconds);
+
+        characterMovement.enabled = true;
+        anim.SetBool("Respawn", false);
+        GetComponent<Attacks>().enabled = true;
+        characterStats.ResetHealth();
+        characterStats.IsDead = false;
+        isRespawnCoroutineRunning = false;
     }
 }

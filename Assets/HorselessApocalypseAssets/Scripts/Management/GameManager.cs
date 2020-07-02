@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 /*******************************************************************************************************/
 // This class will have management controls of the game
@@ -15,10 +16,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;     // Static variable that can be used to call public variables and functions from other classes
     public ScreenFader screenFaderCanvas;
     public LivesSystem livesSystemPrefab;
+    public GameObject pauseMenu;
 
     public int playerQuantity;              // Checks the quantity of players on the Main menu for Debugging purposes
     public PlayerDataContainer player_1, player_2, player_3, player_4;
     private Text playerLivesText;
+    public bool IsGamePaused { get; private set; } = false;
 
     public Text PlayerLivesText { get { return playerLivesText; } }
 
@@ -55,8 +58,52 @@ public class GameManager : MonoBehaviour
     /*******************************************************************************************************/
     void Update ()
     {
-        
-	}
+        PauseGame();
+
+    }
+    /*******************************************************************************************************/
+
+    /*******************************************************************************************************/
+    // Pause Functions for the game.
+    /*******************************************************************************************************/
+    private void PauseGame()
+    {
+        if (SceneManager.GetActiveScene().name != "Intro" && SceneManager.GetActiveScene().name != "Main Menu")
+        {
+            if (ControllerManager.Instance.GetStartButtonDown(PlayerOrder.PLAYER_1) || ControllerManager.Instance.GetStartButtonDown(PlayerOrder.PLAYER_2) ||
+                ControllerManager.Instance.GetStartButtonDown(PlayerOrder.PLAYER_3) || ControllerManager.Instance.GetStartButtonDown(PlayerOrder.PLAYER_4))
+            {
+                IsGamePaused = !IsGamePaused;
+
+                if (IsGamePaused)
+                {
+                    pauseMenu.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(pauseMenu.transform.GetChild(0).GetChild(0).gameObject);
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    pauseMenu.SetActive(false);
+                    EventSystem.current.SetSelectedGameObject(null);
+                    Time.timeScale = 1;
+                }
+            }
+        }
+    }
+
+    public void UnpauseGame()
+    {
+        if (SceneManager.GetActiveScene().name != "Intro" && SceneManager.GetActiveScene().name != "Main Menu")
+        {
+            if (IsGamePaused)
+            {
+                pauseMenu.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(null);
+                Time.timeScale = 1;
+                IsGamePaused = false;
+            }
+        }
+    }
     /*******************************************************************************************************/
 
     /*******************************************************************************************************/
@@ -262,9 +309,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ChangeSceneCoroutine(string scene)
     {
-        screenFaderCanvas.CallScreenFadeToSolidCouroutine();
+        if (pauseMenu)
+            pauseMenu.SetActive(false);
 
-        yield return new WaitUntil(() => screenFaderCanvas.IsScreenSolid); 
+        screenFaderCanvas.CallScreenFadeToSolidCouroutine();
+        
+        yield return new WaitUntil(() => screenFaderCanvas.IsScreenSolid);
+
+        Time.timeScale = 1;
         SceneManager.LoadScene(scene);
         LivesSystem.Instance.ResetLives();
         Debug.Log("Change Scene");
@@ -282,9 +334,12 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator RestartSceneCoroutine()
     {
+        pauseMenu.SetActive(false);
         screenFaderCanvas.CallScreenFadeToSolidCouroutine();
 
         yield return new WaitUntil(() => screenFaderCanvas.IsScreenSolid);
+
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         LivesSystem.Instance.ResetLives();
         Debug.Log("Restart Scene");
