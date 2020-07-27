@@ -69,7 +69,7 @@ public class BossOne : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Label(new Rect(0, 0, 1000, 1000), currentSpeed.ToString());
+        //GUI.Label(new Rect(0, 0, 1000, 1000), currentSpeed.ToString());
     }
 
     private void BossMovement()
