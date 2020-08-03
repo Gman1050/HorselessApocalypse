@@ -18,7 +18,9 @@ public class ASPickUp : MonoBehaviour {
     void Pickup(Collider player)
     {
         Instantiate(pickupEffect, transform.position , transform.rotation );
+        AudioManager.Instance.PlayPlayerAudioClip2D(1);
         Attacks stats = player.GetComponent<Attacks>();
+
         //apply effect
         if (stats.basicAttackInterval > .1f)
         { 

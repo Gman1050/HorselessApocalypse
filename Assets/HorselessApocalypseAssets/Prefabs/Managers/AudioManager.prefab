@@ -55,7 +55,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 467344f980da76d40a67c09ba942ca13, type: 3}
   playerAudio: {fileID: 82127604039912370}
   playerVolume: 0.75
-  playerClips: []
+  playerClips:
+  - {fileID: 8300000, guid: 8acbf6824eed03d48b6845ab2357dda4, type: 3}
+  - {fileID: 8300000, guid: 6d67e0556d4a0ad468a18dcbbe971d3f, type: 3}
   enemyAudio: {fileID: 82411624684490554}
   enemyVolume: 0.75
   enemyClips:
@@ -63,6 +65,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 95d44ea46781fe54e9d05cf16bfc44fb, type: 3}
   - {fileID: 8300000, guid: 04c6a280d2893264c89df8a45921784e, type: 3}
   - {fileID: 8300000, guid: f7850cb649f74eb4e99033c905936a25, type: 3}
+  - {fileID: 8300000, guid: bc87718c9981b9c49bee14144d39a09b, type: 3}
+  - {fileID: 8300000, guid: 283f1833467411a409cbb2d233032ab3, type: 3}
+  - {fileID: 8300000, guid: 06e98c55855da604bb178674d5760231, type: 3}
   musicAudio: {fileID: 82155741354610576}
   musicVolume: 0.5
   musicClips:

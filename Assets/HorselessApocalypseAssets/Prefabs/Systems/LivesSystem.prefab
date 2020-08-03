@@ -796,4 +796,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continueButton: {fileID: 1852883774181254}
   gameOverScreen: {fileID: 1633353741670612}
-  startingLives: 4
+  startingLives: 6

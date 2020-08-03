@@ -18,11 +18,12 @@ public class DamagePickUp : MonoBehaviour {
     void Pickup(Collider player)
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
+        AudioManager.Instance.PlayPlayerAudioClip2D(1);
 
         //apply effect
-         Attacks stats = player.GetComponent<Attacks>();
+        Attacks stats = player.GetComponent<Attacks>();
         stats.basicAttackDamage += multiplier;
-        
+
         Destroy(gameObject);
     }
 }

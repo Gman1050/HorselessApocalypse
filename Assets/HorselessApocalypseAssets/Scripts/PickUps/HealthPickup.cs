@@ -18,7 +18,8 @@ public class HealthPickup : MonoBehaviour {
     void Pickup(Collider player)
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
-        
+        AudioManager.Instance.PlayPlayerAudioClip2D(0);
+
         //apply effect
         CharacterStats stats = player.GetComponent<CharacterStats>();
         stats.maxHealth += multiplier;
