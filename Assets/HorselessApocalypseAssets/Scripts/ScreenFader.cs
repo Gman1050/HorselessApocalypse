@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScreenFader : MonoBehaviour
 {
     public float screenFadeSpeed = 0.01f;
+    public float startDelay = 0.01f;
     public Image panel;
     public Color color = Color.black;
 
@@ -39,12 +40,18 @@ public class ScreenFader : MonoBehaviour
 
     public void CallScreenFadeToSolidCouroutine()
     {
-        StartCoroutine(ScreenFadeToSolid());
+        StartCoroutine(DelayFade(ScreenFadeToSolid()));
     }
 
     public void CallScreenFadeToClearCouroutine()
     {
-        StartCoroutine(ScreenFadeToClear());
+        StartCoroutine(DelayFade(ScreenFadeToClear()));
+    }
+
+    private IEnumerator DelayFade(IEnumerator delayedCoroutine)
+    {
+        yield return new WaitForSeconds(startDelay);
+        StartCoroutine(delayedCoroutine);
     }
 
     private IEnumerator ScreenFadeToSolid()

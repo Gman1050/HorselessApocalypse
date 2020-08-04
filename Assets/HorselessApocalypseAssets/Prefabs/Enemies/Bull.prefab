@@ -2565,7 +2565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  maxHealth: 100
+  maxHealth: 500
 --- !u!65 &65051838237515528
 BoxCollider:
   m_ObjectHideFlags: 0

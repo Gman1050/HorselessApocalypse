@@ -35,10 +35,7 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentSpecialTimer = maxSpecialTimer;
-        Debug.Log(GameManager.Instance);
-        GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
-        GetComponent<Attacks>().Special = specialAttack;
-
+        StartCoroutine(LoadPlayerDataCoroutine());
     }
 
     private void Start()
@@ -134,5 +131,13 @@ public class CharacterStats : MonoBehaviour
             GetComponent<CharacterRespawn>().enabled = false;
             GetComponent<NavMeshObstacle>().enabled = true;
         }
+    }
+
+    private IEnumerator LoadPlayerDataCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log(GameManager.Instance);
+        GameManager.Instance.LoadPlayerData(playerOrder, this);   // Always have this in awake to set the player data before game begins
+        GetComponent<Attacks>().Special = specialAttack;
     }
 }
